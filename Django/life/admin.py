@@ -8,7 +8,7 @@ class ProfileAdmin(OSMGeoAdmin):
     
 @admin.register(Housing)
 class HousingAdmin(OSMGeoAdmin):
-    list_display = ('name','image','location','address','city','contact','description','category','verified')
+    list_display = ('name','image','location','address','city','contact','description','verified')
     
 @admin.register(Business)
 class BusinessAdmin(OSMGeoAdmin):
@@ -16,4 +16,4 @@ class BusinessAdmin(OSMGeoAdmin):
     
 @admin.register(Services)
 class ServicesAdmin(OSMGeoAdmin):
-    list_display = ('name','location','address','image','city','category','price','description','contact','available','verified')
+    list_display = ('name','location','address','image','city','category','price','descript
