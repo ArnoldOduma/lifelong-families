@@ -10,8 +10,6 @@ class User(models.Model):
     userpassword = models.CharField(max_length = 100)
     last_login = models.DateField(auto_now=True)
     profilepic = ImageField(blank=True, manual_crop="")
-
-
 class Profile(models.Model):
     user = models.OneToOneField(User,max_length=30,null=False)
     pic = ImageField(blank=True, manual_crop="")
@@ -36,14 +34,12 @@ class Housing(models.Model):
     city = models.CharField(max_length=50)
     contact=models.IntegerField(null=True,blank=False)
     description=models.TextField(max_length=10000,null=False)
-    category=models.CharField(choices='HOUSE_CATEGORY')
+    category=models.CharField(max_length=1000,choices= HOUSE_CATEGORY)
     verified=models.BooleanField(null=False,blank=False)
     def save_image(self):
         self.save()
-
     def delete_image(self,cls):
         cls.objects.get(id = self.id).delete()
-
     def update_posted_by(self,new_posted_by,new_caption):
         self.posted_by = new_caption
         self.save()
@@ -66,14 +62,12 @@ class Business(models.Model):
     image=ImageField(blank=True, manual_crop="")
     contact=models.IntegerField(null=True,blank=False)
     description=models.TextField(max_length=10000,null=False)
-    category=models.CharField(choices='BUSINESS_CATEGORY')
+    category=models.CharField(max_length=1000,choices= BUSINESS_CATEGORY)
     verified=models.BooleanField(null=False,blank=False)
     def save_image(self):
         self.save()
-
     def delete_image(self,cls):
         cls.objects.get(id = self.id).delete()
-
     def update_posted_by(self,new_posted_by,new_caption):
         self.posted_by = new_caption
         self.save()
@@ -89,25 +83,29 @@ class Services(models.Model):
     ("Massage","massage"),
     ("Kibanda foods","kibanda foods")
 }
+    AVAILABLE={
+    ("YES","yes"),
+    ("NO","no")
+    }
     name=models.CharField(max_length=20,null=False)
     location = models.PointField()
     address = models.CharField(max_length=100)
     city = models.CharField(max_length=50)
     image=ImageField(blank=True, manual_crop="")
-    category=models.CharField(choices='SERVICE_CATEGORY')
+    category=models.CharField(max_length=1000,choices= SERVICE_CATEGORY)
     price =models.IntegerField(null=True,blank=False)
     description=models.TextField(max_length=10000,null=False)
-    available=models.CharField(choice='{("YES","yes"),("NO","no")}')
+    contact=models.IntegerField(null=True,blank=False)
+    available=models.CharField(max_length=1000,choices= AVAILABLE)
     verified=models.BooleanField(null=False,blank=False)
     def save_image(self):
         self.save()
-
     def delete_image(self,cls):
         cls.objects.get(id = self.id).delete()
-
     def update_posted_by(self,new_posted_by,new_caption):
         self.posted_by = new_caption
         self.save()
 class Comments(models.Model):
     user=models.ForeignKey(User,max_length=30,)
+
     
