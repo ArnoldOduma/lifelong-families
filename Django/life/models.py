@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from pyuploadcare.dj.models import ImageField
 from django.contrib.contenttypes.fields import GenericRelation
 from star_ratings.models import Rating
+
 # Create your models here.
 class User(models.Model):
     is_authenticated = True
@@ -11,13 +12,14 @@ class User(models.Model):
     useremail = models.CharField(max_length = 140)
     userpassword = models.CharField(max_length = 100)
     last_login = models.DateField(auto_now=True)
-    profilepic = ImageField(blank=True, manual_crop="")
+    
 class Profile(models.Model):
-    user = models.OneToOneField(User,max_length=30,null=False)
+    user = models.OneToOneField(User,max_length=30,null=False,on_delete=models.CASCADE,)
     pic = ImageField(blank=True, manual_crop="")
     bio = models.CharField(default="Hi!", max_length = 30)
     def save_user(self):
         self.save()
+        
 class Housing(models.Model):
     HOUSE_CATEGORY={
     ("Flats and Apartments","flats and apartments"),
@@ -40,9 +42,8 @@ class Housing(models.Model):
     category=models.CharField(max_length=1000,choices= HOUSE_CATEGORY)
     verified=models.BooleanField(null=False,blank=False)
     ratings = GenericRelation(Rating, related_query_name='housing')
+    # Housing.objects.filter(ratings__isnull=False).order_by('ratings__average')
     
-    
-    Housing.objects.filter(ratings__isnull=False).order_by('ratings__average')
     def save_image(self):
         self.save()
     def delete_image(self,cls):
@@ -73,7 +74,7 @@ class Business(models.Model):
     verified=models.BooleanField(null=False,blank=False)
     ratings = GenericRelation(Rating, related_query_name='business')
     
-    Business.objects.filter(ratings__isnull=False).order_by('ratings__average')
+    # Business.objects.filter(ratings__isnull=False).order_by('ratings__average')
     
     def save_image(self):
         self.save()
@@ -111,7 +112,7 @@ class Services(models.Model):
     verified=models.BooleanField(null=False,blank=False)
     ratings = GenericRelation(Rating, related_query_name='service')
     
-    Services.objects.filter(ratings__isnull=False).order_by('ratings__average')
+    # Services.objects.filter(ratings__isnull=False).order_by('ratings__average')
     def save_image(self):
         self.save()
     def delete_image(self,cls):
@@ -121,9 +122,9 @@ class Services(models.Model):
         self.save()
 class Comments(models.Model):
     comment = models.CharField(max_length=10000, null=True)
-    bsn = models.ForeignKey(Business, related_name='comment', null=True)
-    hsng = models.ForeignKey(Housing, related_name='comment', null=True)
-    svc = models.ForeignKey(Services, related_name='comment', null=True)
+    bsn = models.ForeignKey(Business, related_name='comment', null=True,on_delete=models.CASCADE,)
+    hsng = models.ForeignKey(Housing, related_name='comment', null=True,on_delete=models.CASCADE,)
+    svc = models.ForeignKey(Services, related_name='comment', null=True,on_delete=models.CASCADE,)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="comment", null=True)
 
     def save_comment(self):
