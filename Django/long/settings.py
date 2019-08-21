@@ -82,9 +82,9 @@ WSGI_APPLICATION = 'long.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
-        'NAME': 'longlife',
-        'USER': 'group',
-        'PASSWORD': '123456789',
+        'NAME': 'gis',
+        'USER': 'tony',
+        'PASSWORD': 'p',
         'HOST': 'localhost',
         'PORT': '5432'
     }
