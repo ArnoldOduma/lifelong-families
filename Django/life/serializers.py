@@ -4,7 +4,7 @@ from .models import Services,Business,Housing
 class BusinessSerialiser(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Business
-        fields = ('name','location','address','city','contact','description','category','verified')
+        fields = ('name','location''','address','city','contact','description','category','verified')
         
 class ServicesSerialiser(serializers.HyperlinkedModelSerializer):
     class Meta:
