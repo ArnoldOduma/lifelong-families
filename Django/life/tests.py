@@ -22,7 +22,7 @@ class ServicesViewTest(APITestCase):
 
 class GetAllServicesTest(ServicesViewTest):
 
-    def test_get_all_servicess(self):
+    def test_get_all_services(self):
         """
         This test ensures that all services added in the setUp method
         exist when we make a GET request to the services/ endpoint
@@ -30,5 +30,56 @@ class GetAllServicesTest(ServicesViewTest):
         # hit the API endpoint
         response = self.client.get(
             reverse("services-all", kwargs={"version": "v1"})
+        )
+        # fetch the data from db
+class BusinessViewTest(APITestCase):
+    client = APIClient()
+
+    @staticmethod
+    def create_business(name="", location="",address="",image="",city="",category="",description="",contact="",verified=""):
+        if name != "" and location != "" and address !="" and image !="" and city !="" and category !="" and description !="" and contact !="" and verified !="":
+            Business.objects.create(name=name, location=location,address=address,image=image,city=city,category=category,description=description,contact=contact,verified=verified)
+
+    def setUp(self):
+        # add test data
+        self.create_business("Tony Ent", "Adams","7-00902","stuffs","Nairobi","Elactric Hardware","This is where you get to sun up your room","0728394737","yes")
+
+
+class GetAllBusinessTest(BusinessViewTest):
+
+    def test_get_all_business(self):
+        """
+        This test ensures that all services added in the setUp method
+        exist when we make a GET request to the business/ endpoint
+        """
+        # hit the API endpoint
+        response = self.client.get(
+            reverse("business-all", kwargs={"version": "v1"})
+        )
+        # fetch the data from db
+
+class HousingViewTest(APITestCase):
+    client = APIClient()
+
+    @staticmethod
+    def create_housing(name="", location="",address="",image="",city="",category="",description="",contact="",verified=""):
+        if name != "" and location != "" and address !="" and image !="" and city !="" and category !="" and description !="" and contact !="" and verified !="":
+            Housing.objects.create(name=name, location=location,address=address,image=image,city=city,category=category,description=description,contact=contact,verified=verified)
+
+    def setUp(self):
+        # add test data
+        self.create_housing("Gaminton", "Adams","7-00902","rooms","Nairobi","Appartment","All the rooms are as you want them","0728394737","yes")
+
+
+class GetAllHousingTest(HousingViewTest):
+
+    def test_get_all_housing(self):
+        """
+        This test ensures that all housing added in the setUp method
+        exist when we make a GET request to the housing/ endpoint
+        """
+        # hit the API endpoint
+        response = self.client.get(
+            reverse("housing-all", kwargs={"version": "v1"})
         )
         # fetch the data from db
