@@ -67,6 +67,7 @@ class Business(models.Model):
     location = models.PointField()
     address = models.CharField(max_length=100)
     city = models.CharField(max_length=50)
+    # open_hours=models.CharField(choices=O)
     image=ImageField(blank=True, manual_crop="")
     contact=models.IntegerField(null=True,blank=False)
     description=models.TextField(max_length=10000,null=False)
