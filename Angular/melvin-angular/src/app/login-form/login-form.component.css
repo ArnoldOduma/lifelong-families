@@ -6,7 +6,7 @@ input {
   margin-left: -250px;
 }
 input:focus {
-  border-color: green
+  border-color: black;
 }
 ::placeholder {
   color: black;
