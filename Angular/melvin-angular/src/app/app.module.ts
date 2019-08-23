@@ -11,6 +11,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatStepperModule, MatIconModule,MatButtonModule, MatFormFieldModule, MatInputModule} from '@angular/material';
 import { BusinesslistComponent } from './businesslist/businesslist.component';
+import { ServicelistComponent } from './servicelist/servicelist.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { BusinesslistComponent } from './businesslist/businesslist.component';
     LoginFormComponent,
     SignupFormComponent,
     ListComponent,
-    BusinesslistComponent
+    BusinesslistComponent,
+    ServicelistComponent
   ],
   imports: [
     BrowserModule,

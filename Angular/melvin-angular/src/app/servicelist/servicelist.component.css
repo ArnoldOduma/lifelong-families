@@ -1,0 +1,96 @@
+h1{
+  color: orange;
+  margin-left: 500px;
+  margin-top: 100px;
+  font-family: sans-serif;
+}
+.servicesListingtButton{
+  background-color: orange;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  border-radius: 5px;
+  margin: 4px 2px;
+  cursor: pointer;
+  width: 150px;
+  height: 40px;
+  margin-top: 50px;
+  margin-left: 100px;
+
+}
+.businessListingButton{
+  background-color: orange;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  border-radius: 5px;
+  margin: 4px 2px;
+  cursor: pointer;
+  width: 150px;
+  height: 40px;
+  margin-top: 10px;
+  margin-left:350px;
+}
+.housingListingButton{
+  background-color: orange;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  border-radius: 5px;
+  margin: 4px 2px;
+  cursor: pointer;
+  width: 150px;
+  height: 40px;
+  margin-top: 100px;
+  margin-left: 100px;
+
+}
+
+mat-vertical-stepper{
+  margin-left: 350px;
+  border-color: orange;
+}
+.serviceOne{
+  width: 400px;
+}
+.next{
+  margin-top: 20px;
+  background-color: orange;
+}
+.md-adults{
+  width: 100px;
+  height: 100px;
+}
+.serviceTwoOne{
+  width: 400px;
+}
+.serviceTwoTwo {
+  width: 300px;
+}
+.serviceTwoThree {
+  margin-left: 150px;
+  width: 300px;
+}
+.finish{
+  margin-top: 20px;
+  background-color: orange;
+}
+.serviceFrameMedia {
+  border-style: ridge;
+  height: 300px;
+  width: 700px;
+  border-radius: 5px;
+  border-color: orange;
+}
