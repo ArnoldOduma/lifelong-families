@@ -12,6 +12,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatStepperModule, MatIconModule,MatButtonModule, MatFormFieldModule, MatInputModule} from '@angular/material';
 import { BusinesslistComponent } from './businesslist/businesslist.component';
 import { ServicelistComponent } from './servicelist/servicelist.component';
+import { HousinglistComponent } from './housinglist/housinglist.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { ServicelistComponent } from './servicelist/servicelist.component';
     SignupFormComponent,
     ListComponent,
     BusinesslistComponent,
-    ServicelistComponent
+    ServicelistComponent,
+    HousinglistComponent
   ],
   imports: [
     BrowserModule,

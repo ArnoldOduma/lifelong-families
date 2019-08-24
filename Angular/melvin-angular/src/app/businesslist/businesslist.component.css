@@ -1,63 +1,3 @@
-h1{
-  color: orange;
-  margin-left: 500px;
-  margin-top: 100px;
-  font-family: sans-serif;
-}
-.servicesListingtButton{
-  background-color: orange;
-  border: none;
-  color: white;
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 15px;
-  border-radius: 5px;
-  margin: 4px 2px;
-  cursor: pointer;
-  width: 150px;
-  height: 40px;
-  margin-top: 50px;
-  margin-left: 100px;
-
-}
-.businessListingButton{
-  background-color: orange;
-  border: none;
-  color: white;
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 15px;
-  border-radius: 5px;
-  margin: 4px 2px;
-  cursor: pointer;
-  width: 150px;
-  height: 40px;
-  margin-top: 10px;
-  margin-left:350px;
-}
-.housingListingButton{
-  background-color: orange;
-  border: none;
-  color: white;
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 15px;
-  border-radius: 5px;
-  margin: 4px 2px;
-  cursor: pointer;
-  width: 150px;
-  height: 40px;
-  margin-top: 100px;
-  margin-left: 100px;
-
-}
-
 mat-vertical-stepper{
   margin-left: 350px;
   border-color: orange;
@@ -65,8 +5,19 @@ mat-vertical-stepper{
 .businessOne{
   width: 400px;
 }
+#nextOne{
+  margin-top: 20px;
+  margin-left: 330px;
+  background-color: orange;
+}
 .next{
   margin-top: 20px;
+  margin-left: 30px;
+  background-color: orange;
+}
+.back{
+  margin-top: 20px;
+  margin-left: 250px;
   background-color: orange;
 }
 .md-adults{
@@ -83,14 +34,20 @@ mat-vertical-stepper{
   margin-left: 150px;
   width: 300px;
 }
-.finish{
-  margin-top: 20px;
-  background-color: orange;
-}
 .businessFrameMedia {
   border-style: ridge;
   height: 300px;
-  width: 700px;
+  width: 640px;
   border-radius: 5px;
   border-color: orange;
+}
+#nextThree{
+  margin-top: 20px;
+  margin-left: 20px;
+  background-color: orange;
+}
+#backThree{
+  margin-top: 20px;
+  margin-left: 500px;
+  background-color: orange;
 }

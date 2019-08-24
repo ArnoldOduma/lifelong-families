@@ -1,0 +1,73 @@
+<mat-vertical-stepper linear>
+  <mat-step [stepControl]="formGroup1">
+    <ng-template matStepLabel>Listing</ng-template>
+    <form [formGroup]="formGroup1">
+      <mat-form-field class="housingOne">
+        <input matInput placeholder="Type of listing" formControlName="firstCtrl" required>
+      </mat-form-field><br>
+
+      <mat-form-field class="housingOne">
+        <input matInput placeholder="Choose the category" formControlName="secondCtrl" required>
+      </mat-form-field>
+
+    </form>
+    <div>
+      <button class = "next" mat-button matStepperNext>Next</button>
+    </div>
+  </mat-step>
+  <mat-step [stepControl]="formGroup2">
+    <ng-template matStepLabel>Details</ng-template>
+    <form [formGroup]="formGroup2">
+      <mat-form-field class="housingTwoOne">
+        <input  matInput placeholder="Heading" formControlName="thirdCtrl" required>
+      </mat-form-field> <br>
+
+      <mat-form-field class="housingTwoOne">
+        <input matInput placeholder="Description" formControlName="fourthCtrl" required>
+      </mat-form-field><br>
+
+      <mat-form-field class="housingTwoTwo">
+        <input matInput placeholder="Price" formControlName="fifthCtrl" required>
+      </mat-form-field>
+
+      <mat-form-field class="housingTwoThree">
+        <input matInput placeholder="Area" formControlName="sixCtrl" required>
+      </mat-form-field><br>
+
+      <mat-form-field class="housingTwoTwo">
+        <input matInput placeholder="Bedrooms" formControlName="sevenCtrl" required>
+      </mat-form-field>
+
+      <mat-form-field class="housingTwoThree">
+        <input matInput placeholder="Bathrooms" formControlName="eightCtrl" required>
+      </mat-form-field><br>
+
+      <mat-form-field class="housingTwoTwo">
+        <input matInput placeholder="Suburb" formControlName="nineCtrl" required>
+      </mat-form-field>
+
+      <div>
+        <button class = "next" mat-button matStepperNext>Next</button>
+      </div>
+
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="formGroup3">
+    <ng-template matStepLabel>Media</ng-template>
+    <h3>Media</h3>
+    <p>Listing Quality: Good quality listings are shown higher in search results and get more leads. </p>
+    <div class="housingFrameMedia">
+      <form [formGroup]="formGroup3">
+        <mat-form-field class="housingThreeOne">
+          <input matInput placeholder="Type of listing" formControlName="tenCtrl" required>
+        </mat-form-field><br>
+      </form>
+    </div>
+    <div>
+      <button class ="uploadPhotos">Photos</button>
+    </div>
+    <div>
+      <button class ="finish">Finish</button>
+    </div>
+  </mat-step>
+</mat-vertical-stepper>

@@ -1,10 +1,48 @@
 h1{
-  color: orange;
+  color: black;
   margin-left: 500px;
-  margin-top: 100px;
+  margin-top: 50px;
   font-family: sans-serif;
+  font-size: 30px;
+  font-weight: 100;
 }
-.servicesListingtButton{
+#listingImage{
+  margin-top: 30px;
+  height: 500px;
+  margin-left: 30px;
+  border-radius:5px;
+}
+.listingParagraphOne{
+  margin-left: 850px;
+  font-size: 20px;
+  margin-top: -400px;
+}
+.listingParagraphTwo{
+  font-size: 20px;
+  margin-left: 850px;
+}
+.listingParagraphThree{
+  font-size: 20px;
+  margin-left: 850px;
+}
+.listingParagraphFour{
+  font-size: 20px;
+  margin-left: 850px;
+}
+.horizontalLineOne{
+  margin-top: 50px;
+}
+.horizontalLineTwo{
+  margin-top: 250px;
+}
+h2{
+  margin-left: 500px;
+  margin-top: 80px;
+  font-family: sans-serif;
+  font-size: 30px;
+  font-weight: 100;
+}
+.servicesListingButton{
   background-color: orange;
   border: none;
   color: white;
@@ -12,15 +50,22 @@ h1{
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 15px;
+  font-size: 20px;
   border-radius: 5px;
   margin: 4px 2px;
   cursor: pointer;
-  width: 150px;
-  height: 40px;
-  margin-top: 50px;
-  margin-left: 100px;
-
+  width: 210px;
+  height: 70px;
+  margin-top: 10px;
+  margin-left:100px;
+}
+.servicesListingButton:hover {
+  background: orange;
+  letter-spacing: 1px;
+  -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+  -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+  box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+  transition: all 0.4s ease 0s;
 }
 .businessListingButton{
   background-color: orange;
@@ -30,67 +75,48 @@ h1{
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 15px;
+  font-size: 20px;
   border-radius: 5px;
   margin: 4px 2px;
   cursor: pointer;
-  width: 150px;
-  height: 40px;
+  width: 210px;
+  height: 70px;
   margin-top: 10px;
-  margin-left:350px;
+  margin-left:300px;
+}
+.businessListingButton:hover {
+  background: orange;
+  letter-spacing: 1px;
+  -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+  -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+  box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+  transition: all 0.4s ease 0s;
 }
 .housingListingButton{
   background-color: orange;
-  border: none;
   color: white;
   padding: 10px 20px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 15px;
+  font-size: 20px;
   border-radius: 5px;
   margin: 4px 2px;
   cursor: pointer;
-  width: 150px;
-  height: 40px;
+  width: 210px;
+  height: 70px;
   margin-top: 100px;
   margin-left: 100px;
 
 }
-
-mat-vertical-stepper{
-  margin-left: 350px;
-  border-color: orange;
+.housingListingButton:hover {
+  background: orange;
+  letter-spacing: 1px;
+  -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+  -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+  box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+  transition: all 0.4s ease 0s;
 }
-.housingOne{
-  width: 400px;
-}
-.next{
-  margin-top: 20px;
-  background-color: orange;
-}
-.md-adults{
-  width: 100px;
-  height: 100px;
-}
-.housingTwoOne{
-  width: 750px;
-}
-.housingTwoTwo {
-  width: 300px;
-}
-.housingTwoThree {
-  margin-left: 150px;
-  width: 300px;
-}
-.finish{
-  margin-top: 20px;
-  background-color: orange;
-}
-.housingFrameMedia {
-  border-style: ridge;
-  height: 300px;
-  width: 700px;
-  border-radius: 5px;
-  border-color: orange;
+.horizontalLineThree{
+  margin-top: 30px;
 }
