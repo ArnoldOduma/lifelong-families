@@ -7,6 +7,7 @@ mat-vertical-stepper{
 }
 .next{
   margin-top: 20px;
+  margin-left: 30px;
   background-color: orange;
 }
 .md-adults{
@@ -33,4 +34,24 @@ mat-vertical-stepper{
   width: 700px;
   border-radius: 5px;
   border-color: orange;
+}
+.back{
+  margin-top: 20px;
+  margin-left: 600px;
+  background-color: orange;
+}
+#nextThree{
+  margin-top: 20px;
+  margin-left: 20px;
+  background-color: orange;
+}
+#backThree{
+  margin-top: 20px;
+  margin-left: 550px;
+  background-color: orange;
+}
+#nextOne{
+  margin-top: 20px;
+  margin-left: 330px;
+  background-color: orange;
 }

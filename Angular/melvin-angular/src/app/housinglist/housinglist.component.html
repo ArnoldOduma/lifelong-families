@@ -1,6 +1,7 @@
 <mat-vertical-stepper linear>
   <mat-step [stepControl]="formGroup1">
     <ng-template matStepLabel>Listing</ng-template>
+    <h3>Listing</h3>
     <form [formGroup]="formGroup1">
       <mat-form-field class="housingOne">
         <input matInput placeholder="Type of listing" formControlName="firstCtrl" required>
@@ -12,11 +13,12 @@
 
     </form>
     <div>
-      <button class = "next" mat-button matStepperNext>Next</button>
+      <button id = "nextOne" mat-button matStepperNext>Next</button>
     </div>
   </mat-step>
   <mat-step [stepControl]="formGroup2">
     <ng-template matStepLabel>Details</ng-template>
+    <h3>Details</h3>
     <form [formGroup]="formGroup2">
       <mat-form-field class="housingTwoOne">
         <input  matInput placeholder="Heading" formControlName="thirdCtrl" required>
@@ -47,6 +49,7 @@
       </mat-form-field>
 
       <div>
+        <button class = "back" mat-button matStepperPrevious>Back</button>
         <button class = "next" mat-button matStepperNext>Next</button>
       </div>
 
@@ -64,10 +67,8 @@
       </form>
     </div>
     <div>
-      <button class ="uploadPhotos">Photos</button>
-    </div>
-    <div>
-      <button class ="finish">Finish</button>
+      <button id = "backThree" mat-button matStepperPrevious>Back</button>
+      <button id = "nextThree" mat-button matStepperNext>Next</button>
     </div>
   </mat-step>
 </mat-vertical-stepper>
