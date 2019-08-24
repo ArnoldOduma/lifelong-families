@@ -1,7 +1,7 @@
 from django import forms
 from django.forms import ModelForm
 from django.contrib.auth.forms import UserCreationForm
-from .models import Profile, Housing, Business, Comment,Services
+from .models import Profile, Housing, Business, Comments,Services
 from django.contrib.auth.models import User
 
 
@@ -14,7 +14,7 @@ class SignUpForm(UserCreationForm):
     email = forms.CharField(max_length=254, required=True)
     class Meta:
         model = User
-        fields = ['username', 'useremail', 'userpassword', 'last_login']
+        fields = ['username']
 
 
 # Form for editing profile
@@ -33,7 +33,7 @@ class BusinessForm(forms.ModelForm):
     """
     class Meta:
         model = Business
-        fields = ['name','location','address','city','contact','description','category','verified']
+        fields = ['name','location','address','image','image1','image2','image3','image4','image5','opening','closing','city','contact','description','category','verified']
 
 
 class ServicesForm(forms.ModelForm):
@@ -42,7 +42,7 @@ class ServicesForm(forms.ModelForm):
     """
     class Meta:
         model = Services
-        fields = ['name','location','address','image','city','category','price','description','contact','available','verified']
+        fields = ['name','location','address','image','image1','image2','image3','image4','image5','city','opening','closing','category','price','description','contact','available','verified']
 
 
 class HousingForm(forms.ModelForm):
@@ -51,7 +51,7 @@ class HousingForm(forms.ModelForm):
     """
     class Meta:
         model = Housing
-        fields = ['name','image','location','address','city','contact','description','verified']
+        fields = ['name','image','image1','image2','image3','image4','image5','opening','closing','location','address','city','contact','description','verified']
 
 
 class CommentForm(forms.ModelForm):
@@ -59,6 +59,6 @@ class CommentForm(forms.ModelForm):
     form t create comment
     """
     class Meta:
-        model = Comment
+        model = Comments
         exclude = ['user', 'bsn','hsng','svc']
         fields = ['comment']
