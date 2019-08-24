@@ -9,16 +9,29 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="stylesheet" href="styles.css">
   <script src="https://kit.fontawesome.com/d9517b1093.js"></script>
+  <script type="text/javascript" src="./assets/js/jquery-3.4.1.js"></script>
+  <script type="text/javascript" src="./assets/js/script.js"></script>
+
+  </script>
 </head>
 <body>
-  <header>
+  <section class="main-loader" style="height: 100vh;transition: none; width:100vw;position: fixed;top:0px;background: white;z-index: 2000;"></section>
+  <section class="small">
+    <p>Lifelong families</p>
+  </section>
+  <div class="toggleNav" id="toggleNav">
+    <hr><hr><hr>
+  </div>
+  <header id="header">
+    <img src="" alt="Logo" class="logo">
     <div class="log-sign-btn">
       <a href="">Register your business</a>
-      <a href="">Log In</a> | 
+      <a href="">Log In</a> <span>|</span>
       <a href="">Sign Up</a>
     </div>
-    
+
     <div class="nav">
+      <h3>Categories</h3>
       <ul>
         <li class="dropdown">
           <button class="dropBtn">Businesses<i class="fas fa-caret-down"></i></button>
@@ -47,12 +60,49 @@
       </ul>
       <a href=""></a>
     </div>
-   
+
   </header>
 
-  <app-root></app-root>
+  <div class="loader">
+    <img src="assets/images/LIFELONGLOGO.png" alt="logo" width="250px"><br>
+    <section class="ball_container_hr">
+      <div class="ball_hr"></div>
+      <div class="ball_hr"></div>
+      <div class="ball_hr"></div>
+      <div class="ball_hr"></div>
+      <div class="ball_hr"></div>
+      <div class="ball_hr"></div>
+      <div class="ball_hr"></div>
+    </section>
+  </div>
+  <!-- <app-root></app-root> -->
+  <app-search-view></app-search-view>
   <footer>
-
+    ￼<ul>
+      <h4>Business</h4>
+      <li> <a href="#">Businesses near you</a> </li>
+      <li> <a href="#">New Businesses</a> </li>
+      <li> <a href="#">Post a Business</a> </li>
+      <li> <a href="#"></a> </li>
+    </ul>
+    <ul>
+      <h4>Lifelong Families</h4>
+      <li> <a href="#">Register Your Business</a> </li>
+      <li> <a href="#">About us</a> </li>
+      <li> <a href="#">Contact</a> </li>
+      <li> <a href="#">Terms & privacy</a> </li>
+      <li> <a href="#"></a> </li>
+    </ul>
+    <ul>
+      <h4>Contacts</h4>
+      <li> <a href="#">+254-724-435-465</a> </li>
+      <li> <a href="#"></a> </li>
+      <li> <a href="#">Facebook</a> </li>
+      <li> <a href="#">Twitter</a> </li>
+      <li> <a href="#">Intagram</a> </li>
+      <li> <a href="#">Linked In</a> </li>
+    </ul>
+<a href="#">Copyrights&copy;LifelongFamilies|2019</a>
   </footer>
 </body>
 </html>

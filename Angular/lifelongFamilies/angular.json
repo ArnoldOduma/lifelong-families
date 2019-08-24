@@ -20,12 +20,18 @@
             "tsConfig": "src/tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/assets/images/electrician.jpg",
+              "src/assets/images/electrician.png",
+              "src/assets/images/LIFELONGLOGO.png"
             ],
             "styles": [
               "src/styles.css"
             ],
-            "scripts": [],
+            "scripts": [
+              "src/assets/js/script.js",
+              "src/assets/js/jquery-3.4.1.js"
+            ],
             "es5BrowserSupport": true
           },
           "configurations": {
