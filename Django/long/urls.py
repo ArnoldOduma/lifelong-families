@@ -21,4 +21,5 @@ from django.contrib.auth import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url('api/(?P<version>(v1|v2))/', include('life.urls')),
+    url(r'',include('life.urls')),
 ]

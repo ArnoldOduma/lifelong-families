@@ -62,6 +62,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'life',
+    'bootstrap3',
     'multiupload',
     'tinymce',
     'rest_framework',
