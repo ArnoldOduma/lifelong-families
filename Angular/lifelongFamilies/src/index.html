@@ -8,26 +8,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="./assets/css/flickity.css">
+
   <script src="https://kit.fontawesome.com/d9517b1093.js"></script>
   <script type="text/javascript" src="./assets/js/jquery-3.4.1.js"></script>
   <script type="text/javascript" src="./assets/js/script.js"></script>
-
-  </script>
+  <script src="./assets/js/slider.js"></script>
+  <!-- <script src="./assets/js/jssor.slider.min.js"></script> -->
 </head>
 <body>
   <section class="main-loader" style="height: 100vh;transition: none; width:100vw;position: fixed;top:0px;background: white;z-index: 2000;"></section>
   <section class="small">
     <p>Lifelong families</p>
+    <div class="toggleNav" id="toggleNav">
+        <hr><hr><hr>
+      </div>
   </section>
-  <div class="toggleNav" id="toggleNav">
-    <hr><hr><hr>
-  </div>
+
   <header id="header">
-    <img src="" alt="Logo" class="logo">
+    <div class="logo-cont">
+      <a href="/home"><img src="./assets/images/LIFELONGLOGO.png" alt="Logo" class="logo"></a>
+      
+    </div>
+    
     <div class="log-sign-btn">
-      <a href="">Register your business</a>
-      <a href="">Log In</a> <span>|</span>
-      <a href="">Sign Up</a>
+      <div>
+        <a href="">Register your business</a>
+        <a href="/home">Log In</a><span>|</span>
+        <a href="">Sign Up</a>
+      </div>
     </div>
 
     <div class="nav">
@@ -75,8 +84,12 @@
       <div class="ball_hr"></div>
     </section>
   </div>
-  <!-- <app-root></app-root> -->
-  <app-search-view></app-search-view>
+
+  <app-root></app-root>
+  <!-- <app-search-view></app-search-view> -->
+  <app-search></app-search>
+  <!-- <router-outlet></router-outlet> -->
+
   <footer>
     ￼<ul>
       <h4>Business</h4>
@@ -104,5 +117,6 @@
     </ul>
 <a href="#">Copyrights&copy;LifelongFamilies|2019</a>
   </footer>
+
 </body>
 </html>

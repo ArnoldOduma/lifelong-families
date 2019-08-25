@@ -26,11 +26,13 @@
               "src/assets/images/LIFELONGLOGO.png"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/assets/css/flickity.css"
             ],
             "scripts": [
               "src/assets/js/script.js",
-              "src/assets/js/jquery-3.4.1.js"
+              "src/assets/js/slider.js",
+              "src/assets/js/jquery-3.4.1.js","jssor.slider.min.js"
             ],
             "es5BrowserSupport": true
           },

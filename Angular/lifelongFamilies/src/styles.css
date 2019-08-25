@@ -30,6 +30,9 @@ button{
   display: none;
 }
 
+
+
+
 /*------------------------------------------------
               BALL HORIZONTAL
 -------------------------------------------------*/
@@ -101,7 +104,7 @@ button{
 .toggleNav{
   width: 45px;
   padding: 5px;
-  position: fixed;
+  position: absolute;
   right: 0px;
   top: 0px;
   margin: 3px;
@@ -112,28 +115,24 @@ button{
   border: 2px solid white;
   margin: 5px 0;
 }
+
+
+
 header{
-  /* height: 0px; */
   transition: none;
   z-index: 1000;
   position: relative;
-  background: white;
-
 }
 header>div{
   padding: 10px;
-
 }
 header .logo{
-  float: left;
-  display: none;
   position: absolute;
+  top: 0px;
+  padding: 10px;
+  width: 130px;
 }
 .log-sign-btn{
-  float: right;
-  clear: both;
-  right: 0px;
-  display: inline-block;
   color: #F7941D;
   font-weight: 700;
 }
@@ -141,32 +140,36 @@ header .logo{
   margin: 5px 0;
   display: block;
   text-align: left;
+  padding-right: 20px;
 }
 .log-sign-btn span{
   display: none;
 }
 .log-sign-btn a:first-child{
+  position: relative;
   background: #F7941D;
   padding: 10px;
   color: white;
   border-radius: 5px;
-  width: 180px;
+  /* width: 180px; */
   max-width: 100%;
-  text-align: center;
+  /* text-align: center; */
 }
 .nav{
-  position: relative;
-  float: left;
-  width: 100%;
   text-align: center;
+  color: white;
 }
 .nav button{
-  color: white;
+  display: inline-block;
+
+}
+.nav>h3{
+  color: white; 
 }
 
 .dropBtn {
   background: transparent;
-  /* color: white; */
+  color: white;
   cursor: pointer;
   padding: 5px 10px;
   font-size: 16px;
@@ -184,7 +187,7 @@ header .logo{
 .dropContent {
   display: none;
   position: relative;
-  background-color: #ff0909;
+  background-color: #d3d3d3;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1000;
@@ -206,10 +209,44 @@ header .logo{
   color: #F7941D;
 }
 
+
+.header-scroll{
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  transition: all 2s ease;
+  animation: appear 0.8s linear 1;
+}
+.header-scroll .logo{
+  width: 100px;
+  z-index: 2000;
+}
+.header-scroll .log-sign-btn{
+  background: linear-gradient(to left, rgba(30,87,153,1) 0%,rgb(66, 166, 243) 50%);
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 100%;
+  margin-top: 0px;
+  transition: all 2s ease;
+  animation: appear 0.9s linear 1;
+}
+@keyframes appear{
+  0%{opacity: 0;top: -100px;}
+  50%{opacity:0;top: 10px;box-shadow: 10px 10px 10px #000}
+}
+.header-scroll .nav{
+  display: none;
+}
+
 footer{
+  width: 100%;
   background: rgb(0, 0, 0);
   color: #888888;
   padding-top: 20px;
+  /* display: none; */
+  position: relative;
+  z-index: 20;
 }
 footer>ul{
   padding: 0 20px;
@@ -225,14 +262,60 @@ footer>a{
 }
 @media screen and (max-width:500px){
   .small{
+    /* position: fixed; */
+    top: 0px;
     display: block;
     width: 100%;
     background: linear-gradient(to right, rgba(30,87,153,1) 0%,rgb(66, 166, 243) 100%);
     /* background: rgb(45, 129, 255); */
     padding: 15px 10px;
     color: white;
+    z-index: 200;
   }
-  
+  .small-fixed{
+    position: fixed;
+  }
+  header{
+    display: none;
+    position: fixed;
+    width: 80%;
+    height: 100vh;
+    box-shadow: 0 5px 10px #000;
+    background: linear-gradient(to right, rgba(30,87,153,1) 0%,rgb(72, 170, 245) 50%);  
+  }
+  header .logo-cont{
+    position: relative;
+    min-height: 200px;
+    background-image: linear-gradient(to right,#ffffff,#a9daf7 60%,#008cff);
+    box-shadow: 3px 0 10px rgb(36, 36, 36);
+    margin: 10px;
+    border-radius: 5px;
+    clip-path: polygon(
+    0 0,
+    100% 0,
+    100% calc(100% - 20vw),
+    0 100%
+    );
+  }
+  header .logo{
+    position: relative;
+    width: 40%;
+    margin: 0 auto;
+    padding-top: 30px;
+    display: block;
+
+  }
+  .log-sign-btn{
+    float: left;
+  }
+  header .nav{
+    text-align: left;
+  }
+  .header-hide{
+    left: -100%;
+  }
+
+
 }
 @media screen and (min-width:500px){
   .log-sign-btn span{
@@ -244,6 +327,13 @@ footer>a{
   .log-sign-btn a{
     display: inline-block;
   }
+  .log-sign-btn{
+    text-align: right;
+    height: 70px;
+  }
+  .log-sign-btn>div{
+    float: right;
+  }
   header>div:nth-child(2){
     text-align: center;
   }
@@ -254,10 +344,15 @@ footer>a{
     flex-wrap: wrap;
     justify-content: space-around;
   }
-  footer ul{
+  footer>ul{
     width: 30%;
   }
   footer>ul>li{
     margin: 10px 0 0 0;
+  }
+}
+@media screen and (min-width:900px){
+  header .logo{
+    width: 200px;
   }
 }
