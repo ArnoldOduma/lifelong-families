@@ -1,0 +1,57 @@
+mat-vertical-stepper{
+  margin-left: 350px;
+  border-color: orange;
+}
+.serviceOne{
+  width: 400px;
+}
+.md-adults{
+  width: 100px;
+  height: 100px;
+}
+.serviceTwoOne{
+  width: 400px;
+}
+.serviceTwoTwo {
+  width: 300px;
+}
+.serviceTwoThree {
+  margin-left: 150px;
+  width: 300px;
+}
+.finish{
+  margin-top: 20px;
+  background-color: orange;
+}
+.serviceFrameMedia {
+  border-style: ridge;
+  height: 300px;
+  width: 700px;
+  border-radius: 5px;
+  border-color: orange;
+}
+#nextThree{
+  margin-top: 20px;
+  margin-left: 20px;
+  background-color: orange;
+}
+#backThree{
+  margin-top: 20px;
+  margin-left: 500px;
+  background-color: orange;
+}
+#nextOne{
+  margin-top: 20px;
+  margin-left: 330px;
+  background-color: orange;
+}
+.next{
+  margin-top: 20px;
+  margin-left: 30px;
+  background-color: orange;
+}
+.back{
+  margin-top: 20px;
+  margin-left: 250px;
+  background-color: orange;
+}

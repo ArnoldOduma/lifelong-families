@@ -1,0 +1,52 @@
+input {
+  outline: 0;
+  border-width: 0 0 2px;
+  border-color: orange;
+  width: 700px;
+  margin-left: -250px;
+}
+input:focus {
+  border-color: black;
+}
+::placeholder {
+  color: black;
+  opacity: 1;
+  font-size: 22px;
+}
+.signUpFormHeader{
+  color: orange;
+  margin-top: 250px;
+  margin-left: -250px;
+}
+.firstNameSignUp{
+  margin-top: 50px;
+}
+.surNameSignUp{
+  margin-top: -25px;
+  margin-left: 750px;
+}
+.emailSignUp{
+  margin-top: 50px;
+}
+.passwordSignUp{
+  margin-top: 50px;
+}
+.phoneNumberSignUp{
+  margin-top: 50px;
+}
+.createAnAccountButton{
+  background-color: orange;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 24px;
+  border-radius: 5px;
+  margin: 4px 2px;
+  cursor: pointer;
+  width: 500px;
+  margin-top: 50px;
+  margin-left: -250px;
+}
