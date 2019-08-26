@@ -16,4 +16,4 @@ class BusinessAdmin(OSMGeoAdmin):
     
 @admin.register(Services)
 class ServicesAdmin(OSMGeoAdmin):
-    list_display = ('name','location','address','image','city','category','price','descript
+    list_display = ('name','location','address','image','city','category','price','description','contact','available','verified')

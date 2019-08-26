@@ -35,8 +35,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'life',
+    'star_ratings',
     'pyuploadcare.dj',
-    'django.contrib.gis'
+    'django.contrib.gis',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
@@ -50,6 +52,11 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'long.urls'
+STAR_RATINGS_RERATE = False
+STAR_RATINGS_RANGE = 10
+STAR_RATINGS_ANONYMOUS = True
+STAR_RATINGS_STAR_HEIGHT = 20
+STAR_RATINGS_STAR_WIDTH = 20
 
 TEMPLATES = [
     {
@@ -80,7 +87,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
         'NAME': 'gis',
-        'USER': 'tony',
+        'USER': 'chris',
         'PASSWORD': 'p',
         'HOST': 'localhost',
         'PORT': '5432'
