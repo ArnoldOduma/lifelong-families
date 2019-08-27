@@ -9,7 +9,7 @@ from djchoices import ChoiceItem, DjangoChoices
 class User(models.Model):
     is_authenticated = True
     username = models.CharField(max_length =50)
-    
+    email = models.CharField(max_length=200)
 class Profile(models.Model):
     user = models.OneToOneField(User,max_length=30,null=False,on_delete=models.CASCADE,)
     pic = ImageField(blank=True, manual_crop="")
@@ -29,8 +29,7 @@ class Housing(models.Model):
     ("Bedsitters","bedsitters"),
     ("Single Rooms","single rooms")
 }
-    class Opening(DjangoChoices):
-        HOURS={
+    OPENING_HOURS={
             ('0400','0400'),
             ('0500','0500'),
             ('0600','0600'),
@@ -40,16 +39,8 @@ class Housing(models.Model):
             ('1000','1000'),
             ('1100','1100'),
             ('1200','1200')
-        }
-        monday = ChoiceItem(choice=HOURS)
-        tuesday = ChoiceItem(choice=HOURS)
-        wenesday = ChoiceItem(choice=HOURS)
-        thursday = ChoiceItem(choice=HOURS)
-        friday = ChoiceItem(choice=HOURS)
-        saturday = ChoiceItem(choice=HOURS)
-        sunday = ChoiceItem(choice=HOURS)
-    class Closing(DjangoChoices):
-        HOURS={
+    }
+    CLOSING_HOURS={
             ('1400','1400'),
             ('1500','1500'),
             ('1600','1600'),
@@ -57,14 +48,7 @@ class Housing(models.Model):
             ('1800','1800'),
             ('1900','1900'),
             ('2000','2000')
-        }
-        monday = ChoiceItem(choice=HOURS)
-        tuesday = ChoiceItem(choice=HOURS)
-        wenesday = ChoiceItem(choice=HOURS)
-        thursday = ChoiceItem(choice=HOURS)
-        friday = ChoiceItem(choice=HOURS)
-        saturday = ChoiceItem(choice=HOURS)
-        sunday = ChoiceItem(choice=HOURS)
+    }
     name=models.CharField(max_length=20,null=False)
     image=ImageField(blank=True, manual_crop="")
     image1=ImageField(blank=True, manual_crop="")
@@ -77,8 +61,9 @@ class Housing(models.Model):
     city = models.CharField(max_length=50)
     contact=models.IntegerField(null=True,blank=False)
     description=models.TextField(max_length=10000,null=False)
-    opening = models.CharField(max_length=20, choices=Opening.choices,default="0800")
-    closing = models.CharField(max_length=20, choices=Closing.choices,default="1800")
+    opening_days=models.CharField(max_length=50)
+    opening = models.IntegerField(null=False,blank=False)
+    closing = models.CharField(null=False,blank=False)
     category=models.CharField(max_length=1000,choices= HOUSE_CATEGORY)
     verified=models.BooleanField(null=False,blank=False)
     ratings = GenericRelation(Rating, related_query_name='housing')
@@ -142,8 +127,7 @@ class Business(models.Model):
     ("Construction Material Hardware","construction material hardware"),
     ("Botique","botique")
 }
-    class Opening(DjangoChoices):
-        HOURS={
+    OPENING_HOURS={
             ('0400','0400'),
             ('0500','0500'),
             ('0600','0600'),
@@ -153,16 +137,8 @@ class Business(models.Model):
             ('1000','1000'),
             ('1100','1100'),
             ('1200','1200')
-        }
-        monday = ChoiceItem(choice=HOURS)
-        tuesday = ChoiceItem(choice=HOURS)
-        wenesday = ChoiceItem(choice=HOURS)
-        thursday = ChoiceItem(choice=HOURS)
-        friday = ChoiceItem(choice=HOURS)
-        saturday = ChoiceItem(choice=HOURS)
-        sunday = ChoiceItem(choice=HOURS)
-    class Closing(DjangoChoices):
-        HOURS={
+    }
+    CLOSING_HOURS={
             ('1400','1400'),
             ('1500','1500'),
             ('1600','1600'),
@@ -170,14 +146,7 @@ class Business(models.Model):
             ('1800','1800'),
             ('1900','1900'),
             ('2000','2000')
-        }
-        monday = ChoiceItem(choice=HOURS)
-        tuesday = ChoiceItem(choice=HOURS)
-        wenesday = ChoiceItem(choice=HOURS)
-        thursday = ChoiceItem(choice=HOURS)
-        friday = ChoiceItem(choice=HOURS)
-        saturday = ChoiceItem(choice=HOURS)
-        sunday = ChoiceItem(choice=HOURS)
+    }
     name=models.CharField(max_length=20,null=False)
     location = models.PointField()
     address = models.CharField(max_length=100)
@@ -190,8 +159,9 @@ class Business(models.Model):
     image5=ImageField(blank=True, manual_crop="")
     contact=models.IntegerField(null=True,blank=False)
     description=models.TextField(max_length=10000,null=False)
-    opening = models.CharField(max_length=20, choices=Opening.choices,default="0800")
-    closing = models.CharField(max_length=20, choices=Closing.choices,default="1800")
+    opening_days=models.CharField(max_length=50)
+    opening = models.IntegerField(max_length=20, choices=OPENING_HOURS,default="0800")
+    closing = models.CharField(max_length=20, choices=CLOSING_HOURS,default="1800")
     category=models.CharField(max_length=1000,choices= BUSINESS_CATEGORY)
     verified=models.BooleanField(null=False,blank=False)
     ratings = GenericRelation(Rating, related_query_name='business')
@@ -260,8 +230,7 @@ class Services(models.Model):
     ("YES","yes"),
     ("NO","no")
     }
-    class Opening(DjangoChoices):
-        HOURS={
+    OPENING_HOURS={
             ('0400','0400'),
             ('0500','0500'),
             ('0600','0600'),
@@ -271,16 +240,8 @@ class Services(models.Model):
             ('1000','1000'),
             ('1100','1100'),
             ('1200','1200')
-        }
-        monday = ChoiceItem(choice=HOURS)
-        tuesday = ChoiceItem(choice=HOURS)
-        wenesday = ChoiceItem(choice=HOURS)
-        thursday = ChoiceItem(choice=HOURS)
-        friday = ChoiceItem(choice=HOURS)
-        saturday = ChoiceItem(choice=HOURS)
-        sunday = ChoiceItem(choice=HOURS)
-    class Closing(DjangoChoices):
-        HOURS={
+    }
+    CLOSING_HOURS={
             ('1400','1400'),
             ('1500','1500'),
             ('1600','1600'),
@@ -288,14 +249,7 @@ class Services(models.Model):
             ('1800','1800'),
             ('1900','1900'),
             ('2000','2000')
-        }
-        monday = ChoiceItem(choice=HOURS)
-        tuesday = ChoiceItem(choice=HOURS)
-        wenesday = ChoiceItem(choice=HOURS)
-        thursday = ChoiceItem(choice=HOURS)
-        friday = ChoiceItem(choice=HOURS)
-        saturday = ChoiceItem(choice=HOURS)
-        sunday = ChoiceItem(choice=HOURS)
+    }
     name=models.CharField(max_length=20,null=False)
     location = models.PointField()
     address = models.CharField(max_length=100)
@@ -310,8 +264,9 @@ class Services(models.Model):
     price =models.IntegerField(null=True,blank=False)
     description=models.TextField(max_length=10000,null=False)
     contact=models.IntegerField(null=True,blank=False)
-    opening = models.CharField(max_length=20, choices=Opening.choices,default="0800")
-    closing = models.CharField(max_length=20, choices=Closing.choices,default="1800")
+    opening_days=models.CharField(max_length=50)
+    opening = models.IntegerField(max_length=20, choices=OPENING_HOURS,default="0800")
+    closing = models.CharField(max_length=20, choices=CLOSING_HOURS,default="1800")
     available=models.CharField(max_length=1000,choices= AVAILABLE)
     meeting = models.CharField(max_length=50,blank=False,default="greenhouse")
     verified=models.BooleanField(null=False,blank=False)

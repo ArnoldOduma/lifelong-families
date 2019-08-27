@@ -1,0 +1,73 @@
+<section class="search-view">
+  <div class="filter-cont">
+    <p>Based on you search location </p>
+    <form action="">
+      <select name="" id="">
+        <option value="">Filters</option>
+        <option value=""></option>
+        <option value=""></option>
+        <option value=""></option>
+        <option value=""></option>
+        <option value=""></option>
+        <option value=""></option>
+        <option value=""></option>
+      </select>
+    </form>
+  </div>
+  <section class="item-large-cont">
+    <div class="item-cont">
+      <img src="" alt="img">
+      <div>
+        <h3>Name</h3>
+        <p>Rating</p>
+        <p>Opening Hours</p>
+        <p>Description</p>
+      </div>
+    </div>
+    <div class="item-cont">
+      <img src="" alt="img">
+      <div>
+        <h3>Name</h3>
+        <p>Rating</p>
+        <p>Opening Hours</p>
+        <p>Description</p>
+      </div>
+    </div>
+    <div class="item-cont">
+      <img src="" alt="img">
+      <div>
+        <h3>Name</h3>
+        <p>Rating</p>
+        <p>Opening Hours</p>
+        <p>Description</p>
+      </div>
+    </div>
+  </section>
+
+</section>
+
+<section class="filter-wrapper">
+  fil
+  <div class="keyword-wrapper">
+    <input [formControl]="queryField" type="text" id="keyword" placeholder="Search for businesses..." autofocus/>
+  </div>
+  <ul class="filter-select">
+    <!-- <li *ngFor="let result of results" class="filter-select-list">
+      <img src="{{result.images['2']?.url}}" alt="" width="50" height="50">
+      <p class="artist-name">{{result.name}}</p>
+    <span class="tags"></span>
+    </li> -->
+    <li *ngFor="let result of results" class="filter-select-list">
+      <img src="{{result.avatar_url}}" alt="" width="50" height="50">
+      <p class="artist-name">{{result.login}}</p>
+    <span class="tags"></span>
+    </li>
+  </ul>
+    <ul class="filter-select">
+      <li class="filter-select-list">
+        <img src="{{results[0]}}" alt="" width="50" height="50">
+      </li>
+    </ul>
+
+
+ </section>

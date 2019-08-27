@@ -1,7 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 # Create your views here.
 from .models import Services,Business,Housing
-from .forms import BusinessForm, ServicesForm, HousingForm
+from .forms import BusinessForm, ServicesForm, HousingForm,CommentForm
 from .serializers import ServicesSerialiser,BusinessSerialiser,HousingSerialiser
 
 from rest_framework import viewsets
@@ -20,8 +20,8 @@ class ServicesViewSet(viewsets.ModelViewSet):
     def get(self, request, *args, **kwargs):
         try:
             a_request = self.queryset.get(pk=kwargs["pk"])
-            return Response(RequestSerializer(a_request).data)
-        except Requests.DoesNotExist:
+            return Response(ServicesSerialiser(a_request).data)
+        except Services.DoesNotExist:
             return Response(
                 data={
                     "message": "Request with id: {} does not exist".format(kwargs["pk"])
@@ -32,10 +32,10 @@ class ServicesViewSet(viewsets.ModelViewSet):
     def put(self, request, *args, **kwargs):
         try:
             a_request = self.queryset.get(pk=kwargs["pk"])
-            serializer = RequestSerializer()
+            serializer = ServicesSerialiser()
             updated_request = serializer.update(a_request, request.data)
-            return Response(RequestSerializer(updated_request).data)
-        except Requests.DoesNotExist:
+            return Response(ServicesSerialiser(updated_request).data)
+        except Services.DoesNotExist:
             return Response(
                 data={
                     "message": "Request with id: {} does not exist".format(kwargs["pk"])
@@ -48,7 +48,7 @@ class ServicesViewSet(viewsets.ModelViewSet):
             a_request = self.queryset.get(pk=kwargs["pk"])
             a_request.delete()
             return Response(status=status.HTTP_204_NO_CONTENT)
-        except Requests.DoesNotExist:
+        except Services.DoesNotExist:
             return Response(
                 data={
                     "message": "Request with id: {} does not exist".format(kwargs["pk"])
@@ -64,8 +64,8 @@ class BusinessViewSet(viewsets.ModelViewSet):
     def get(self, request, *args, **kwargs):
         try:
             a_request = self.queryset.get(pk=kwargs["pk"])
-            return Response(RequestSerializer(a_request).data)
-        except Requests.DoesNotExist:
+            return Response(BusinessSerialiser(a_request).data)
+        except Business.DoesNotExist:
             return Response(
                 data={
                     "message": "Request with id: {} does not exist".format(kwargs["pk"])
@@ -76,10 +76,10 @@ class BusinessViewSet(viewsets.ModelViewSet):
     def put(self, request, *args, **kwargs):
         try:
             a_request = self.queryset.get(pk=kwargs["pk"])
-            serializer = RequestSerializer()
+            serializer = BusinessSerialiser()
             updated_request = serializer.update(a_request, request.data)
-            return Response(RequestSerializer(updated_request).data)
-        except Requests.DoesNotExist:
+            return Response(BusinessSerialiser(updated_request).data)
+        except Business.DoesNotExist:
             return Response(
                 data={
                     "message": "Request with id: {} does not exist".format(kwargs["pk"])
@@ -87,12 +87,12 @@ class BusinessViewSet(viewsets.ModelViewSet):
                 status=status.HTTP_404_NOT_FOUND
             )
             
-     def delete(self, request, *args, **kwargs):
+    def delete(self, request, *args, **kwargs):
         try:
             a_request = self.queryset.get(pk=kwargs["pk"])
             a_request.delete()
             return Response(status=status.HTTP_204_NO_CONTENT)
-        except Requests.DoesNotExist:
+        except Business.DoesNotExist:
             return Response(
                 data={
                     "message": "Request with id: {} does not exist".format(kwargs["pk"])
@@ -107,8 +107,8 @@ class HousingViewSet(viewsets.ModelViewSet):
     def get(self, request, *args, **kwargs):
         try:
             a_request = self.queryset.get(pk=kwargs["pk"])
-            return Response(RequestSerializer(a_request).data)
-        except Requests.DoesNotExist:
+            return Response(HousingSerialiser(a_request).data)
+        except Housing.DoesNotExist:
             return Response(
                 data={
                     "message": "Request with id: {} does not exist".format(kwargs["pk"])
@@ -119,10 +119,10 @@ class HousingViewSet(viewsets.ModelViewSet):
     def put(self, request, *args, **kwargs):
         try:
             a_request = self.queryset.get(pk=kwargs["pk"])
-            serializer = RequestSerializer()
+            serializer = HousingSerialiser()
             updated_request = serializer.update(a_request, request.data)
-            return Response(RequestSerializer(updated_request).data)
-        except Requests.DoesNotExist:
+            return Response(HousingSerialiser(updated_request).data)
+        except Housing.DoesNotExist:
             return Response(
                 data={
                     "message": "Request with id: {} does not exist".format(kwargs["pk"])
@@ -135,7 +135,7 @@ class HousingViewSet(viewsets.ModelViewSet):
             a_request = self.queryset.get(pk=kwargs["pk"])
             a_request.delete()
             return Response(status=status.HTTP_204_NO_CONTENT)
-        except Requests.DoesNotExist:
+        except Housing.DoesNotExist:
             return Response(
                 data={
                     "message": "Request with id: {} does not exist".format(kwargs["pk"])
