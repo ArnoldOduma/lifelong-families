@@ -4,6 +4,10 @@ import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from '../app.component';
 import { SearchComponent } from '../components/search/search.component';
 import { HomeComponent } from '../components/home/home.component';
+import { RegistrationComponent } from '../components/registration/registration.component';
+import { BusinessregistrationComponent } from '../components/businessregistration/businessregistration.component';
+import { HousingregistrationComponent } from '../components/housingregistration/housingregistration.component';
+import { ServiceregistrationComponent } from '../components/serviceregistration/serviceregistration.component';
 import { Error404Component } from '../components/error404/error404.component';
 
 const appRoutes: Routes = [
@@ -13,6 +17,11 @@ const appRoutes: Routes = [
   },
   {path: '404', component: Error404Component},
   {path: 'search', component: SearchComponent},
+  {path: 'search', component: SearchComponent},
+  {path: 'registration', component: RegistrationComponent},
+  {path: 'businessregistration', component: BusinessregistrationComponent},
+  {path: 'housingregistration', component: HousingregistrationComponent},
+  {path: 'serviceregistration', component: ServiceregistrationComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: '**', component: SearchComponent}
 ];
@@ -20,7 +29,7 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [],
   imports: [
-  
+
   RouterModule.forRoot(appRoutes,
       {enableTracing: true}
     ),

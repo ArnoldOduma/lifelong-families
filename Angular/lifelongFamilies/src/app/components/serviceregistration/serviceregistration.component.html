@@ -1,0 +1,67 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S"
+      crossorigin="anonymous">
+<mat-vertical-stepper linear>
+  <mat-step [stepControl]="formGroup1">
+    <ng-template matStepLabel>Personal Information</ng-template>
+    <h3>Personal Information</h3>
+    <form [formGroup]="formGroup1">
+      <mat-form-field class="serviceOne">
+        <input matInput placeholder="Fist Name" formControlName="firstCtrl" required>
+      </mat-form-field><br>
+
+      <mat-form-field class="serviceOne">
+        <input matInput placeholder="Last Name" formControlName="secondCtrl" required>
+      </mat-form-field><br>
+
+      <mat-form-field class="serviceOne">
+        <input matInput placeholder="Email" formControlName="threeCtrl" required>
+      </mat-form-field>
+
+    </form>
+    <div>
+      <button id = "nextOne" mat-button matStepperNext>Next</button>
+    </div>
+  </mat-step>
+  <mat-step [stepControl]="formGroup2">
+    <ng-template matStepLabel>Profession Information</ng-template>
+    <h3>Profession Information</h3>
+    <form [formGroup]="formGroup2">
+      <mat-form-field class="serviceTwoOne">
+        <input  matInput placeholder="Your occupation" formControlName="fourCtrl" required>
+      </mat-form-field> <br>
+
+      <mat-form-field class="serviceTwoOne">
+        <input matInput placeholder="Skills" formControlName="fiveCtrl" required>
+      </mat-form-field><br>
+
+      <mat-form-field class="serviceTwoOne">
+        <input matInput placeholder="Education" formControlName="sixCtrl" required>
+      </mat-form-field><br>
+
+      <mat-form-field class="serviceTwoOne">
+        <input matInput placeholder="Website" formControlName="sevenCtrl" required>
+      </mat-form-field><br>
+
+      <div>
+        <button class = "back" mat-button matStepperPrevious>Back</button>
+        <button class = "next" mat-button matStepperNext>Next</button>
+      </div>
+
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="formGroup3">
+    <ng-template matStepLabel>Media</ng-template>
+    <h3>Media</h3>
+    <p>Listing Quality: Good quality listings are shown higher in search results and get more leads. </p>
+    <p>Add images of yourself</p>
+    <div class="serviceFrameMedia">
+      <label class="uploader-circle">
+        <i class="fas fa-plus"></i>
+        <input type="file" id="uploader"/>
+      </label>
+    </div>
+    <div>
+      <button id = "backThree" mat-button matStepperPrevious>Back</button>
+    </div>
+  </mat-step>
+</mat-vertical-stepper>

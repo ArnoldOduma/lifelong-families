@@ -1,0 +1,86 @@
+mat-vertical-stepper{
+  margin-left: 350px;
+  border-color: orange;
+}
+.serviceOne{
+  width: 400px;
+}
+.md-adults{
+  width: 100px;
+  height: 100px;
+}
+.serviceTwoOne{
+  width: 400px;
+}
+.serviceTwoTwo {
+  width: 300px;
+}
+.serviceTwoThree {
+  margin-left: 150px;
+  width: 300px;
+}
+.finish{
+  margin-top: 20px;
+  background-color: orange;
+}
+.serviceFrameMedia {
+  border-style: ridge;
+  height: 300px;
+  width: 700px;
+  border-radius: 5px;
+  border-color: orange;
+}
+#nextThree{
+  margin-top: 20px;
+  margin-left: 20px;
+  background-color: orange;
+}
+#backThree{
+  margin-top: 20px;
+  margin-left: 500px;
+  background-color: orange;
+}
+#nextOne{
+  margin-top: 20px;
+  margin-left: 330px;
+  background-color: orange;
+}
+.next{
+  margin-top: 20px;
+  margin-left: 30px;
+  background-color: orange;
+}
+.back{
+  margin-top: 20px;
+  margin-left: 250px;
+  background-color: orange;
+}
+agm-map {
+  height: 300px;
+  width: 800px;
+  margin-left: 200px;
+}
+input {
+  display: none;
+}
+
+label.uploader-circle {
+  $size: 23px;
+  cursor: pointer;
+  width: $size;
+  height: $size;
+  line-height: 19px;
+  text-align: center;
+  border-radius: 100%;
+  // Using position attribute
+  position: absolute; // Give absolute position
+  top: 50%; // Vertical center
+  left: 50%; // Horizontal center
+  transform: translate(-50%, -50%); // The icon is centered by the style regardless of the size of the parent
+  transition: all .2s ease-out;
+
+  i {
+    font-size: 24px;
+    color: #000;
+  }
+}

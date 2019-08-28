@@ -27,12 +27,13 @@
             ],
             "styles": [
               "src/styles.css",
-              "src/assets/css/flickity.css"
+              "src/assets/css/flickity.css",
+              "src/my-theme.scss"
             ],
             "scripts": [
               "src/assets/js/script.js",
               "src/assets/js/slider.js",
-              "src/assets/js/jquery-3.4.1.js","jssor.slider.min.js"
+              "src/assets/js/jquery-3.4.1.js"
             ],
             "es5BrowserSupport": true
           },
@@ -88,7 +89,8 @@
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/my-theme.scss"
             ],
             "scripts": [],
             "assets": [

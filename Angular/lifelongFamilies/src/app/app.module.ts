@@ -11,14 +11,25 @@ import { SearchService } from './services/search.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { Error404Component } from './components/error404/error404.component';
-
+import { RegistrationComponent } from './components/registration/registration.component';
+import { BusinessregistrationComponent } from './components/businessregistration/businessregistration.component';
+import { AgmCoreModule } from '@agm/core';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatStepperModule, MatIconModule,MatButtonModule, MatFormFieldModule, MatInputModule, MatSelectModule} from '@angular/material';
+import { HousingregistrationComponent } from './components/housingregistration/housingregistration.component';
+import { ServiceregistrationComponent } from './components/serviceregistration/serviceregistration.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchComponent,
     HomeComponent,
-    Error404Component
+    Error404Component,
+    RegistrationComponent,
+    BusinessregistrationComponent,
+    HousingregistrationComponent,
+    ServiceregistrationComponent
   ],
   imports: [
 
@@ -27,7 +38,23 @@ import { Error404Component } from './components/error404/error404.component';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    MatIconModule,
+    MatStepperModule,
+    MatButtonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    HttpClientModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDjZRHFkkdjgY5-qoasdrDgwv60xpbyF0Y',
+      libraries: ['places']
+    })
   ],
   providers: [SearchService],
   bootstrap: [AppComponent]
