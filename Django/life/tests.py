@@ -1,7 +1,7 @@
 from django.urls import reverse
 from rest_framework.test import APITestCase, APIClient
 from rest_framework.views import status
-from .models import Services
+from .models import Services,Business,Housing
 from .serializers import ServicesSerializer
 
 # tests for views
@@ -11,7 +11,7 @@ class ServicesViewTest(APITestCase):
     client = APIClient()
 
     @staticmethod
-    def create_services(name="", location="",address="",image="",'image1','image2','image3','image4','image5',city="",category="",price="",description="",contact="",available="",verified=""):
+    def create_services(name="", location="",address="",image="",image1="",image2="",image3="",image4="",image5="",city="",category="",price="",description="",contact="",available="",verified=""):
         if name != "" and location != "" and address !="" and image !="" and image1 !="" and image2 !="" and image3 !="" and image4 !="" and image5 !=""and city !="" and category !="" and price !="" and description !="" and contact !="" and available !="" and verified !="":
             Services.objects.create(name=name, location=location,address=address,image=image,city=city,category=category,price=price,description=description,contact=contact,available=available,verified=verified)
 

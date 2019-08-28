@@ -17,11 +17,11 @@ from django.conf.urls import url,include
 from django.contrib import admin
 from django.conf import settings
 from django.contrib.auth import views
-from rest_framework_jwt.views import obtain_jwt_token
+# from rest_framework_jwt.views import obtain_jwt_token
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url('api-token-auth/', obtain_jwt_token, name='create-token'),
+    # url('api-token-auth/', obtain_jwt_token, name='create-token'),
     url('^api/v1|v2/', include('life.urls')),
     url('', include('life.urls')),
 ]

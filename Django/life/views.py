@@ -9,6 +9,7 @@ from rest_framework import generics
 from rest_framework.response import Response
 from rest_framework.views import status
 from rest_framework_jwt.settings import api_settings
+from rest_framework import permissions
 
 
 
@@ -16,6 +17,8 @@ class ServicesViewSet(viewsets.ModelViewSet):
 
     queryset = Services.objects.all()
     serializer_class = ServicesSerialiser
+    permission_classes = (permissions.AllowAny,)
+
     
     def get(self, request, *args, **kwargs):
         try:
@@ -60,7 +63,7 @@ class BusinessViewSet(viewsets.ModelViewSet):
 
     queryset = Business.objects.all()
     serializer_class = BusinessSerialiser
-    
+    permission_classes = (permissions.AllowAny,)
     def get(self, request, *args, **kwargs):
         try:
             a_request = self.queryset.get(pk=kwargs["pk"])
@@ -104,6 +107,7 @@ class HousingViewSet(viewsets.ModelViewSet):
 
     queryset = Housing.objects.all()
     serializer_class = HousingSerialiser
+    permission_classes = (permissions.AllowAny,)
     def get(self, request, *args, **kwargs):
         try:
             a_request = self.queryset.get(pk=kwargs["pk"])

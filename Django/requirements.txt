@@ -16,11 +16,13 @@ django-registration==3.0.1
 django-star-ratings==0.8.0
 django-tinymce==2.8.0
 djangorestframework==3.10.2
+djangorestframework-jwt==1.11.0
+gunicorn==19.9.0
 idna==2.8
 Pillow==6.1.0
-pkg-resources==0.0.0
 psycopg2==2.8.3
 psycopg2-binary==2.8.3
+PyJWT==1.7.1
 python-dateutil==2.8.0
 python-decouple==3.1
 pytz==2019.2
