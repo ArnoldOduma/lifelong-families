@@ -52,7 +52,7 @@ mat-vertical-stepper{
 }
 .back{
   margin-top: 20px;
-  margin-left: 250px;
+  margin-left: 500px;
   background-color: orange;
 }
 agm-map {
@@ -68,17 +68,22 @@ agm-map {
   margin-top: 300px;
   padding: 10px;
 }
-.submitService{
-  font-size: 14px;
-  height: 70px;
-  width: 100px;
-  background-color: orange;
-  border-radius: 5px;
-  margin-top: 25px;
-  margin-left: 500px;
-}
+
 agm-map {
   height: 300px;
   width: 750px;
   margin-left: 200px;
+}
+.submitService{
+  width: 300px;
+padding: 10px;
+cursor: pointer;
+font-size: 15px;
+background: orange;
+border-radius: 5px;
+margin-left: 500px;
+
+}
+.submitB{
+  margin-top: 20px;
 }

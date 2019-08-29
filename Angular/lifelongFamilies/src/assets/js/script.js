@@ -19,7 +19,7 @@ window.addEventListener('load', function(){
 //Nav bar toggle
 $(function(){
   // $('#toggleNav').toggle(0);
-  
+
 });
 
 
@@ -28,13 +28,13 @@ $(document).ready(function(){
   $(document).unbind('click').bind('click',function(e) {
     var container = $("#header");
     var navBtn = $("toggleNav");
-    if (!container.is(e.target) && container.has(e.target).length === 0){
-      $('#header').animate({width: "toggle"}, 100);
-    }else if(navBtn.is(e.target && container.has(e.target).length === 0)){
-      $('#header').animate({width: "toggle"}, 100);
-    }
+//    if (!container.is(e.target) && container.has(e.target).length === 0){
+//      $('#header').animate({width: "toggle"}, 100);
+//    }else if(navBtn.is(e.target && container.has(e.target).length === 0)){
+//      $('#header').animate({width: "toggle"}, 100);
+//    }
   });
- 
+
   /*change style on scroll */
   $(window).scroll(function() {
     var $height = $(window).scrollTop();
@@ -44,14 +44,14 @@ $(document).ready(function(){
       } else {
         $('.small').removeClass('small-fixed');
       }
-      
+
     }else{
       if($height > 50) {
         $('#header').addClass('header-scroll');
       } else {
         $('#header').removeClass('header-scroll');
       }
-      
+
 
     }
   });
@@ -74,7 +74,7 @@ $(document).ready(function(){
     }
   });
   // $('#header').slideToggle(0);
-  
+
 
 
 
