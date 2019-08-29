@@ -18,6 +18,10 @@ import {FormGroup} from '@angular/forms';
 import {RouterModule, Routes} from '@angular/router';
 
 import {AuthGuard} from './AuthGuard.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {HttpClientJsonpModule, HttpClientModule} from "@angular/common/http";
+import { HomeComponent } from './home/home.component';
 const routes: Routes = [
   {
     path: ' ',
@@ -30,24 +34,35 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
+    canLoad:[AuthGuard]
 
   },
   {
     path: 'signup',
     component: SignupComponent,
+    canActivate:[AuthGuard]
+
+  },
+  {
+    path: 'root',
+    component: AppComponent,
+    canLoad:[AuthGuard]
 
   },
   {
     path: 'home',
-    component: AppComponent,
+    component: HomeComponent,
+    canLoad:[AuthGuard]
 
   }
+
 ];
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     SignupComponent,
+    HomeComponent,
 
   ],
   imports: [
@@ -59,7 +74,11 @@ const routes: Routes = [
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     RouterModule.forRoot(routes),
-    FormsModule
+    FormsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    BrowserAnimationsModule,
+    HttpClientModule,
+    HttpClientJsonpModule
   ],
   providers: [],
   bootstrap: [AppComponent]

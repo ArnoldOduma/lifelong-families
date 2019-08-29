@@ -19,8 +19,17 @@ import {isFirebaseRef} from '@angular/fire/database/utils';
 import {database} from 'firebase';
 import {DatabaseReference} from '@angular/fire/database/interfaces';
 import Database = firebase.database.Database;
+import {HttpClient, HttpClientJsonpModule, HttpHeaders, JsonpClientBackend} from "@angular/common/http";
+import {catchError, map} from "rxjs/operators";
+import {headersToString} from "selenium-webdriver/http";
 // custom user interface
 interface User {
+  // uid: string;
+  email: string;
+  theusername: string;
+  theregion: string;
+}
+interface Business {
   // uid: string;
   email: string;
   theusername: string;
@@ -31,27 +40,31 @@ interface User {
 })
 export class ServicesService {
 
-  user: Observable<User>;
-  // var ref = new Firebase('https://<YOUR-FIREBASE-APP>.firebaseio.com');
+  user: Observable<any>;
+  userData:any;
+  private prox:string="http://localhost:4200/login/";
+private endpoint: string="https://api-housing-services-business.herokuapp.com/api/v1/business/";
 
+  // Access-Control-Allow-Origin:https://www.giantbomb.com/api/games/?format=xml&api_key=a1a68669be4a0ea543f5f4ef7f971020896559d3
   private fr: FirebaseAuth;
   private frs: FirebaseApp;
   private frcon: FirebaseAppConfig;
   private frdb: FirebaseDatabase;
 
-  // var firebase = require(‘firebase’);
-  //
-  // const list = this.afAuth.database.list(`users/${uid}/collections`);
-  // const list = this.afs.database.list(`users/${uid}/collections`);
+   httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type':  'application/json'
+    })
 
+  };
   constructor(private afAuth: AngularFireAuth,
               private afs: AngularFirestore,
               private router: Router,
               private ref : AngularFireDatabase,
-
-
-
-  ) {
+              private http: HttpClient,
+              private jsonp: HttpClientJsonpModule,
+              private jsonpt: JsonpClientBackend
+              ) {
 
     // Define the user observable
     // this.user = this.afAuth.authState
@@ -77,10 +90,38 @@ export class ServicesService {
     //   }
     // });
     this.isAuthenticated();
+    this.afAuth.authState.subscribe(user => {
+      if (user) {
+        this.userData = user;
+        localStorage.setItem('user', JSON.stringify(this.userData));
+        JSON.parse(localStorage.getItem('user'));
+        console.log("Good to go!!!");
+      } else {
+        localStorage.setItem('user', null);
+        JSON.parse(localStorage.getItem('user'));
+        console.log("Access denied,not logged in");
+
+      }
+    })
   }
+  private extractData(res: Response) {
+    let body = res;
+    return body;
+  }
+  getProducts(): Observable<any> {
+    return  this.http.jsonp(this.endpoint,"callback").pipe(map((response: Response) => response.json()));
+   // return  this.http.get(this.endpoint)
+   //    .subscribe((data: Business) => {
+   //      // Data extraction from the HTTP response is already done
+   //      // Display the result
+   //      console.log('TJ user data', data);
+   //    });
+
+  }
+
   logout() {
     firebase.auth().signOut();
-    this.router.navigate(['/signin']);
+    this.router.navigate(['/home']);
   }
   // Update properties on the user document
   // updateUser(user: User, data: any) {
@@ -91,19 +132,13 @@ export class ServicesService {
   emailSignUp(email: string, password: string, theusername: string , theregion: string) {
     return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
       .then(user => {
-        // this.gt.database.ref().child()
-        // this.afs.doc<User>(`users/${user.user.uid}`).collection(`users/${user.user.uid}`);
 
-        firebase.database().ref(`users/${user.user.uid}`).push({
-          'username':theusername,
-          'region':theregion
-        });
-        // firebase.database().ref(`users/${user.user.uid}`).push(theregion);
-        // this.ref.database.ref().child('users').child(user.user.uid).set({
-        //   username : theusername,
-        //   region: theregion
+
+        // firebase.database().ref(`users/${user.user.uid}`).push({
+        //   'username':theusername,
+        //   'region':theregion
         // });
-        // create initial user document
+this.http.get("")
       })
       .catch(error => this.handleError(error) );
   }
@@ -145,19 +180,18 @@ export class ServicesService {
     );
 
   }
-  // AuthenticationStatus(){
-  //   this.afAuth.authState.subscribe(user => {
-  //     if (user) {
-  //       // go to home page
-  //     } else {
-  //       // go to login page
-  //     }
-  //   });
-  // }
+
   currentuser(){
     return firebase.auth().currentUser;
   }
+  authState(){
+    return this.afAuth.authState;
+  }
 
+  get isLoggedIn(): boolean {
+    const user = JSON.parse(localStorage.getItem('user'));
+    return (user !== null) ? true : false;
+  }
 
 
 }

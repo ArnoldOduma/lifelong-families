@@ -59,9 +59,9 @@ export class LoginComponent implements OnInit {
   }
   onSignup() {
     console.log("Signing up");
-    const currentUser = this.userauthService.currentuser();
-    const ty=this.userauthService.signup(this.email.value, this.password.value);
 
+    const ty=this.userauthService.signup(this.email.value, this.password.value);
+    const currentUser = this.userauthService.currentuser();
     if (ty != null && currentUser) {
       this.router.navigate(['/home']);
       console.log("Is Authenticated");
@@ -81,7 +81,7 @@ export class LoginComponent implements OnInit {
     }
     else {
       console.log("Is not Authenticated")
-      this.router.navigateByUrl('/login');
+      this.router.navigateByUrl('/signup');
       return false;
     }
 
