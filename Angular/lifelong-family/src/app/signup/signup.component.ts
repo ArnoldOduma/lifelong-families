@@ -7,6 +7,7 @@ import { environment } from '../../environments/environment';
 import {AngularFireAuth} from '@angular/fire/auth';
 import {ServicesService} from '../services/firebase.service';
 import {isNull} from 'util';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-signup',
@@ -16,8 +17,8 @@ import {isNull} from 'util';
 export class SignupComponent implements OnInit {
   signupForm: FormGroup;
   detailForm: FormGroup;
-
-  constructor(public fb: FormBuilder, public auth: ServicesService) {
+  products:any = [];
+  constructor(public fb: FormBuilder, public auth: ServicesService, private router: Router,) {
   }
 
 
@@ -78,6 +79,22 @@ export class SignupComponent implements OnInit {
       return this.auth.emailSignUp(this.signupForm.get('email').value, this.password.value, this.username.value, this.region.value);
     }
   }
+  getProducts() {
+    this.products = [];
+    this.auth.getProducts().subscribe((data: {}) => {
+      console.log(data);
+      this.products = data;
+    });
+  }
+  authent(){
+    return this.router.navigate(['/login']);
+
+  }
+  logout(){
+    return this.auth.logout();
+  }
+
+
 
   // Step 2
 //   setCatchPhrase(user) {

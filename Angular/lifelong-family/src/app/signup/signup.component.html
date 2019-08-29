@@ -43,6 +43,18 @@
     <div class="form-group">
       <button type="submit" class="btn btn-primary btn-lg">Sign Up</button>
     </div>
+    <div class="form-group">
+      <button type="submit" (click)="getProducts()" class="btn btn-primary btn-lg">Test</button>
+    </div>
+    <div class="text-center">Already have an account? <a [routerLink]="'/login'">Login here</a></div>
   </form>
-  <div class="text-center">Already have an account? <a href="#">Login here</a></div>
+
+  <div class="form-group">
+    <button type="submit" (click)="authent()" class="btn btn-primary btn-sm">Auth</button>
+  </div>
+  <div class="form-group">
+    <button type="submit" (click)="logout()" class="btn btn-primary btn-sm">Logout</button>
+  </div>
 </div>
+
+
