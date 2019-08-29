@@ -40,6 +40,15 @@
         <input matInput placeholder="Website" formControlName="sevenCtrl" required>
       </mat-form-field><br>
 
+      <mat-form-field class="serviceTwoOne">
+        <input matInput placeholder="Area"  formControlName="twentyCtrl" (keydown.enter)="$event.preventDefault()" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" #search formControlName="twentyCtrl" required>
+      </mat-form-field><br>
+
+      <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
+        <agm-marker [latitude]="latitude" [longitude]="longitude" [markerDraggable]="true"
+        (dragEnd)="markerDragEnd($event)"></agm-marker>
+      </agm-map><br>
+
       <div>
         <button class = "back" mat-button matStepperPrevious>Back</button>
         <button class = "next" mat-button matStepperNext>Next</button>
@@ -58,6 +67,9 @@
     </div>
     <div>
       <button id = "backThree" mat-button matStepperPrevious>Back</button>
+    </div>
+    <div>
+       <a href="/home" class="submitService" type="submit">Submit</a>
     </div>
   </mat-step>
 </mat-vertical-stepper>

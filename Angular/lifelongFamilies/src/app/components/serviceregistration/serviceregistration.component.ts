@@ -99,6 +99,7 @@ export class ServiceregistrationComponent implements OnInit {
       fiveCtrl: ['', Validators.required],
       sixCtrl: ['', Validators.required],
       sevenCtrl: ['', Validators.required],
+      twentyCtrl: ['', Validators.required],
     });
     this.formGroup3 = this._formBuilder.group({
       eightCtrl: ['', Validators.required],
