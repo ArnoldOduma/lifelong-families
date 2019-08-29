@@ -1,5 +1,3 @@
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S"
-      crossorigin="anonymous">
 <mat-vertical-stepper linear>
   <mat-step [stepControl]="formGroup1">
     <ng-template matStepLabel>Personal Information</ng-template>
@@ -53,12 +51,10 @@
     <ng-template matStepLabel>Media</ng-template>
     <h3>Media</h3>
     <p>Listing Quality: Good quality listings are shown higher in search results and get more leads. </p>
-    <p>Add images of yourself</p>
     <div class="serviceFrameMedia">
-      <label class="uploader-circle">
-        <i class="fas fa-plus"></i>
-        <input type="file" id="uploader"/>
-      </label>
+      <span style="color:red;" *ngIf="message">{{message}}</span>
+      <img class="serviceDisplayPhoto" [src]="imgURL" height="200" *ngIf="imgURL">
+      <input  class="chooseButton" #file type="file" accept='image/*' (change)="preview(file.files)" />
     </div>
     <div>
       <button id = "backThree" mat-button matStepperPrevious>Back</button>

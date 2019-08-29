@@ -60,27 +60,11 @@ agm-map {
   width: 800px;
   margin-left: 200px;
 }
-input {
-  display: none;
+.serviceDisplayPhoto{
+  margin-top: 50px;
+  margin-left: 100px;
 }
-
-label.uploader-circle {
-  $size: 23px;
-  cursor: pointer;
-  width: $size;
-  height: $size;
-  line-height: 19px;
-  text-align: center;
-  border-radius: 100%;
-  // Using position attribute
-  position: absolute; // Give absolute position
-  top: 50%; // Vertical center
-  left: 50%; // Horizontal center
-  transform: translate(-50%, -50%); // The icon is centered by the style regardless of the size of the parent
-  transition: all .2s ease-out;
-
-  i {
-    font-size: 24px;
-    color: #000;
-  }
+.chooseButton{
+  margin-top: 300px;
+  padding: 10px;
 }

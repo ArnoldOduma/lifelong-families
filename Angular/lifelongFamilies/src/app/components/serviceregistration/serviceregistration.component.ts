@@ -1,7 +1,9 @@
-import { Component, OnInit,  ViewChild, ElementRef, NgZone } from '@angular/core';
+import { Component, OnInit,  ViewChild, ElementRef, NgZone,NgModule,  Input } from '@angular/core';
 import {Validators, FormGroup, FormBuilder } from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
+import {CommonModule} from '@angular/common';
 import { MapsAPILoader, MouseEvent } from '@agm/core';
+import {HttpClientModule} from '@angular/common/http';
 
 @Component({
   selector: 'app-serviceregistration',
@@ -9,12 +11,34 @@ import { MapsAPILoader, MouseEvent } from '@agm/core';
   styleUrls: ['./serviceregistration.component.css']
 })
 export class ServiceregistrationComponent implements OnInit {
+
+  public imagePath;
+  imgURL: any;
+  public message: string;
+
+  preview(files) {
+    if (files.length === 0)
+      return;
+
+    var mimeType = files[0].type;
+    if (mimeType.match(/image\/*/) == null) {
+      this.message = "Only images are supported.";
+      return;
+    }
+
+    var reader = new FileReader();
+    this.imagePath = files;
+    reader.readAsDataURL(files[0]);
+    reader.onload = (_event) => {
+      this.imgURL = reader.result;
+    }
+  }
+
   title: string = 'AGM project';
   latitude: number;
   longitude: number;
   zoom:number;
   address: string;
-  f_addr:string;
   city: string;
   postCode: string;
   private geoCoder;
@@ -26,6 +50,15 @@ export class ServiceregistrationComponent implements OnInit {
   formGroup1: FormGroup;
   formGroup2: FormGroup;
   formGroup3: FormGroup;
+
+  url = '';
+  onSelectFile(event) {
+    if (event.target.files && event.target.files[0]) {
+      var reader = new FileReader();
+
+      reader.readAsDataURL(event.target.files[0]); // read file as data url
+    }
+  }
 
 
   constructor(private _formBuilder: FormBuilder, private http: HttpClient, private mapsAPILoader: MapsAPILoader,

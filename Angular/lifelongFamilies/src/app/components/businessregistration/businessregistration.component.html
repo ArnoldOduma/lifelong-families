@@ -2,32 +2,28 @@
   <mat-step [stepControl]="formGroup1">
     <ng-template matStepLabel>Business Details</ng-template>
     <h3>Business Details</h3>
-    <form [formGroup]="formGroup1">
-      <mat-form-field class="businessOne">
-        <input matInput placeholder="Business Name" formControlName="firstCtrl" required>
+    <form [formGroup]="formGroup1" >
+      <mat-form-field class="businessOne" (ngSubmit)="onSubmit()">
+        <input matInput placeholder="Business Name"  formControlName="firstCtrl" required>
       </mat-form-field><br>
 
       <mat-form-field class="businessOne">
-        <input matInput placeholder="Business Type" formControlName="secondCtrl" required>
+        <input matInput placeholder="Business category"  formControlName="secondCtrl" required>
       </mat-form-field><br>
 
       <mat-form-field class="businessOne">
-        <input matInput placeholder="Contact Phone Number" formControlName="thirdCtrl" required>
+        <input matInput placeholder="Contact Phone Number"  formControlName="thirdCtrl" required>
       </mat-form-field><br>
-
-      <mat-form-field class="businessOne">
-        <input matInput placeholder="Url of the current site" formControlName="fourCtrl" required>
-      </mat-form-field>
 
     </form>
     <div>
-      <button id = "nextOne" mat-button matStepperNext>Next</button>
+      <button id = "nextOne"  mat-button matStepperNext>Next</button>
     </div>
   </mat-step>
-  <mat-step [stepControl]="formGroup2">
+  <mat-step [stepControl]="formGroup2" (ngSubmit)="onSubmit()">
     <ng-template matStepLabel>Business Location</ng-template>
     <h3>Business location</h3>
-    <form [formGroup]="formGroup2">
+    <form >
       <mat-form-field class="businessTwoOne">
         <input  matInput placeholder="Business location" (keydown.enter)="$event.preventDefault()" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" #search formControlName="fiveCtrl" required>
       </mat-form-field> <br>
@@ -37,23 +33,13 @@
         (dragEnd)="markerDragEnd($event)" ></agm-marker>
       </agm-map>
 
-      <h5>Address: {{address}}</h5>
-      <div>Latitude: {{latitude}}</div>
-      <div>Longitude: {{longitude}}</div>
-      <div>address: {{f_addr}}</div>
-      <div>city: {{city}}</div>
-      <div>postCode: {{ postCode}}</div>
 
       <mat-form-field class="businessTwoOne">
-        <input matInput placeholder="Street Address"  formControlName="sixCtrl" required>
+        <input matInput placeholder="City"  formControlName="sevenCtrl" required>
       </mat-form-field><br>
 
       <mat-form-field class="businessTwoOne">
-        <input matInput placeholder="City" formControlName="sevenCtrl" required>
-      </mat-form-field><br>
-
-      <mat-form-field class="businessTwoOne">
-        <input matInput placeholder="Postal Code" formControlName="eightCtrl" required>
+        <input matInput placeholder="address" formControlName="eightCtrl" required>
       </mat-form-field><br>
 
 
@@ -64,22 +50,22 @@
 
     </form>
   </mat-step>
-  <mat-step [stepControl]="formGroup3">
-    <ng-template matStepLabel>Media</ng-template>
-    <h3>Media</h3>
-    <p>Listing Quality: Good quality listings are shown higher in search results and get more leads. </p>
-    <div class="businessFrameMedia">
-      <form [formGroup]="formGroup3">
-        <mat-form-field class="businessThreeOne">
-          <input matInput placeholder="Type of listing" formControlName="tenCtrl" required>
-        </mat-form-field><br>
-      </form>
-    </div>
-    <input type="file" (change)="onFileSelected($event)">
-    <button type="button" (click)="onUpload">Upload</button>
-    <div>
-      <button id = "backThree" mat-button matStepperPrevious>Back</button>
-      <button id = "nextThree" mat-button matStepperNext>Next</button>
-    </div>
-  </mat-step>
+  <form >
+    <mat-step [stepControl]="formGroup3 (ngSubmit)="onSubmit()"">
+      <ng-template matStepLabel>Media</ng-template>
+      <h3>Media</h3>
+      <p>Listing Quality: Good quality listings are shown higher in search results and get more leads. </p>
+      <div class="businessFrameMedia">
+        <span style="color:red;" *ngIf="message">{{message}}</span>
+        <img class="serviceDisplayPhoto" [src]="imgURL" height="200" *ngIf="imgURL">
+        <input  class="chooseButton" #file type="file" accept='image/*' (change)="preview(file.files)" />
+      </div>
+      <div>
+        <button id = "backThree" mat-button matStepperPrevious>Back</button>
+      </div>
+      <div>
+        <button class="upload" type="submit">Upload</button>
+      </div>
+
+  </form>
 </mat-vertical-stepper>

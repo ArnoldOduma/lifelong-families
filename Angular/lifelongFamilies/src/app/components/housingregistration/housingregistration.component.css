@@ -3,10 +3,10 @@ mat-vertical-stepper{
   border-color: orange;
 }
 .housingOne{
-  width: 400px;
+  width: 600px;
 }
 .housingOneTwo{
-  width: 400px;
+  width: 600px;
   margin-left: 0px;
   margin-top: 20px;
 
@@ -58,12 +58,25 @@ mat-vertical-stepper{
 }
 #nextOne{
   margin-top: 20px;
-  margin-left: 330px;
+  margin-left: 530px;
   background-color: orange;
 }
-
 agm-map {
   height: 300px;
-  width: 800px;
+  width: 750px;
   margin-left: 200px;
+}
+.housingDisplayPhoto{
+  margin-top: 50px;
+  margin-left: 100px;
+}
+.chooseButton{
+  margin-top: 300px;
+  padding: 10px;
+  width: 100px;
+  height: 70px;
+  color: orange;
+}
+#listingP{
+  margin-top: 10px;
 }

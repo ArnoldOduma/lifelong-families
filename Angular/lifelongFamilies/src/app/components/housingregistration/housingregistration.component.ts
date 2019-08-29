@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef, NgZone} from '@angular/core';
 import {Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { MapsAPILoader, MouseEvent } from '@agm/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-housingregistration',
@@ -8,6 +9,10 @@ import { MapsAPILoader, MouseEvent } from '@agm/core';
   styleUrls: ['./housingregistration.component.css']
 })
 export class HousingregistrationComponent implements OnInit {
+  SERVER_URL = "https://api-housing-services-business.herokuapp.com/api/v1/housing/";
+
+
+
   title: string = 'AGM project';
   latitude: number;
   longitude: number;
@@ -43,11 +48,27 @@ export class HousingregistrationComponent implements OnInit {
     {value: 'bedsitters-1', viewValue: 'Bedsitters'},
 
   ];
+  url = '';
+  onSelectFile(event) {
+    if (event.target.files && event.target.files[0]) {
+      var reader = new FileReader();
 
-  constructor(private _formBuilder: FormBuilder, private mapsAPILoader: MapsAPILoader,
+      reader.readAsDataURL(event.target.files[0]); // read file as data url
+
+
+    }
+  }
+
+  constructor(private httpClient: HttpClient, private _formBuilder: FormBuilder, private mapsAPILoader: MapsAPILoader,
     private ngZone: NgZone) { }
 
   ngOnInit() {
+    this.formGroup2 = this._formBuilder.group({
+      name: [''],
+      description: [''],
+      city: ['']
+    });
+
     this.mapsAPILoader.load().then(() => {
       this.setCurrentLocation();
       this.geoCoder = new google.maps.Geocoder;
@@ -122,6 +143,16 @@ export class HousingregistrationComponent implements OnInit {
       }
 
     });
+  }
+  onSubmit() {
+    const formData = new FormData();
+    formData.append('text', this.formGroup2.get('name').value);
+    formData.append('text', this.formGroup2.get('description').value);
+    formData.append('text', this.formGroup2.get('city').value);
+    this.httpClient.post<any>(this.SERVER_URL, formData).subscribe(
+      (res) => console.log(res),
+      (err) => console.log(err)
+    );
   }
 
 }

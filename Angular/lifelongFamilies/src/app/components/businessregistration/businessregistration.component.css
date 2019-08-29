@@ -56,3 +56,12 @@ agm-map {
     width: 800px;
     margin-left: 200px;
 }
+.serviceDisplayPhoto{
+  margin-top: 50px;
+  margin-left: 100px;
+}
+.chooseButton{
+  margin-top: 300px;
+  padding: 10px;
+  background: orange;
+}

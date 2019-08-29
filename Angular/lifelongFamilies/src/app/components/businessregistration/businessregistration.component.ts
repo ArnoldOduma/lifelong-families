@@ -1,6 +1,7 @@
 import { Component, OnInit , ViewChild, ElementRef, NgZone } from '@angular/core';
 import {Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { MapsAPILoader, MouseEvent } from '@agm/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-businessregistration',
@@ -8,6 +9,7 @@ import { MapsAPILoader, MouseEvent } from '@agm/core';
   styleUrls: ['./businessregistration.component.css']
 })
 export class BusinessregistrationComponent implements OnInit {
+
   title: string = 'AGM project';
   latitude: number;
   longitude: number;
@@ -33,7 +35,21 @@ export class BusinessregistrationComponent implements OnInit {
   @ViewChild('search')
   public searchElementRef: ElementRef;
 
-  constructor(private _formBuilder: FormBuilder, private mapsAPILoader: MapsAPILoader, private ngZone: NgZone) { }
+
+  url = '';
+  onSelectFile(event) {
+    if (event.target.files && event.target.files[0]) {
+      var reader = new FileReader();
+
+      reader.readAsDataURL(event.target.files[0]); // read file as data url
+
+
+    }
+  }
+
+  constructor(private _formBuilder: FormBuilder, private mapsAPILoader: MapsAPILoader, private ngZone: NgZone, private http:HttpClient) {
+
+   }
 
   ngOnInit() {
     this.mapsAPILoader.load().then(() => {
@@ -65,11 +81,10 @@ export class BusinessregistrationComponent implements OnInit {
         firstCtrl: ['', Validators.required],
         secondCtrl: ['', Validators.required],
         thirdCtrl: ['', Validators.required],
-        fourCtrl: ['', Validators.required],
+
       });
       this.formGroup2 = this._formBuilder.group({
         fiveCtrl: ['', Validators.required],
-        sixCtrl: ['', Validators.required],
         sevenCtrl: ['', Validators.required],
         eightCtrl: ['', Validators.required],
       });
@@ -112,5 +127,6 @@ export class BusinessregistrationComponent implements OnInit {
 
     });
   }
+
 
 }
