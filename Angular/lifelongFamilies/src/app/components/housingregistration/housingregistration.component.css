@@ -80,3 +80,21 @@ agm-map {
 #listingP{
   margin-top: 10px;
 }
+.uploadHousing{
+  font-size: 14px;
+  height: 30px;
+  width: 100px;
+  background-color: orange;
+  border-radius: 5px;
+  margin-top: 25px;
+  margin-left: 400px;
+}
+.submitHousing{
+  font-size: 14px;
+  height: 70px;
+  width: 100px;
+  background-color: orange;
+  border-radius: 5px;
+  margin-top: 25px;
+  margin-left: 550px;
+}
