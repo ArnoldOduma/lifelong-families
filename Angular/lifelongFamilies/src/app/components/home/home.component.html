@@ -22,45 +22,46 @@
     <div class="categories-slideshow">
       <h3>Businesses</h3>
       <div class="carousel" data-flickity="{ &quot;autoPlay&quot;: true }">
-        <div class="carousel-cell">Arnolc</div>
-        <div class="carousel-cell">fgh</div>
-        <div class="carousel-cell">fgh</div>
-        <div class="carousel-cell">fgh</div>
-        <div class="carousel-cell">fgh</div>
+        <div class="carousel-cell">
+          <img src="" alt="" srcset="">
+          <i class="fas fa-hotel"></i>
+          <p>Hotels</p>
+        </div>
+        <div class="carousel-cell">
+          <i class="fas fa-home"></i>
+          <p>Housing</p>
+        </div>
+        <div class="carousel-cell">
+            <i class="fas fa-shopping-bag"></i>
+          <p>Shoping</p>
+        </div>
+        <div class="carousel-cell">
+            <i class="fas fa-user-tie"></i>
+          <p>Professional services</p>
+        </div>
+        <div class="carousel-cell">
+            <i class="fas fa-wine-bottle"></i>
+          <p>Bars</p>
+        </div>
       </div>
     </div>
 
-
-    <div class="near-you">
+    <!-- *ngIf="Housing.length != 0 -->
+    <div class="near-you" >
       <h3>Popular Businesses near you</h3>
 
-      <div>
-        <img src="" alt="img">
-        <h4>Neil's Barber shop</h4>
+      <div *ngFor="let house of Housing">
+        <img src="{{house.image}}" alt="img">
+        <h4>{{house.name}}</h4>
         <p>Rating</p>
-        <p>Open</p>
-      </div>
-      <div>
-        <img src="" alt="img">
-        <h4>Neil's Barber shop</h4>
-
-      </div>
-      <div>
-        <img src="" alt="img">
-        <h4>Neil's Barber shop</h4>
-
-      </div>
-      <div>
-        <img src="" alt="img">
-        <h4>Neil's Barber shop</h4>
-
+        <p></p>
       </div>
       <hr style="width: 100%;border: none;">
       <br>
       <button type="button" name="button" class="btn">See more</button>
     </div>
 
-    
+
     <div class="search-category">
       <h3>Search by category</h3>
       <div><p>Retailer</p></div>
