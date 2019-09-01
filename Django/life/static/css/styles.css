@@ -1,0 +1,15 @@
+body{
+    background-color: wheat;
+}
+li {
+    display: inline;
+}
+ul{
+    margin-top: 1em;
+}
+card-body{
+    opacity: 0.1;
+}
+img {
+    height: 10rem;
+}

@@ -3,38 +3,30 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "lifelongFamilies": {
+    "lifelong-Families": {
+      "projectType": "application",
+      "schematics": {},
       "root": "",
       "sourceRoot": "src",
-      "projectType": "application",
       "prefix": "app",
-      "schematics": {},
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/lifelongFamilies",
+            "outputPath": "dist/lifelong-Families",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
-            "tsConfig": "src/tsconfig.app.json",
+            "tsConfig": "tsconfig.app.json",
+            "aot": false,
             "assets": [
               "src/favicon.ico",
-              "src/assets",
-              "src/assets/images/electrician.jpg",
-              "src/assets/images/electrician.png",
-              "src/assets/images/LIFELONGLOGO.png"
+              "src/assets"
             ],
             "styles": [
-              "src/styles.css",
-              "src/assets/css/flickity.css"
+              "src/styles.css"
             ],
-            "scripts": [
-              "src/assets/js/script.js",
-              "src/assets/js/slider.js",
-              "src/assets/js/jquery-3.4.1.js","jssor.slider.min.js"
-            ],
-            "es5BrowserSupport": true
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -58,6 +50,11 @@
                   "type": "initial",
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
                 }
               ]
             }
@@ -66,18 +63,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "lifelongFamilies:build"
+            "browserTarget": "lifelong-Families:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "lifelongFamilies:build:production"
+              "browserTarget": "lifelong-Families:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "lifelongFamilies:build"
+            "browserTarget": "lifelong-Families:build"
           }
         },
         "test": {
@@ -85,60 +82,44 @@
           "options": {
             "main": "src/test.ts",
             "polyfills": "src/polyfills.ts",
-            "tsConfig": "src/tsconfig.spec.json",
-            "karmaConfig": "src/karma.conf.js",
-            "styles": [
-              "src/styles.css"
-            ],
-            "scripts": [],
+            "tsConfig": "tsconfig.spec.json",
+            "karmaConfig": "karma.conf.js",
             "assets": [
               "src/favicon.ico",
               "src/assets"
-            ]
+            ],
+            "styles": [
+              "src/styles.css"
+            ],
+            "scripts": []
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "src/tsconfig.app.json",
-              "src/tsconfig.spec.json"
+              "tsconfig.app.json",
+              "tsconfig.spec.json",
+              "e2e/tsconfig.json"
             ],
             "exclude": [
               "**/node_modules/**"
             ]
           }
-        }
-      }
-    },
-    "lifelongFamilies-e2e": {
-      "root": "e2e/",
-      "projectType": "application",
-      "prefix": "",
-      "architect": {
+        },
         "e2e": {
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "lifelongFamilies:serve"
+            "devServerTarget": "lifelong-Families:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "lifelongFamilies:serve:production"
+              "devServerTarget": "lifelong-Families:serve:production"
             }
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": "e2e/tsconfig.e2e.json",
-            "exclude": [
-              "**/node_modules/**"
-            ]
           }
         }
       }
-    }
-  },
-  "defaultProject": "lifelongFamilies"
+    }},
+  "defaultProject": "lifelong-Families"
 }
