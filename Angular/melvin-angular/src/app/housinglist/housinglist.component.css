@@ -1,0 +1,57 @@
+mat-vertical-stepper{
+  margin-left: 350px;
+  border-color: orange;
+}
+.housingOne{
+  width: 400px;
+}
+.next{
+  margin-top: 20px;
+  margin-left: 30px;
+  background-color: orange;
+}
+.md-adults{
+  width: 100px;
+  height: 100px;
+}
+.housingTwoOne{
+  width: 750px;
+}
+.housingTwoTwo {
+  width: 300px;
+}
+.housingTwoThree {
+  margin-left: 150px;
+  width: 300px;
+}
+.finish{
+  margin-top: 20px;
+  background-color: orange;
+}
+.housingFrameMedia {
+  border-style: ridge;
+  height: 300px;
+  width: 700px;
+  border-radius: 5px;
+  border-color: orange;
+}
+.back{
+  margin-top: 20px;
+  margin-left: 600px;
+  background-color: orange;
+}
+#nextThree{
+  margin-top: 20px;
+  margin-left: 20px;
+  background-color: orange;
+}
+#backThree{
+  margin-top: 20px;
+  margin-left: 550px;
+  background-color: orange;
+}
+#nextOne{
+  margin-top: 20px;
+  margin-left: 330px;
+  background-color: orange;
+}

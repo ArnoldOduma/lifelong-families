@@ -1,0 +1,34 @@
+{% extends 'base.html'%}
+{% load bootstrap3 %}
+{% load static%}
+{% block content%}
+<body>
+    <div class="row">
+            <button class="btn btn-outline-primary enterhoodbtn navigation"> <a href="{% url 'addhousing' %}">ADD</a></button>
+       {% for bs in business %}
+        <ul>
+            <li>
+               
+               <div class="card" style="width: 18rem; height: 20rem;">
+                 <img  style="height: 10rem;"class="card-img-top" src="{{bs.image}}" alt="Card image cap">
+                 <div class="card-body">
+                   <h5 class="card-title">{{bs.name}}</h5>
+                   <p class="card-text">{{bs.description}}</p>
+                   <iframe src="{{ bs.location.url}}" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                 </div>
+                 <div class="footer">
+                     <div style="margin-left: 1em;">
+                     <!--<button class="btn btn-primary"><a href="/neighbourhood/{{hood.id}}"><strong>Explore</strong></a></button>-->
+   
+                         <button class="btn btn-outline-primary enterhoodbtn navigation"> <a href="{% url 'services' %}">Services</a></button>
+                         <button class="btn btn-outline-primary enterhoodbtn navigation"> <a href="{% url 'housing' %}">Housing</a></button>
+
+                     </div>
+                 </div>
+               </div>
+            </li>
+        </ul>
+       {% endfor %}
+    </div>
+   </body>
+   {% endblock %}

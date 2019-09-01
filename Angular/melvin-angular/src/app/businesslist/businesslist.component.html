@@ -1,0 +1,82 @@
+<mat-vertical-stepper linear>
+  <mat-step [stepControl]="formGroup1">
+    <ng-template matStepLabel>Business Details</ng-template>
+    <h3>Business Details</h3>
+    <form [formGroup]="formGroup1">
+      <mat-form-field class="businessOne">
+        <input matInput placeholder="Business Name" formControlName="firstCtrl" required>
+      </mat-form-field><br>
+
+      <mat-form-field class="businessOne">
+        <input matInput placeholder="Business Type" formControlName="secondCtrl" required>
+      </mat-form-field><br>
+
+      <mat-form-field class="businessOne">
+        <input matInput placeholder="Contact Phone Number" formControlName="thirdCtrl" required>
+      </mat-form-field><br>
+
+      <mat-form-field class="businessOne">
+        <input matInput placeholder="Url of the current site" formControlName="fourCtrl" required>
+      </mat-form-field>
+
+    </form>
+    <div>
+      <button id = "nextOne" mat-button matStepperNext>Next</button>
+    </div>
+  </mat-step>
+  <mat-step [stepControl]="formGroup2">
+    <ng-template matStepLabel>Business Location</ng-template>
+    <h3>Business location</h3>
+    <form [formGroup]="formGroup2">
+      <mat-form-field class="businessTwoOne">
+        <input  matInput placeholder="Business location" formControlName="fiveCtrl" required>
+      </mat-form-field> <br>
+
+      <mat-form-field class="businessTwoOne">
+        <input matInput placeholder="Street Address" formControlName="sixCtrl" required>
+      </mat-form-field><br>
+
+      <mat-form-field class="businessTwoOne">
+        <input matInput placeholder="City" formControlName="sevenCtrl" required>
+      </mat-form-field><br>
+
+      <mat-form-field class="businessTwoOne">
+        <input matInput placeholder="Postal Code" formControlName="eightCtrl" required>
+      </mat-form-field><br>
+
+
+      <div>
+        <button class = "back" mat-button matStepperPrevious>Back</button>
+        <button class = "next" mat-button matStepperNext>Next</button>
+      </div>
+
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="formGroup3">
+    <ng-template matStepLabel>Media</ng-template>
+    <h3>Media</h3>
+    <p>Listing Quality: Good quality listings are shown higher in search results and get more leads. </p>
+    <div class="businessFrameMedia">
+      <form [formGroup]="formGroup3">
+        <mat-form-field class="businessThreeOne">
+          <input matInput placeholder="Type of listing" formControlName="tenCtrl" required>
+        </mat-form-field><br>
+      </form>
+    </div>
+    <div>
+      <button id = "backThree" mat-button matStepperPrevious>Back</button>
+      <button id = "nextThree" mat-button matStepperNext>Next</button>
+    </div>
+  </mat-step>
+</mat-vertical-stepper>
+
+//colour.
+//positioning.
+//image
+//logo
+//map
+//verification
+
+//styling.
+//logo
+//coloring
