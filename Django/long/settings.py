@@ -66,15 +66,19 @@ INSTALLED_APPS = [
     'bootstrap3',
     'multiupload',
     'tinymce',
+    'django_filters',
     'rest_framework',
+    'rest_framework_gis',
     'star_ratings',
     'pyuploadcare.dj',
-    'django.contrib.gis'
+    'django.contrib.gis',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -82,6 +86,9 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
+
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_CREDENTIALS= True
 
 ROOT_URLCONF = 'long.urls'
 STAR_RATINGS_RERATE = False

@@ -10,13 +10,18 @@ from rest_framework.response import Response
 from rest_framework.views import status
 from rest_framework_jwt.settings import api_settings
 from rest_framework import permissions
-
-
+from django_filters.rest_framework import DjangoFilterBackend
+# from rest_framework_gis.filters import Filter
+from rest_framework_gis.filters import InBBoxFilter
 
 class ServicesViewSet(viewsets.ModelViewSet):
 
     queryset = Services.objects.all()
     serializer_class = ServicesSerialiser
+    filter_backends = [InBBoxFilter,DjangoFilterBackend]
+    bbox_filter_field = 'location'
+    bbox_filter_include_overlapping = True
+    filterset_fields = ['id','category','city']
     permission_classes = (permissions.AllowAny,)
 
     
@@ -31,7 +36,13 @@ class ServicesViewSet(viewsets.ModelViewSet):
                 },
                 status=status.HTTP_404_NOT_FOUND
             )
-            
+    def post(self,request):
+        serializer = ServicesSerialiser(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
     def put(self, request, *args, **kwargs):
         try:
             a_request = self.queryset.get(pk=kwargs["pk"])
@@ -63,6 +74,10 @@ class BusinessViewSet(viewsets.ModelViewSet):
 
     queryset = Business.objects.all()
     serializer_class = BusinessSerialiser
+    filter_backends = [InBBoxFilter,DjangoFilterBackend]
+    bbox_filter_field = 'location'
+    bbox_filter_include_overlapping = True
+    filterset_fields = ['id','category','city']
     permission_classes = (permissions.AllowAny,)
     def get(self, request, *args, **kwargs):
         try:
@@ -75,7 +90,12 @@ class BusinessViewSet(viewsets.ModelViewSet):
                 },
                 status=status.HTTP_404_NOT_FOUND
             )
-            
+    def post(self,request):
+        serializer = BusinessSerialiser(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     def put(self, request, *args, **kwargs):
         try:
             a_request = self.queryset.get(pk=kwargs["pk"])
@@ -107,6 +127,10 @@ class HousingViewSet(viewsets.ModelViewSet):
 
     queryset = Housing.objects.all()
     serializer_class = HousingSerialiser
+    filter_backends = [InBBoxFilter,DjangoFilterBackend]
+    bbox_filter_field = 'location'
+    bbox_filter_include_overlapping = True
+    filterset_fields = ['id','category','city']
     permission_classes = (permissions.AllowAny,)
     def get(self, request, *args, **kwargs):
         try:
@@ -119,7 +143,12 @@ class HousingViewSet(viewsets.ModelViewSet):
                 },
                 status=status.HTTP_404_NOT_FOUND
             )
-            
+    def post(self,request):
+        serializer = HousingSerialiser(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     def put(self, request, *args, **kwargs):
         try:
             a_request = self.queryset.get(pk=kwargs["pk"])

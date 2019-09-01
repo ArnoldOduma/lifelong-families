@@ -1,0 +1,88 @@
+input {
+  outline: 0;
+  border-width: 0 0 2px;
+  border-color: orange;
+  width: 700px;
+  margin-left: -250px;
+}
+input:focus {
+  border-color: black;
+}
+::placeholder {
+  color: black;
+  opacity: 1;
+  font-size: 22px;
+}
+.loginHeader{
+  color: orange;
+  margin-top: 250px;
+  margin-left: -250px;
+}
+.userNameLogin{
+  margin-top: 50px;
+}
+.passwordLogin{
+  margin-top: 50px;
+}
+.checkbox{
+  font-size: 20px;
+  margin-top: 20px;
+}
+#fPassord{
+  margin-top: 30px;
+  font-size: 22px;
+  color: orange;
+  margin-left: -250px;
+}
+.loginButton{
+  background-color: orange;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 24px;
+  border-radius: 5px;
+  margin: 4px 2px;
+  cursor: pointer;
+  width: 500px;
+  margin-top: 50px;
+  margin-left: -250px;
+
+}
+.vl {
+  border-left: 2px solid grey;
+  height: 500px;
+  margin-top: -400px;
+  margin-left:500px;
+
+}
+.signUpHeader{
+  color: orange;
+  margin-top: -500px;
+  margin-left: 650px;
+}
+#createAccountText{
+  font-size: 22px;
+  color: black;
+  margin-left: 650px;
+  margin-top: 50px;
+}
+.createAnAccountButton{
+  background-color: orange;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 24px;
+  border-radius: 5px;
+  margin: 4px 2px;
+  cursor: pointer;
+  width: 500px;
+  margin-top: 190px;
+  margin-left: 650px;
+
+}

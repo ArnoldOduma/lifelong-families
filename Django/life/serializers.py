@@ -1,12 +1,18 @@
 from rest_framework import serializers
 from .models import Services,Business,Housing
+from django.contrib.gis.db import models
+import django_filters
+from rest_framework_gis.serializers import GeoFeatureModelSerializer
 
 class BusinessSerialiser(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Business
-        fields = ('name','location','image','image1','image2','image3','image4','image5','address','city','contact','description','category','verified')
+        geo_field = "location"
+        fields = ('id','owner_name','name','location','image','image1','image2','image3','image4','image5','address','city','contact','description','category','verified')
         
     def update(self, instance, validated_data):
+        instance.id = validated_data.get("id",instance.id)
+        instance.owner_name = validated_data.get("owner_name",instance.owner_name)
         instance.name = validated_data.get("name", instance.name)
         instance.location = validated_data.get("location", instance.location)
         instance.image = validated_data.get("image", instance.image)
@@ -23,12 +29,16 @@ class BusinessSerialiser(serializers.HyperlinkedModelSerializer):
         instance.verified = validated_data.get("verified", instance.verified)
         instance.save()
         return instance
+
 class ServicesSerialiser(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Services
-        fields = ('name','location','address','image','image1','image2','image3','image4','image5','city','category','price','description','contact','available','verified')
+        geo_field = "location"
+        fields = ('id','owner_name','name','location','address','image','image1','image2','image3','image4','image5','city','category','price','description','contact','available','verified')
 
     def update(self, instance, validated_data):
+        instance.id = validated_data.get("id",instance.id)
+        instance.owner_name = validated_data.get("owner_name",instance.owner_name)
         instance.name = validated_data.get("name", instance.name)
         instance.location = validated_data.get("location", instance.location)
         instance.address = validated_data.get("address", instance.address)
@@ -47,13 +57,17 @@ class ServicesSerialiser(serializers.HyperlinkedModelSerializer):
         instance.verified = validated_data.get("verified", instance.verified)
         instance.save()
         return instance
-    
+
+            
 class HousingSerialiser(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Housing
-        fields = ('name','image','image1','image2','image3','image4','image5','location','address','city','contact','description','verified')
+        geo_field = "location"
+        fields = ('id','owner_name','location','name','image','image1','image2','image3','image4','image5','address','city','contact','description','verified')
         
     def update(self, instance, validated_data):
+        instance.id = validated_data.get("id",instance.id)
+        instance.owner_name = validated_data.get("owner_name",instance.owner_name)
         instance.name = validated_data.get("name", instance.name)
         instance.image = validated_data.get("image", instance.image)
         instance.image1 = validated_data.get("image1", instance.image1)
@@ -69,7 +83,8 @@ class HousingSerialiser(serializers.HyperlinkedModelSerializer):
         instance.verified = validated_data.get("verified", instance.verified) 
         instance.save()
         return instance
-    
+
+        
 class TokenSerializer(serializers.Serializer):
     """
     This serializer serializes the token data

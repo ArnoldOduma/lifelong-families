@@ -5,9 +5,6 @@ import { AppComponent } from '../app.component';
 import { SearchComponent } from '../components/search/search.component';
 import { HomeComponent } from '../components/home/home.component';
 import { Error404Component } from '../components/error404/error404.component';
-import { ServicesService } from '../services/services.service';
-import { HousingService } from '../services/housing.service';
-import { BusinessService } from '../services/business.service';
 
 const appRoutes: Routes = [
   {path: 'home',
@@ -21,9 +18,7 @@ const appRoutes: Routes = [
 ];
 
 @NgModule({
-  declarations: [
-    HomeComponent
-  ],
+  declarations: [],
   imports: [
   
   RouterModule.forRoot(appRoutes,
@@ -31,8 +26,6 @@ const appRoutes: Routes = [
     ),
     CommonModule
   ],
-  providers: [BusinessService, ServicesService,HousingService],
-  bootstrap: [HomeComponent],
   exports: [RouterModule]
 })
 export class RoutingModule { }
