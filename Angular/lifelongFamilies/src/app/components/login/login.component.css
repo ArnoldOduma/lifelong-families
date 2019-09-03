@@ -1,0 +1,31 @@
+/* .signup-form{
+  /* background: red;
+  display: block;
+  width: 100vw;
+  min-height: 100vh;
+  position: fixed;
+  top: 0px ;
+  left: 0px;
+  background: red;
+} */
+@media only screen and (min-width: 700px){
+  .container{
+    width : 600px;
+  }
+}
+*{
+  border: none;
+}
+input{
+  border-bottom: 2px solid orange;
+  outline: none;
+  border-radius: 0px;
+}
+
+#basic-addon1{
+
+  /* background: rgba(255, 153, 0); */
+  background: none;
+  color: blue;
+}
+

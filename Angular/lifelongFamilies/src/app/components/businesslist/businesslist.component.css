@@ -1,0 +1,54 @@
+mat-vertical-stepper{
+  /* margin-left: 350px; */
+  border-color: orange;
+  background: rgb(153, 153, 153);
+}
+.businessOne{
+  width: 400px;
+}
+#nextOne{
+  margin-top: 20px;
+  margin-left: 330px;
+  background-color: orange;
+}
+.next{
+  margin-top: 20px;
+  margin-left: 30px;
+  background-color: orange;
+}
+.back{
+  margin-top: 20px;
+  margin-left: 250px;
+  background-color: orange;
+}
+.md-adults{
+  width: 100px;
+  height: 100px;
+}
+.businessTwoOne{
+  width: 400px;
+}
+.businessTwoTwo {
+  width: 300px;
+}
+.businessTwoThree {
+  margin-left: 150px;
+  width: 300px;
+}
+.businessFrameMedia {
+  border-style: ridge;
+  height: 300px;
+  width: 640px;
+  border-radius: 5px;
+  border-color: orange;
+}
+#nextThree{
+  margin-top: 20px;
+  margin-left: 20px;
+  background-color: orange;
+}
+#backThree{
+  margin-top: 20px;
+  margin-left: 500px;
+  background-color: orange;
+}

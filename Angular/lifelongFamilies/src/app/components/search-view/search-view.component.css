@@ -23,12 +23,7 @@
 .item-cont div{
   padding: 3px 5px;
 }
-*::after,
-*::before {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box
-}
+
 .filter-wrapper,
 .keyword-wrapper {
   display: flex;
@@ -65,8 +60,10 @@
 #keyword-button:hover {
   color: #ccc
 }
+
 .filter-select {
   width: 50%;
+  max-height: 400px;
   list-style: none;
   font-size: 1.1em;
   color: rgb(105, 105, 105);
@@ -83,35 +80,37 @@
 .filter-select-list img {
   margin-right: 30px;
   position: relative;
-}
-.tags {
-  font-size: 12px;
-  font-style: italic;
-  color: #c6c6c6;
-  margin-right: 10px;
-  position: relative;
-  top: -10px;
-}
-.filter-select-list:hover .tags {
-  color: #fff;
+  display: inline-block;
+  height: 100%;
+  background: blue;
 }
 .filter-select-list {
+  height: 50px;
   cursor: pointer;
   padding: 5px 10px;
+  transition: all 0.1s ease;
+  border-bottom: 1px solid rgb(212, 212, 212);
 }
-.artist-name {
+.detail-cont{
   display: inline-block;
   position: absolute;
+  transition: all 0.1s ease;
+
+}
+.detail-cont p{
+  line-height: 10px;
+}
+.detail-cont p i{
+  color: blue;
+}
+.filter-name {
+  text-transform: capitalize;
 }
 .filter-select-list:hover {
-  background:  #C0C0C0;
-  color: #fff
+  background:  rgb(255, 153, 0);
+  color: #fff;
 }
-.list-highlight,
-.list-highlight:hover {
-  background: rgb(55, 55, 55);
-  color: #fff
-}
+
 
 @media only screen and (min-width: 500px){
   .search-view{
@@ -162,6 +161,3 @@
     right: 3.5%
   }
 }
-
-
-

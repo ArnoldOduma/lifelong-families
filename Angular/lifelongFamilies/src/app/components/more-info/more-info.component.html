@@ -1,0 +1,26 @@
+<section class="info-container">
+  <div *ngIf=" moreInfoData.length < 1">
+    <h1>Loading...</h1>
+  </div>
+  <!-- *ngFor=" let data of moreInfoData" -->
+  <section *ngFor="let data of moreInfoData"  class="data-sec">
+    <h3>{{data.name}}</h3>
+    <div class="img-div">
+      <i *ngIf="data.verified === true" class="fas fa-check-circle verify"></i>
+      <img src="{{data.image}}" alt="" width="100%">
+    </div>
+    <div class="card right-desc">
+      <p>
+        <span> <i class="fas fa-map-marker-alt"></i> {{data.address}}</span> <br>
+        <span><i class="fas fa-map-marker-alt"></i> City: {{data.city}}</span> 
+      </p>
+      <p><i class="fas fa-phone-alt"></i> Contact: {{data.contact}}</p> 
+      <p><span class="description-header">Description</span><br>
+        {{data.description}}
+      </p> 
+    </div>
+  </section>
+
+
+
+</section>

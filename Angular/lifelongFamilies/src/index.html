@@ -1,49 +1,64 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <title>LifelongFamilies</title>
   <base href="/">
-
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/x-icon" href="./assets/images/log.png">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="./assets/css/flickity.css">
+
+  <link href="https://fonts.googleapis.com/css?family=Francois+One&display=swap" rel="stylesheet">
 
   <script src="https://kit.fontawesome.com/d9517b1093.js"></script>
   <script type="text/javascript" src="./assets/js/jquery-3.4.1.js"></script>
   <script type="text/javascript" src="./assets/js/script.js"></script>
   <script src="./assets/js/slider.js"></script>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+  <!-- Bootstrap core CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.8/css/mdb.min.css" rel="stylesheet">
+
+
   <!-- <script src="./assets/js/jssor.slider.min.js"></script> -->
 </head>
+
 <body>
-  <section class="main-loader" style="height: 100vh;transition: none; width:100vw;position: fixed;top:0px;background: white;z-index: 2000;"></section>
+  <section class="main-loader"
+    style="height: 100vh;transition: none; width:100vw;position: fixed;top:0px;background: white;z-index: 2000;">
+  </section>
   <section class="small">
     <p>Lifelong families</p>
     <div class="toggleNav" id="toggleNav">
-        <hr><hr><hr>
-      </div>
+      <hr>
+      <hr>
+      <hr>
+    </div>
   </section>
 
   <header id="header">
     <div class="logo-cont">
       <a href="/home"><img src="./assets/images/LIFELONGLOGO.png" alt="Logo" class="logo"></a>
-      
+
     </div>
-    
+
     <div class="log-sign-btn">
       <div>
-        <a href="">Register your business</a>
-        <a href="/home">Log In</a><span>|</span>
-        <a href="">Sign Up</a>
+        <a href="/list" style="display: none">Register your business</a>
+        <a href="login">Log In</a><span>|</span>
+        <a href="signup">Sign Up</a>
       </div>
     </div>
 
-    <div class="nav">
+    <div class="nav" style="display: none">
       <h3>Categories</h3>
       <ul>
         <li class="dropdown">
-          <button class="dropBtn">Businesses<i class="fas fa-caret-down"></i></button>
+          <a class="dropBtn">Businesses<i class="fas fa-caret-down"></i></a>
           <div class="dropContent">
             <a>1</a>
             <a href="">2</a>
@@ -51,7 +66,7 @@
           </div>
         </li>
         <li class="dropdown">
-          <button class="dropBtn">Professional Services<i class="fas fa-caret-down"></i></button>
+          <a class="dropBtn">Professional Services<i class="fas fa-caret-down"></i></a>
           <div class="dropContent">
             <a>1</a>
             <a href="">2</a>
@@ -59,15 +74,14 @@
           </div>
         </li>
         <li class="dropdown">
-        <button class="dropBtn">Housing<i class="fas fa-caret-down"></i></button>
-        <div class="dropContent">
-          <a>1</a>
-          <a href="">2</a>
-          <a href="">3</a>
-        </div>
-      </li>
+          <a class="dropBtn">Housing<i class="fas fa-caret-down"></i></a>
+          <div class="dropContent">
+            <a>1</a>
+            <a href="">2</a>
+            <a href="">3</a>
+          </div>
+        </li>
       </ul>
-      <a href=""></a>
     </div>
 
   </header>
@@ -85,22 +99,23 @@
     </section>
   </div>
 
+
   <app-root></app-root>
   <!-- <app-search-view></app-search-view> -->
-  <app-search></app-search>
+  <!-- <app-search></app-search> -->
   <!-- <router-outlet></router-outlet> -->
 
   <footer>
     ￼<ul>
       <h4>Business</h4>
-      <li> <a href="#">Businesses near you</a> </li>
+      <li> <a href="/">Businesses near you</a> </li>
       <li> <a href="#">New Businesses</a> </li>
-      <li> <a href="#">Post a Business</a> </li>
-      <li> <a href="#"></a> </li>
+      <li> <a href="/list">Post a Business</a> </li>
+      <li> <a href="login">Login</a> </li>
     </ul>
     <ul>
       <h4>Lifelong Families</h4>
-      <li> <a href="#">Register Your Business</a> </li>
+      <li> <a href="/list">Register Your Business</a> </li>
       <li> <a href="#">About us</a> </li>
       <li> <a href="#">Contact</a> </li>
       <li> <a href="#">Terms & privacy</a> </li>
@@ -115,8 +130,17 @@
       <li> <a href="#">Intagram</a> </li>
       <li> <a href="#">Linked In</a> </li>
     </ul>
-<a href="#">Copyrights&copy;LifelongFamilies|2019</a>
+    <a href="#">Copyrights&copy;LifelongFamilies|2019</a>
   </footer>
 
+   <!-- JQuery -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<!-- BootUnable to convert to python object: String input unrecognized as WKT EWKT, and HEXEWKB.strap core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.8/js/mdb.min.js"></script>
 </body>
+
 </html>

@@ -1,22 +1,27 @@
 <section class="land-page">
   <div class="back-img">
     <div></div>
-    <img src="assets/images/electrician.png" >
+    <img src="assets/images/electrician.png">
   </div>
   <div class="search">
-    <h2>Search businesses near you</h2>
+    <h2><i class="fa fa-search"></i> Search businesses near you </h2>
     <!-- <a href="">Businesses</a>
     <a href="">Professional services</a>
     <a href="">Housing</a> -->
-  <form class="search-form">
-    <div>
-      <input type="text" placeholder="Find  ">
-      <input type="text" placeholder="Near ">
-    </div>
-    <input type="submit" placeholder="Search">
-  </form>
-</div>
+    <form class="search-form">
+      <div>
+        <input type="text" [formControl]="homeSearchField" placeholder="Find  ">
+        <input type="text" placeholder="Near " [formControl]="nearSearchField">
+      </div>
+      <input type="submit" routerLink="/search/{{homeSearchField.value}}/{{nearSearchField.value}}" value="Search">
+      <ul class="filter">
+      <li *ngFor="let search of SearchArray"  (click)="appendData(search.category)">{{search.category}}
+      </li>
+    </ul>
+    </form>
 
+  </div>
+<!-- routerLink="/info/{{search.id}}/housing" -->
 
   <section>
     <div class="categories-slideshow">
@@ -32,29 +37,82 @@
           <p>Housing</p>
         </div>
         <div class="carousel-cell">
-            <i class="fas fa-shopping-bag"></i>
+          <i class="fas fa-shopping-bag"></i>
           <p>Shoping</p>
         </div>
         <div class="carousel-cell">
-            <i class="fas fa-user-tie"></i>
+          <i class="fas fa-user-tie"></i>
           <p>Professional services</p>
         </div>
         <div class="carousel-cell">
-            <i class="fas fa-wine-bottle"></i>
+          <i class="fas fa-wine-bottle"></i>
           <p>Bars</p>
         </div>
       </div>
     </div>
 
     <!-- *ngIf="Housing.length != 0 -->
-    <div class="near-you" >
+    <div class="near-you">
       <h3>Popular Businesses near you</h3>
 
-      <div *ngFor="let house of Housing">
+      <div *ngFor="let house of BusinessNear">
+        <i *ngIf="house.verified" class="fas fa-check-circle verify"></i>
         <img src="{{house.image}}" alt="img">
-        <h4>{{house.name}}</h4>
-        <p>Rating</p>
-        <p></p>
+        <div class="detail">
+          <h4>{{house.name}}</h4>
+          <p>
+            <i  class="fas fa-map-marker-alt"></i> {{house.city}}<br>
+            <i  class="fas fa-info"></i>
+             {{house.description | slice:0:30}}...<br>
+            <i class="fas fa-layer-group"></i>
+             {{house.category}}
+          </p>
+          <p class="view" routerLink="/info/{{house.id}}/business" > view</p>
+        </div>
+      </div>
+      <hr style="width: 100%;border: none;">
+      <br>
+      <button type="button" name="button" class="btn">See more</button>
+    </div>
+
+    <div class="near-you">
+      <h3>Housing near you</h3>
+      <div *ngFor="let house of HousingNear">
+        <i *ngIf="house.verified" class="fas fa-check-circle verify"></i>
+        <img src="{{house.image}}" alt="img">
+        <div class="detail">
+          <h4>{{house.name}}</h4>
+          <p>
+            <i  class="fas fa-map-marker-alt"></i> {{house.city}}<br>
+            <i  class="fas fa-info"></i>
+             {{house.description | slice:0:30}}...<br>
+            <i class="fas fa-layer-group"></i>
+             {{house.category}}
+          </p>
+          <p class="view" routerLink="/info/{{house.id}}/housing" > view</p>
+        </div>
+      </div>
+      <hr style="width: 100%;border: none;">
+      <br>
+      <button type="button" name="button" class="btn">See more</button>
+    </div>
+
+    <div class="near-you">
+      <h3>Services near you</h3>
+      <div *ngFor="let item of ServicesNear">
+        <i *ngIf="item.verified" class="fas fa-check-circle verify"></i>
+        <img src="{{item.image}}" alt="img">
+        <div class="detail">
+          <h4>{{item.name}}</h4>
+          <p>
+            <i  class="fas fa-map-marker-alt"></i> {{item.city}}<br>
+            <i  class="fas fa-info"></i>
+             {{item.description | slice:0:30}}...<br>
+            <i class="fas fa-layer-group"></i>
+             {{item.category}}
+          </p>
+          <p class="view" routerLink="/info/{{item.id}}/services" > view</p>
+        </div>
       </div>
       <hr style="width: 100%;border: none;">
       <br>
@@ -64,22 +122,32 @@
 
     <div class="search-category">
       <h3>Search by category</h3>
-      <div><p>Retailer</p></div>
-      <div><p>Health Practitioner</p></div>
-      <div><p>Distributor (Finished Goods)</p></div>
-      <div><p>Food Service</p></div>
-      <div><p>Supplier/Raw Ingredient Distributor</p></div>
-      <div><p>Manufacturer</p></div>
-      <div><p>Business Services</p></div>
-      <div><p>Investor</p></div>
+      <div><i class="fas fa-shopping-basket"></i><br>
+        <p>Retailer</p>
+      </div>
+      <div><i class="fas fa-syringe"></i><br>
+        <p>Health</p>
+      </div>
+      <div><i class="fas fa-truck-moving"></i><br>
+        <p>Distributor (Finished Goods)</p>
+      </div>
+      <div><i class="fas fa-utensils"></i><br>
+        <p>Food Service</p>
+      </div>
+      <div><i class="fas fa-industry"></i><br>
+        <p>Manufacturer</p>
+      </div>
+      <div><i class="fas fa-business-time"></i><br>
+        <p>Investor</p>
+      </div>
     </div>
   </section>
 
   <section class="advertise">
     <h4>ADVERTISE WITH US</h4>
     <p>We have a vast range of favourable packages, services and advertisement
-opportunities for various businesses, real estate and professional services providers. </p>
-    <button class="btn">Find out more</button>
+      opportunities for various businesses, real estate and professional services providers. </p>
+    <a href="/list" class="btn">Find out more</a>
   </section>
 
 </section>
@@ -93,4 +161,3 @@ opportunities for various businesses, real estate and professional services prov
     <div class="gallery-cell"></div>
     <div class="gallery-cell"></div>
   </div> -->
-

@@ -4,8 +4,18 @@
 
 export const environment = {
   production: false,
-  secretKey: '7537a3edc5669f41e7cddbc865de2346b0c6ddca'
-};
+  secretKey: '7537a3edc5669f41e7cddbc865de2346b0c6ddca',
+  firebase: {
+    apiKey: "AIzaSyA1xJ5Xu-B88vb4pqVH_w62xMUL7dPcwVk",
+    authDomain: "lifelong-families.firebaseapp.com",
+    databaseURL: "https://lifelong-families.firebaseio.com",
+    projectId: "lifelong-families",
+    storageBucket: "",
+    messagingSenderId: "851284878964",
+    appId: "1:851284878964:web:482998678eabedb6"
+  }
+  }
+
 
 /*
  * For easier debugging in development mode, you can import the following file

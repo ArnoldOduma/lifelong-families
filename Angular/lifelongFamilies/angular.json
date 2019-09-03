@@ -32,7 +32,7 @@
             "scripts": [
               "src/assets/js/script.js",
               "src/assets/js/slider.js",
-              "src/assets/js/jquery-3.4.1.js","jssor.slider.min.js"
+              "src/assets/js/jquery-3.4.1.js"
             ],
             "es5BrowserSupport": true
           },
