@@ -1,0 +1,91 @@
+<!-- <div class="divHeader"></div>
+<div class="searchBar">
+  <input type="text" class="searchBarAdmin" placeholder="Search..">
+</div>
+<div class="adminImageOne">
+  <img class="adminImage" src="assets/img/realphotoadmin.png">
+</div>
+<button class="unverifiedCompanies" type="button">Unverified</button>
+<button class="verifiedCompanies" type="button">Verified</button>
+<h2>Dashboard</h2>
+<div class="boxInformation">
+  <h3 >List of Companies</h3>
+  <h4 id="companyHeader">Company</h4>
+  <hr id="adminHorizontalLine">
+  <p class="companyname">Moringa School</p>
+  <p class="companyname">Moringa School</p>
+  <p class="companyname">Moringa School</p>
+
+
+  <h4 id="stateHeader">State</h4>
+  <p class="companystatement">Unverified</p>
+  <p class="companystatement">Unverified</p>
+  <p class="companystatement">Unverified</p>
+  <p class="companystatement">Unverified</p>
+  <p class="companystatement">Unverified</p>
+  <p class="companystatement">Unverified</p>
+  <p class="companystatement">Unverified</p>
+  <div class="wrongImageOne">
+    <img class="wrongImage" src="assets/img/wrongicon.png">
+  </div>
+  <div class="wrongImageTwo">
+    <img class="wrongImage" src="assets/img/wrongicon.png">
+  </div>
+  <div class="wrongImageThree">
+    <img class="wrongImage" src="assets/img/wrongicon.png">
+  </div>
+  <div class="wrongImageFour">
+    <img class="wrongImage" src="assets/img/wrongicon.png">
+  </div>
+  <div class="wrongImageFive">
+    <img class="wrongImage" src="assets/img/wrongicon.png">
+  </div>
+  <div class="wrongImageSix">
+    <img class="wrongImage" src="assets/img/wrongicon.png">
+  </div>
+  <div class="wrongImageSeven">
+    <img class="wrongImage" src="assets/img/wrongicon.png">
+  </div>
+</div> -->
+
+
+<section class="admin-sec">
+  <div class="admin-nav">
+    <h3>Welcome Tony</h3>
+    <i class="fas fa-user"></i>
+  </div>
+
+  <section class="admin-content-sec">
+    <div class="left-admin">
+      <h4>Verify Businesses</h4>
+      <br><br>
+      <button (click)="verifiedState(true)">Verified</button>
+      <button (click)="verifiedState(false)">Unverified</button>
+    </div>
+    <div class="right-admin">
+
+      <div *ngIf="verified === true">
+        <h4>Verified Businesses</h4>
+        <div class="business-ver">
+          <p>Felix salon and barber
+            <span> <i class="fas fa-check-circle verify"></i></span> </p>
+        </div>
+        <div class="business-ver">
+          <p>Felix salon and barber <span> <i class="fas fa-check-circle verify"></i></span> </p>
+        </div>
+
+      </div>
+      <div *ngIf="verified === false" class="unver">
+        <h4>Unverified Businesses</h4>
+        <div class="business-ver">
+          <p>Crillic investments <span> <i class="fas fa-check-circle verify"></i></span> </p>
+        </div>
+        <div class="business-ver">
+          <p>Felix salon and barber <span> <i class="fas fa-check-circle verify"></i></span> </p>
+        </div>
+
+      </div>
+      <div class="business-ver">Verified</div>
+    </div>
+  </section>
+</section>

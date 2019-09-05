@@ -25,7 +25,11 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 // import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatCheckboxModule , MatStepperModule, MatIconModule, MatButtonModule, MatFormFieldModule, MatInputModule} from '@angular/material';
 import { SearchViewComponent } from './components/search-view/search-view.component';
+import { AdminComponent } from './components/admin/admin.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { AgmCoreModule } from '@agm/core';
 // import { AuthGuard } from './AuthGuard.component';
+import {ContentLoaderModule} from 'ngx-content-loader';
 
 @NgModule({
   declarations: [
@@ -37,10 +41,15 @@ import { SearchViewComponent } from './components/search-view/search-view.compon
     MoreInfoComponent,
     BusinesslistComponent,
     ListComponent,
-    SearchViewComponent
+    SearchViewComponent,
+    AdminComponent,
     // AuthGuar
   ],
   imports: [
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDjZRHFkkdjgY5-qoasdrDgwv60xpbyF0Y',
+      libraries: ['places']
+    }),
     BrowserModule,
     RoutingModule,
     AppRoutingModule,
@@ -58,7 +67,8 @@ import { SearchViewComponent } from './components/search-view/search-view.compon
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
 
   ],
   providers: [SearchService],

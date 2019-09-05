@@ -9,6 +9,8 @@ import { LoginComponent } from '../components/login/login.component';
 import { SignupComponent } from '../components/signup/signup.component';
 import { MoreInfoComponent } from '../components/more-info/more-info.component';
 import { ListComponent } from '../components/list/list.component';
+import { AdminComponent } from '../components/admin/admin.component';
+import { BusinesslistComponent } from '../components/businesslist/businesslist.component';
 // import { AuthGuard } from '../AuthGuard.component';
 
 const appRoutes: Routes = [
@@ -22,8 +24,10 @@ const appRoutes: Routes = [
   {path: 'signup', component: SignupComponent},
   {path: 'info/:id/:category', component: MoreInfoComponent},
   {path: 'list', component: ListComponent},
+  {path: 'businesslisting', component: BusinesslistComponent},
+  {path: 'admin', component: AdminComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
-  {path: '**', component: SearchViewComponent}
+  {path: '**', component: Error404Component}
 ];
 
 @NgModule({

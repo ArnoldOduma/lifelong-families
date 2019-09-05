@@ -1,14 +1,13 @@
 mat-vertical-stepper{
-  /* margin-left: 350px; */
+  margin-left: 350px;
   border-color: orange;
-  background: rgb(153, 153, 153);
 }
 .businessOne{
-  width: 400px;
+  width: 600px;
 }
 #nextOne{
   margin-top: 20px;
-  margin-left: 330px;
+  margin-left: 530px;
   background-color: orange;
 }
 .next{
@@ -18,7 +17,7 @@ mat-vertical-stepper{
 }
 .back{
   margin-top: 20px;
-  margin-left: 250px;
+  margin-left: 450px;
   background-color: orange;
 }
 .md-adults{
@@ -26,7 +25,7 @@ mat-vertical-stepper{
   height: 100px;
 }
 .businessTwoOne{
-  width: 400px;
+  width: 600px;
 }
 .businessTwoTwo {
   width: 300px;
@@ -51,4 +50,31 @@ mat-vertical-stepper{
   margin-top: 20px;
   margin-left: 500px;
   background-color: orange;
+}
+agm-map {
+    height: 300px;
+    width: 600px;
+    margin-left: 200px;
+}
+.serviceDisplayPhoto{
+  margin-top: 50px;
+  margin-left: 100px;
+}
+.chooseButton{
+  margin-top: 300px;
+  padding: 10px;
+
+}
+.submitBusiness{
+  width: 100px;
+padding: 10px;
+cursor: pointer;
+font-size: 15px;
+background: orange;
+border-radius: 5px;
+margin-left: 500px;
+
+}
+.submitA{
+  margin-top: 40px;
 }

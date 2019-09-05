@@ -1,0 +1,27 @@
+{
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "life long",
+      "installMode": "prefetch",
+      "resources": {
+        "files": [
+          "/assets/icons/log.png",
+          "/index.html",
+          "/*.css",
+          "/*.js"
+        ]
+      }
+    }, {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "resources": {
+        "files": [
+          "/assets/**",
+          "/*.(eot|svg|cur|jpg|png|webp|gif|otf|ttf|woff|woff2|ani)"
+        ]
+      }
+    }
+  ]
+}

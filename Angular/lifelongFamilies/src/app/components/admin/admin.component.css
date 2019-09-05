@@ -1,0 +1,210 @@
+.admin-sec{
+  margin-bottom: 15%;
+}
+.admin-nav{
+  background: blue;
+  position: relative;
+  min-height: 60px;
+  color: white;
+}
+.admin-nav h3{
+  padding: 10px;
+}
+.admin-nav i{
+  font-size: 30px;
+  color: white;
+  position: absolute;
+  top: 10px;
+  right: 2%;
+}
+.admin-content-sec{
+  min-height: 60vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 0 1%;
+  border-radius: 5px;
+  padding: 5px;
+  box-shadow: 0 0 5px #000;
+}
+.left-admin{
+  background: #f0f0f0;
+  padding: 10px;
+  width: 20%;
+  min-height: 200px;
+  text-align: center;
+}
+.left-admin>button{
+  background: none;
+  /* color: white; */
+  width: 100%;
+  margin: 2px 0;
+  border-bottom: 1px solid;
+}
+.left-admin>button:last-child{
+  border: none;
+}
+.right-admin{
+  padding: 10px;
+  background: #f0f0f0;
+  width: 75%;
+  min-height: 300px;
+}
+.right-admin h4{
+  padding: 0 10px;
+}
+.business-ver:nth-child(odd){
+  background: #fff;
+}
+.business-ver{
+  position: relative;
+
+  /* padding: 5px 0; */
+  /* font-size: 20px; */
+  margin: 0 5px;
+  padding-left: 10px;
+}
+.business-ver p{
+  padding: 5px 0;
+}
+.unver h4{
+  background: red;
+  padding: 5px;
+  color: white;
+}
+.verify{
+  font-size: 15px;
+  color: rgb(0, 0, 0);
+  z-index: 300;
+  display: block;
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  display: inline-table;
+  background: goldenrod;
+  border-radius: 5px;
+  padding: 4px 10px;
+  text-shadow: 0 0 10px #fff;
+  cursor: pointer;
+}
+/* .divHeader{
+  margin-top: -10px;
+  height: 90px;
+  background-color: #2980B9;
+  border-radius: 8px;
+}
+.adminImage{
+  width: 50px;
+  margin-left: 1320px;
+  margin-top: -150px;
+}
+.adminImageOne{
+  margin-top: -20px;
+}
+.searchBarAdmin{
+  margin-top: -70px;
+  margin-left: 500px;
+  width: 400px;
+  height: 30px;
+  border-radius: 5px;
+}
+.searchBar{
+  margin-top: -50px;
+}
+.verifiedCompanies {
+margin-top: 50px;
+margin-left: 50px;
+color: #fff !important;
+text-transform: uppercase;
+text-decoration: none;
+background: #2471A3;
+padding: 20px;
+border-radius: 5px;
+display: inline-block;
+border: none;
+transition: all 0.4s ease 0s;
+}
+.unverifiedCompanies {
+margin-top: 50px;
+margin-left: 950px;
+color: #2471A3 !important;
+text-transform: uppercase;
+text-decoration: none;
+background: white;
+padding: 20px;
+border-radius: 5px;
+display: inline-block;
+border: 2px solid #2471A3;
+transition: all 0.4s ease 0s;
+}
+h2{
+  margin-left: 450px;
+  font-size: 32px;
+  color: #2471A3;
+  font-weight: 100;
+  margin-top: -30px;
+}
+.boxInformation{
+  background-color: white;
+  height: 400px;
+  width: 700px;
+  margin-top: 60px;
+  border-radius: 15px;
+  margin-left: 350px;
+  box-shadow: 5px 10px #888888;
+}
+h3{
+  margin-left: 80px;
+  font-size: 23px;
+  font-weight: 100;
+}
+#stateHeader{
+  margin-left: 400px;
+  margin-top: -320px;
+  font-size: 20px;
+  font-weight: 100;
+}
+#companyHeader{
+  font-size: 20px;
+  margin-left: 80px;
+  font-weight: 100;
+}
+#adminHorizontalLine{
+  margin-top: -20px;
+  width: 600px;
+  margin-left: 5px;
+}
+.companyname{
+  margin-left: 70px;
+  font-size: 18px;
+}
+.companystatement{
+
+  margin-left: 390px;
+  font-size: 18px;
+}
+.wrongImageOne{
+  margin-top: -270px;
+}
+.wrongImage{
+  width: 20px;
+  margin-left: 600px;
+}
+.wrongImageTwo{
+  margin-top: 13px;
+}
+.wrongImageThree{
+  margin-top: 13px;
+}
+.wrongImageFour{
+  margin-top: 13px;
+}
+.wrongImageFive{
+  margin-top: 13px;
+}
+.wrongImageSix{
+  margin-top: 13px;
+}
+.wrongImageSeven{
+  margin-top: 13px;
+} */

@@ -56,7 +56,7 @@ export class SearchService {
     let response1 = this._http.get(this.baseURL + this.businessURL );
     let response2 = this._http.get(this.baseURL + this.housingURL);
     let response3 = this._http.get(this.baseURL + this.servicesURL);
-    return forkJoin([response1, response2, response3])
+    return forkJoin([response1,response2, response3])
     .pipe(
       retry(1),
       catchError(this.handleError)

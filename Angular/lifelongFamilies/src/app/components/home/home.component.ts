@@ -14,11 +14,11 @@ export class HomeComponent implements OnInit {
   Results: any = [];
   BusinessResults: any = [];
   ServicesResults: any = [];
+  HousingResults: any = [];
   homeSearchField: FormControl = new FormControl();
   nearSearchField: FormControl = new FormControl();
 
   BusinessNear: any[] = [];
-  HousingList: any = [];
   HousingNear: any[] = [];
   ServicesNear: any[] = [];
   SearchArray: any[] = [];
@@ -34,6 +34,7 @@ export class HomeComponent implements OnInit {
   loc: any;
   coordinates: any;
   public SpecificData: any;
+
 
   public getSpecific(id) {
     this.BusinessResults.forEach(element => {
@@ -52,7 +53,7 @@ export class HomeComponent implements OnInit {
   loadData() {
     return this._searchService.getAllSources().subscribe((data: {}) => {
       this.BusinessResults = data[0];
-      this.HousingList = data[1];
+      this.HousingResults = data[1];
       this.ServicesResults = data[2];
       data[0].forEach(element => {
         this.lat2 = element.location.coordinates[0];
@@ -63,7 +64,7 @@ export class HomeComponent implements OnInit {
           this.BusinessNear.push(element);
         }
       });
-      data[1].forEach(element => {
+      data[0].forEach(element => {
         this.lat2 = element.location.coordinates[0];
         this.lon2 = element.location.coordinates[1];
         this.distance(this.lat1, this.lon1, this.lat2, this.lon2);
@@ -72,7 +73,7 @@ export class HomeComponent implements OnInit {
           this.HousingNear.push(element);
         }
       });
-      data[2].forEach(element => {
+      data[1].forEach(element => {
         this.lat2 = element.location.coordinates[0];
         this.lon2 = element.location.coordinates[1];
         this.distance(this.lat1, this.lon1, this.lat2, this.lon2);
@@ -81,9 +82,7 @@ export class HomeComponent implements OnInit {
           this.ServicesNear.push(element);
         }
       });
-
     });
-
   }
 
   toRad(Value) {
@@ -116,6 +115,7 @@ export class HomeComponent implements OnInit {
             console.log(this.lat1);
           console.log(this.lon1);
           this.nearSearchField.setValue('Near You');
+          this.loadData();
 
         },
         error => {
@@ -137,21 +137,12 @@ export class HomeComponent implements OnInit {
     }
   }
 
-
-  ngOnInit() {
-    this.getLocation();
-    if (this.HousingNear.length < 1) {
-      this.loadData();
-    } else {
-      console.log(this.BusinessResults);
-    }
-
-    // this.calculateAppart();
-
+  searchResults() {
 
     this.homeSearchField.valueChanges
       .subscribe(result => {
         this.SearchArray = [];
+
         this.BusinessResults.forEach(element => {
           this.elName = element.category;
           this.lowerElName = this.elName.toLowerCase();
@@ -164,10 +155,59 @@ export class HomeComponent implements OnInit {
           // console.log(this.elName);
           console.log(result);
         });
+        this.ServicesResults.forEach(element => {
+          this.elName = element.category;
+          this.lowerElName = this.elName.toLowerCase();
+          this.elRes = result;
+          if (this.lowerElName.indexOf(result) != -1 || this.elName.indexOf(result) != -1) {
+            this.SearchArray.push(element);
+            console.log(this.lowerElName);
+          }
+          console.log(this.lowerElName);
+          // console.log(this.elName);
+          console.log(result);
+        });
+
+        this.HousingResults.forEach(element => {
+          this.elName = element.name;
+          this.lowerElName = this.elName.toLowerCase();
+          this.elRes = result;
+          if (this.lowerElName.indexOf(result) != -1 || this.elName.indexOf(result) != -1) {
+            this.SearchArray.push(element);
+            console.log('lower Housing res =>' + this.lowerElName);
+          }
+          console.log(this.lowerElName);
+          // console.log(this.elName);
+          console.log('Housing res =>' + this.lowerElName);
+        });
+
+
+        console.log('Service =>' + this.ServicesResults);
+        console.log('Housing =>' + this.HousingResults);
 
         console.log('search array =>' + this.SearchArray);
         console.log('bs array =>' + this.BusinessResults);
       });
+  }
+
+
+
+  ngOnInit() {
+    this.getLocation();
+    if (this.HousingNear.length < 1) {
+      this.loadData();
+    } else {
+      console.log(this.BusinessResults);
+    }
+    this.homeSearchField.valueChanges
+      .subscribe(result => {
+        // this.SearchArray = [];
+        this.searchResults();
+      });
+    // this.calculateAppart();
+
+
+
 
 
     // this.homeSearchField.valueChanges

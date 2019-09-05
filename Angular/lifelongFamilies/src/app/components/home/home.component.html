@@ -15,8 +15,9 @@
       </div>
       <input type="submit" routerLink="/search/{{homeSearchField.value}}/{{nearSearchField.value}}" value="Search">
       <ul class="filter">
-      <li *ngFor="let search of SearchArray"  (click)="appendData(search.category)">{{search.category}}
+      <li *ngFor="let search of SearchArray"  (click)="appendData(search.category)">{{search.category}} - {{search.name}}
       </li>
+      <!-- <h2 *ngFor="let i of SearchArray"></h2> -->
     </ul>
     </form>
 
@@ -52,10 +53,10 @@
     </div>
 
     <!-- *ngIf="Housing.length != 0 -->
-    <div class="near-you">
+    <div class="near-you" *ngIf="BusinessNear.length > 0">
       <h3>Popular Businesses near you</h3>
 
-      <div *ngFor="let house of BusinessNear">
+      <div *ngFor="let house of BusinessNear | slice:0:6">
         <i *ngIf="house.verified" class="fas fa-check-circle verify"></i>
         <img src="{{house.image}}" alt="img">
         <div class="detail">
@@ -72,12 +73,12 @@
       </div>
       <hr style="width: 100%;border: none;">
       <br>
-      <button type="button" name="button" class="btn">See more</button>
+      <!-- <button type="button" name="button" class="btn">See more</button> -->
     </div>
 
     <div class="near-you">
       <h3>Housing near you</h3>
-      <div *ngFor="let house of HousingNear">
+      <div *ngFor="let house of HousingNear  | slice:0:6">
         <i *ngIf="house.verified" class="fas fa-check-circle verify"></i>
         <img src="{{house.image}}" alt="img">
         <div class="detail">
@@ -94,12 +95,12 @@
       </div>
       <hr style="width: 100%;border: none;">
       <br>
-      <button type="button" name="button" class="btn">See more</button>
+      <!-- <button type="button" name="button" class="btn">See more</button> -->
     </div>
 
     <div class="near-you">
       <h3>Services near you</h3>
-      <div *ngFor="let item of ServicesNear">
+      <div *ngFor="let item of ServicesNear  | slice:0:6">
         <i *ngIf="item.verified" class="fas fa-check-circle verify"></i>
         <img src="{{item.image}}" alt="img">
         <div class="detail">
@@ -116,7 +117,7 @@
       </div>
       <hr style="width: 100%;border: none;">
       <br>
-      <button type="button" name="button" class="btn">See more</button>
+      <!-- <button type="button" name="button" class="btn">See more</button> -->
     </div>
 
 

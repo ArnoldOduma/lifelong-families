@@ -2,22 +2,8 @@
   <div class="keyword-wrapper">
     <input [formControl]="queryField" type="text" id="keyword" placeholder="Search for businesses..." autofocus />
   </div>
-  <!-- <ul class="filter-select">
-      <li *ngFor="let business of filteredBusiness" [value]="business" class="filter-select-list">
-        <img src="{{business.name}}" alt="" width="50" height="50">
-        <p>{{business.name}}</p>
-        <p class="artist-name">{{business.id}}</p>
-      </li>
-      <span class="tags"></span>
-      <li *ngFor="let result of results" class="filter-select-list">
-        <img src="{{result.avatar_url}}" alt="" width="50" height="50">
-        <p class="artist-name">{{result.login}}</p>
-      <span class="tags"></span>
-      </li>
-    </ul> -->
-
   <ul class="filter-select">
-    <li *ngFor="let result of searchedResults" class="filter-select-list">
+    <li *ngFor="let result of searchedResults" class="filter-select-list" (click)="checked()">
       <img src="{{result.image}}" alt="" width="50" height="50">
       <div class="detail-cont">
         <p class="filter-name">{{result.name}}</p>
@@ -32,52 +18,48 @@
       </div>
     </li>
   </ul>
-
-
-
 </section>
 <div class="loader" *ngIf="listBusiness.length < 1">
-    <img src="assets/images/LIFELONGLOGO.png" alt="logo" width="150px"><br>
-    <section class="ball_container_hr">
-      <div class="ball_hr"></div>
-      <div class="ball_hr"></div>
-      <div class="ball_hr"></div>
-      <div class="ball_hr"></div>
-      <div class="ball_hr"></div>
-      <div class="ball_hr"></div>
-      <div class="ball_hr"></div>
-    </section>
-  </div>
+  <img src="assets/images/LIFELONGLOGO.png" alt="logo" width="150px"><br>
+  <section class="ball_container_hr">
+    <div class="ball_hr"></div>
+    <div class="ball_hr"></div>
+    <div class="ball_hr"></div>
+    <div class="ball_hr"></div>
+    <div class="ball_hr"></div>
+    <div class="ball_hr"></div>
+    <div class="ball_hr"></div>
+  </section>
+</div>
 <section class="search-view" *ngIf="listBusiness.length != 0">
-  <!-- <div class="filter-cont"> -->
-    <!-- <p>Filter your results </p>
-    <form action="">
-      <select name="" id="">
-        <option value="" disabled>Filters</option>
-        <option *ngFor="let item of Category" value="{{item}}">{{item}}</option>
-      </select>
-    </form> -->
-  <!-- </div> -->
-  <section class="item-large-cont" >
-    <div >
-      <div  *ngFor="let business of listBusiness" class="item-cont" routerLink="/info/{{business.id}}/business" >
+
+  <section class="item-large-cont">
+    <div>
+      <div *ngFor="let business of displayedServices" class="item-cont" routerLink="/info/{{business.id}}/services">
         <img src="{{business.image}}" alt="img" height="100%">
         <div>
           <h4>{{business.name}}</h4>
-          <p>Rating</p>
-          <p>Opening Hours</p>
-          <p>{{business.description | slice:0:30}}...</p>
+          <p><i class="fas fa-map-marker-alt"></i> {{business.city}} <br>
+            <i class="fas fa-info"></i> {{business.description | slice:0:20}}...</p>
         </div>
       </div>
-      <div  *ngFor="let business of listHousing" class="item-cont" routerLink="/info/{{business.id}}/housing" >
+      <div *ngFor="let business of displayedHousing" class="item-cont" routerLink="/info/{{business.id}}/housing">
         <img src="{{business.image}}" alt="img" height="100%">
         <div>
           <h4>{{business.name}}</h4>
-          <p>Rating</p>
-          <p>Opening Hours</p>
-          <p>{{business.description | slice:0:30}}...</p>
+          <p><i class="fas fa-map-marker-alt"></i> {{business.city}} <br>
+            <i class="fas fa-info"></i> {{business.description | slice:0:20}}...</p>
         </div>
       </div>
+      <div *ngFor="let business of displayedBusiness" class="item-cont" routerLink="/info/{{business.id}}/business">
+        <img src="{{business.image}}" alt="img" height="100%">
+        <div>
+          <h4>{{business.name}}</h4>
+          <p><i class="fas fa-map-marker-alt"></i> {{business.city}} <br>
+            <i class="fas fa-info"></i> {{business.description | slice:0:20}}...</p>
+        </div>
+      </div>
+
 
     </div>
 
