@@ -3,7 +3,7 @@ from django.forms import ModelForm
 from django.contrib.auth.forms import UserCreationForm
 from .models import Profile, Housing, Business, Comments,Services
 from django.contrib.auth.models import User
-
+from django.contrib.gis import forms
 
 # signup form adding custom field
 class SignUpForm(UserCreationForm):
@@ -31,27 +31,33 @@ class BusinessForm(forms.ModelForm):
     """
     form to create neighbourhood by users
     """
+    location = forms.PointField(widget = 
+        forms.OSMWidget(attrs = {'map_width': 1024, 'map_height': 600}))
     class Meta:
         model = Business
-        fields = ['name','location','address','image','image1','image2','image3','image4','image5','opening','closing','city','contact','description','category','verified']
+        fields = ['id','name','owner_name','national_id','phone','email','postal_address','status','opening_days','opening','closing','address','country','county','city','town','village','location','description','company','image','image1','image2','image3','image4','image5','category','verified']
 
 
 class ServicesForm(forms.ModelForm):
     """
     for to create business
     """
+    location = forms.PointField(widget = 
+        forms.OSMWidget(attrs = {'map_width': 1024, 'map_height': 600}))
     class Meta:
         model = Services
-        fields = ['name','location','address','image','image1','image2','image3','image4','image5','city','opening','closing','category','price','description','contact','available','verified']
+        fields = ['id','name','owner_name','national_id','phone','email','postal_address','status','opening_days','opening','closing','address','country','county','city','town','village','location','description','company','image','image1','image2','image3','image4','image5','category','price','available','meeting_point','verified']
 
 
 class HousingForm(forms.ModelForm):
     """
     Form to Create Posts
     """
+    location = forms.PointField(widget = 
+        forms.OSMWidget(attrs = {'map_width': 1024, 'map_height': 600}))
     class Meta:
         model = Housing
-        fields = ['name','image','image1','image2','image3','image4','image5','opening','closing','location','address','city','contact','description','verified']
+        fields = ['id','name','owner_name','national_id','phone','email','postal_address','status','opening_days','opening','closing','address','country','county','city','town','village','location','description','company','image','image1','image2','image3','image4','image5','size','firnished','unfirnished','amenities','price','mode_of_payment','category','verified']
 
 
 class CommentForm(forms.ModelForm):

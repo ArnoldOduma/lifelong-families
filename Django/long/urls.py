@@ -17,11 +17,15 @@ from django.conf.urls import url,include
 from django.contrib import admin
 from django.conf import settings
 from django.contrib.auth import views
-from rest_framework_jwt.views import obtain_jwt_token
-
+from rest_framework.authtoken.views import obtain_auth_token
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url('api-token-auth/', obtain_jwt_token, name='create-token'),
+    url(r'^accounts/', include('registration.backends.simple.urls')),
+    url(r'^logout/$', views.logout, {"next_page": '/'}),
+    url(r'^tinymce/', include('tinymce.urls')),
+    url(r'hitcount/', include('hitcount.urls', namespace='hitcount')),
+    url(r'^api-token-auth/', obtain_auth_token),
     url('^api/v1|v2/', include('life.urls')),
+    url(r'^ratings/', include('star_ratings.urls', namespace='ratings')),
     url('', include('life.urls')),
 ]

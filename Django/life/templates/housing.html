@@ -16,10 +16,21 @@
                    <p class="card-text">{{hs.description}}</p>
                    <iframe src="{{ hs.location.url}}" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
                  </div>
+                 {% for comment in comment %}
+                <li style="list-style: none;">
+                    {{comment.user.name}}
+                    {{comment.services}}
+                    {{comment.comment}}
+                    {{comment.commented_on}}
+                </li>
+             {% endfor%}
+                <form action="{ url 'comment'}" enctype="multipart/form-data" method="post">
+                    {% csrf_token %}
+                    {% bootstrap_form form %}
+                    <input type="submit" class="btn btn-success btn-lg" value="comment">
+                </form>
                  <div class="footer">
                      <div style="margin-left: 1em;">
-                     <!--<button class="btn btn-primary"><a href="/neighbourhood/{{hood.id}}"><strong>Explore</strong></a></button>-->
-   
                          <button class="btn btn-outline-primary enterhoodbtn navigation"> <a href="{% url 'business' %}">Business</a></button>
                          <button class="btn btn-outline-primary enterhoodbtn navigation"> <a href="{% url 'services' %}">Services</a></button>
                      </div>
