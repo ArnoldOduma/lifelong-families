@@ -23,7 +23,7 @@ export class SearchViewComponent implements OnInit {
   location = this.actRoute.snapshot.params.location;
   Category: any[] = [];
   listBusiness: any;
-  listHousing: any; 
+  listHousing: any;
   listServices: any;
 
   allData: any;

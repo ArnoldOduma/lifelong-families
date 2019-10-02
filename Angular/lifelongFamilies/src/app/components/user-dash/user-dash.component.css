@@ -1,0 +1,48 @@
+.user-dash-cont{
+  overflow: hidden;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  background: linear-gradient(to bottom right, #2260A2 20%,#fff 35%, #fff 55%,#c2c2c2 70%);  
+  min-height: 100%;
+  width: 100%;
+  z-index: 2000;
+
+}
+.user-dash{
+  margin: 10px;
+  height: 80vh;
+  background: white;
+  border-radius: 5px;
+  box-shadow: 0 0 10px #000;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.user-dash>div{
+  box-shadow: 0 0 1px #6d6d6d;
+  margin: 10px;
+
+}
+.side-nav{
+  width: 200px;
+  text-align: center;
+}
+.side-nav i{
+  display: inline-block;
+  color: #f0f0f0;
+  border: 2px;
+  width: 50px;
+  height: 50px;
+  background: blue;
+  font-size: 4em;
+}
+.side-nav ul{
+  text-align: left;
+
+}
+
+
+.dash-content{
+  width: calc(100% - 240px);
+}

@@ -15,41 +15,25 @@
       </div>
       <input type="submit" routerLink="/search/{{homeSearchField.value}}/{{nearSearchField.value}}" value="Search">
       <ul class="filter">
-      <li *ngFor="let search of SearchArray"  (click)="appendData(search.category)">{{search.category}} - {{search.name}}
-      </li>
-      <!-- <h2 *ngFor="let i of SearchArray"></h2> -->
-    </ul>
+        <li *ngFor="let search of SearchArray" (click)="appendData(search.category)">{{search.category}} -
+          {{search.name}}
+        </li>
+        <!-- <h2 *ngFor="let i of SearchArray"></h2> -->
+      </ul>
     </form>
 
   </div>
-<!-- routerLink="/info/{{search.id}}/housing" -->
-
+  <!-- routerLink="/info/{{search.id}}/housing" -->
   <section>
-    <div class="categories-slideshow">
-      <h3>Businesses</h3>
-      <div class="carousel" data-flickity="{ &quot;autoPlay&quot;: true }">
-        <div class="carousel-cell">
-          <img src="" alt="" srcset="">
-          <i class="fas fa-hotel"></i>
-          <p>Hotels</p>
+    <div class="categories-slideshow" >
+      <owl-carousel [options]="carouselOptions" [items]="images" [carouselClasses]="['owl-theme', 'row', 'sliding']" >
+        <div class="slide-item" *ngFor="let image of images;let i= index">
+          <i class="{{image.icon}}"></i>
+          <div class="slide-text">
+            <h4>{{image.text}}</h4>
+          </div>
         </div>
-        <div class="carousel-cell">
-          <i class="fas fa-home"></i>
-          <p>Housing</p>
-        </div>
-        <div class="carousel-cell">
-          <i class="fas fa-shopping-bag"></i>
-          <p>Shoping</p>
-        </div>
-        <div class="carousel-cell">
-          <i class="fas fa-user-tie"></i>
-          <p>Professional services</p>
-        </div>
-        <div class="carousel-cell">
-          <i class="fas fa-wine-bottle"></i>
-          <p>Bars</p>
-        </div>
-      </div>
+      </owl-carousel>
     </div>
 
     <!-- *ngIf="Housing.length != 0 -->
@@ -62,13 +46,13 @@
         <div class="detail">
           <h4>{{house.name}}</h4>
           <p>
-            <i  class="fas fa-map-marker-alt"></i> {{house.city}}<br>
-            <i  class="fas fa-info"></i>
-             {{house.description | slice:0:30}}...<br>
+            <i class="fas fa-map-marker-alt"></i> {{house.city}}<br>
+            <i class="fas fa-info"></i>
+            {{house.description | slice:0:30}}...<br>
             <i class="fas fa-layer-group"></i>
-             {{house.category}}
+            {{house.category}}
           </p>
-          <p class="view" routerLink="/info/{{house.id}}/business" > view</p>
+          <p class="view" routerLink="/info/{{house.id}}/business"> view</p>
         </div>
       </div>
       <hr style="width: 100%;border: none;">
@@ -84,13 +68,13 @@
         <div class="detail">
           <h4>{{house.name}}</h4>
           <p>
-            <i  class="fas fa-map-marker-alt"></i> {{house.city}}<br>
-            <i  class="fas fa-info"></i>
-             {{house.description | slice:0:30}}...<br>
+            <i class="fas fa-map-marker-alt"></i> {{house.city}}<br>
+            <i class="fas fa-info"></i>
+            {{house.description | slice:0:30}}...<br>
             <i class="fas fa-layer-group"></i>
-             {{house.category}}
+            {{house.category}}
           </p>
-          <p class="view" routerLink="/info/{{house.id}}/housing" > view</p>
+          <p class="view" routerLink="/info/{{house.id}}/housing"> view</p>
         </div>
       </div>
       <hr style="width: 100%;border: none;">
@@ -106,13 +90,13 @@
         <div class="detail">
           <h4>{{item.name}}</h4>
           <p>
-            <i  class="fas fa-map-marker-alt"></i> {{item.city}}<br>
-            <i  class="fas fa-info"></i>
-             {{item.description | slice:0:30}}...<br>
+            <i class="fas fa-map-marker-alt"></i> {{item.city}}<br>
+            <i class="fas fa-info"></i>
+            {{item.description | slice:0:30}}...<br>
             <i class="fas fa-layer-group"></i>
-             {{item.category}}
+            {{item.category}}
           </p>
-          <p class="view" routerLink="/info/{{item.id}}/services" > view</p>
+          <p class="view" routerLink="/info/{{item.id}}/services"> view</p>
         </div>
       </div>
       <hr style="width: 100%;border: none;">

@@ -1,100 +1,104 @@
+<div *ngIf="updates">
+  <h1>Theres an update for you</h1>#
+</div>
 
-<section class="main-loader" style="height: 100vh;transition: none; width:100vw;position: fixed;top:0px;background: white;z-index: 2000;">
-  </section>
-  <section class="small">
-    <h3><i *ngIf="showNav" onclick="history.go(-1);return false;" class="fas fa-long-arrow-alt-left"></i>Lifelong families</h3>
-    <div class="toggleNav" id="toggleNav">
-      <hr>
-      <hr>
-      <hr>
-    </div>
-  </section>
 
-  <header id="header" *ngIf="showNav">
-    <div class="logo-cont">
-      <a href="/home"><img src="./assets/images/LIFELONGLOGO.png" alt="Logo" class="logo"></a>
+<section class="main-loader"
+  style="height: 100vh;transition: none; width:100vw;position: fixed;top:0px;background: white;z-index: 2000;">
+</section>
+<section class="small">
+  <h3 routerLink="/home" onclick="window.location.reload()"><i *ngIf="showNav" onclick="history.go(-1);return false;"
+      class="fas fa-long-arrow-alt-left"></i>Eazy Search</h3>
+  <div class="toggleNav" id="toggleNav">
+    <hr>
+    <hr>
+    <hr>
+  </div>
+</section>
 
-    </div>
+<header id="header" *ngIf="showNav">
+  <div class="logo-cont">
+    <a routerLink="/home"><img src="./assets/images/LIFELONGLOGO.png" alt="Logo" class="logo"></a>
 
-    <div class="log-sign-btn">
-      <div>
-        <a href="/list" style="display: none">Register your business</a>
-        <a href="login">Log In</a><span>|</span>
-        <a href="signup">Sign Up</a>
-      </div>
-    </div>
+  </div>
+  <div class="user-dp">
+    <div><img src="./assets/images/LIFELONGLOGO.png" alt="user" srcset="" height="100%"></div>
 
-    <div class="nav" style="display: none">
-      <h3>Categories</h3>
-      <ul>
-        <li class="dropdown">
-          <a class="dropBtn">Businesses<i class="fas fa-caret-down"></i></a>
-          <div class="dropContent">
-            <a>1</a>
-            <a href="">2</a>
-            <a href="">3</a>
-          </div>
-        </li>
-        <li class="dropdown">
-          <a class="dropBtn">Professional Services<i class="fas fa-caret-down"></i></a>
-          <div class="dropContent">
-            <a>1</a>
-            <a href="">2</a>
-            <a href="">3</a>
-          </div>
-        </li>
-        <li class="dropdown">
-          <a class="dropBtn">Housing<i class="fas fa-caret-down"></i></a>
-          <div class="dropContent">
-            <a>1</a>
-            <a href="">2</a>
-            <a href="">3</a>
-          </div>
-        </li>
-      </ul>
-    </div>
-
-  </header>
-
-  <div class="loader">
-    <img src="assets/images/LIFELONGLOGO.png" alt="logo" width="250px"><br>
-    <section class="ball_container_hr">
-      <div class="ball_hr"></div>
-      <div class="ball_hr"></div>
-      <div class="ball_hr"></div>
-      <div class="ball_hr"></div>
-      <div class="ball_hr"></div>
-      <div class="ball_hr"></div>
-      <div class="ball_hr"></div>
-    </section>
+    <p>John Doe</p>
   </div>
 
-<router-outlet></router-outlet>
+
+  <div class="nav">
+    <ul>
+      <li class="dropdown">
+        <a class="dropBtn" routerLink="businesses" routerLinkActive="active">Businesses</a>
+      </li>
+      <li class="dropdown">
+        <a class="dropBtn" routerLink="services" routerLinkActive="active">Professional Services</a>
+        <div class="dropContent">
+        </div>
+      </li>
+      <li class="dropdown">
+        <a class="dropBtn" routerLink="housing" routerLinkActive="active">Housing</a>
+        <div class="dropContent">
+        </div>
+      </li>
+      <li class="dropdown">
+        <a class="dropBtn list-bs" routerLink="list" routerLinkActive="active">List a business</a>
+      </li>
+      <li class="dropdown">
+        <a class="dropBtn" routerLink="login">Login<i class="fas fa-caret-down"></i></a>
+        <div class="dropContent">
+          <a routerLink="signup">Sign Up</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+</header>
+
+<div class="loader">
+  <img src="assets/images/LIFELONGLOGO.png" alt="logo" width="250px"><br>
+  <section class="ball_container_hr">
+    <div class="ball_hr"></div>
+    <div class="ball_hr"></div>
+    <div class="ball_hr"></div>
+    <div class="ball_hr"></div>
+    <div class="ball_hr"></div>
+    <div class="ball_hr"></div>
+    <div class="ball_hr"></div>
+  </section>
+</div>
+
+<div class="router-outlet">
+  <router-outlet></router-outlet>
+</div>
+
 
 <footer>
-    ￼<ul>
-      <h4>Business</h4>
-      <li> <a href="/">Businesses near you</a> </li>
-      <li> <a href="#">New Businesses</a> </li>
-      <li> <a href="/list">Post a Business</a> </li>
-      <li> <a href="login">Login</a> </li>
-    </ul>
-    <ul>
-      <h4>Lifelong Families</h4>
-      <li> <a href="/list">Register Your Business</a> </li>
-      <li> <a href="#">About us</a> </li>
-      <li> <a href="#">Contact</a> </li>
-      <li> <a href="#">Terms & privacy</a> </li>
-      <li> <a href="#"></a> </li>
-    </ul>
-    <ul>
-      <h4>Contacts</h4>
-      <li> <a href="#">+254-724-435-465</a> </li>
-      <li> <a href="#"></a> </li>
-      <li> <a href="#">Facebook</a> </li>
-      <li> <a href="#">Twitter</a> </li>
-      <li> <a href="#">Intagram</a> </li>
-      <li> <a href="#">Linked In</a> </li>
-    </ul>
-    <a href="#">Copyrights&copy;LifelongFamilies|2019</a>
-  </footer>
+  ￼<ul>
+    <h4>Business</h4>
+    <li> <a routerLink="/home">Businesses near you</a> </li>
+    <li> <a routerLink="/list">Post a Business</a> </li>
+    <li> <a routerLink="/login">Login</a> </li>
+    <li> <a routerLink="/signup">Sign Up</a> </li>
+  </ul>
+  <ul>
+    <h4>Lifelong Families</h4>
+    <li> <a routerLink="/list">Register Your Business</a> </li>
+    <li> <a href=" #">About us</a> </li>
+    <li> <a href="#">Contact</a> </li>
+    <li> <a href="#">Terms & privacy</a> </li>
+    <li> <a href="#"></a> </li>
+  </ul>
+  <ul>
+    <h4>Contacts</h4>
+    <li> <a href="#">+254-724-435-465</a> </li>
+    <li> <a href="#"></a> </li>
+    <li> <a href="#">Facebook</a> </li>
+    <li> <a href="#">Twitter</a> </li>
+    <li> <a href="#">Intagram</a> </li>
+    <li> <a href="#">Linked In</a> </li>
+  </ul>
+  <a href="#">Copyrights&copy;LifelongFamilies|2019</a>
+</footer>

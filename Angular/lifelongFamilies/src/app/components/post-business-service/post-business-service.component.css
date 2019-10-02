@@ -1,0 +1,29 @@
+input{
+  display: block;
+  /* width: 100%; */
+}
+agm-map{
+  height: 300px; 
+}
+
+.area {
+  width: 77%;
+  padding: 15px;
+  margin: 15px;
+  /* border: 1px solid #333; */
+  background: rgb(207, 205, 205);
+}
+
+#dropZone {
+  border: 3px dashed #fff;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  padding: 50px;
+  text-align: center;
+  font: 21pt bold arial;
+  color: rgb(44, 44, 44);
+}
+
+.drop-file-over{
+background: #333;
+}

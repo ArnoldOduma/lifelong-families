@@ -2,7 +2,7 @@
   "index": "/index.html",
   "assetGroups": [
     {
-      "name": "life long",
+      "name": "Eazy Search",
       "installMode": "prefetch",
       "resources": {
         "files": [
@@ -10,6 +10,11 @@
           "/index.html",
           "/*.css",
           "/*.js"
+        ],
+        "urls": [
+          "https://fonts.googleapis.com/**",
+          "https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.8/js/mdb.min.js",
+          "https://ucarecdn.com/**"
         ]
       }
     }, {
@@ -23,5 +28,23 @@
         ]
       }
     }
+  ],
+  "dataGroups":[
+    {
+      "name": "eazy-search-api",
+      "urls": [
+        "https://api-housing-services-business.herokuapp.com/api/v1/business/",
+        "https://api-housing-services-business.herokuapp.com/api/v1/housing/",
+        "https://api-housing-services-business.herokuapp.com/api/v1/services/",
+        "https://kit.fontawesome.com/**"
+      ],
+      "cacheConfig": {
+        "strategy": "freshness",
+        "maxSize": 200,
+        "maxAge": "1h",
+        "timeout": "5s"
+      }
+    }
+
   ]
 }

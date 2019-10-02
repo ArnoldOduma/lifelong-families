@@ -1,0 +1,190 @@
+[
+  {
+    "code": 1,
+    "county": "Mombasa"
+  },
+  {
+    "code": 2,
+    "county": "Kwale"
+  },
+  {
+    "code": 3,
+    "county": "Kilifi"
+  },
+  {
+    "code": 4,
+    "county": "Tana River"
+  },
+  {
+    "code": 5,
+    "county": "Lamu"
+  },
+  {
+    "code": 6,
+    "county": "Taita-Taveta"
+  },
+  {
+    "code": 7,
+    "county": "Garrissa"
+  },
+  {
+    "code": 8,
+    "county": "Wajir"
+  },
+  {
+    "code": 9,
+    "county": "Mandera"
+  },
+  {
+    "code": 10,
+    "county": "Marsabit"
+  },
+  {
+    "code": 11,
+    "county": "Isiolo"
+  },
+  {
+    "code": 12,
+    "county": "Meru"
+  },
+  {
+    "code": 13,
+    "county": "Tharaka-Nithi"
+  },
+  {
+    "code": 14,
+    "county": "Embu"
+  },
+  {
+    "code": 15,
+    "county": "Kitui"
+  },
+  {
+    "code": 16,
+    "county": "Machakos"
+  }, 
+  {
+    "code": 17,
+    "county": "Makueni"
+  }, 
+  {
+    "code": 18,
+    "county": "Nyandarua"
+  },
+  {
+    "code": 19,
+    "county": "Nyeri"
+  },
+  {
+    "code": 20,
+    "county": "Kirinyaga"
+  },
+  {
+    "code": 21,
+    "county": "Muranga"
+  },
+  {
+    "code": 22,
+    "county": "Kiambu"
+  },
+  {
+    "code": 23,
+    "county": "Turkana"
+  },
+  {
+    "code": 24,
+    "county": "West Pokot"
+  },
+  {
+    "code": 25,
+    "county": "Samburu"
+  },
+  {
+    "code": 26,
+    "county": "Trans-Nzoia"
+  },
+  {
+    "code": 27,
+    "county": "Uasin Gishu"
+  },
+  {
+    "code": 28,
+    "county": "Elgeyo-Marakwet"
+  },
+  {
+    "code": 29,
+    "county": "Nandi"
+  },
+  {
+    "code": 30,
+    "county": "Baringo"
+  },
+  {
+    "code": 31,
+    "county": "Laikipia"
+  },
+  {
+    "code": 32,
+    "county": "Nakuru"
+  },
+  {
+    "code": 33,
+    "county": "Narok"
+  },
+  {
+    "code": 34,
+    "county": "Kajiado"
+  },
+  {
+    "code": 35,
+    "county": "Kericho"
+  },
+  {
+    "code": 36,
+    "county": "Bomet"
+  },
+  {
+    "code": 37,
+    "county": "Kakamega"
+  },
+  {
+    "code": 38,
+    "county": "Vihiga"
+  },
+  {
+    "code": 39,
+    "county": "Bungoma"
+  },
+  {
+    "code": 40,
+    "county": "Busia"
+  },
+  {
+    "code": 41,
+    "county": "Siaya"
+  },
+  {
+    "code": 42,
+    "county": "Kisumu"
+  },
+  {
+    "code": 43,
+    "county": "Hoam Bay"
+  },
+  {
+    "code": 44,
+    "county": "Migori"
+  },
+  {
+    "code": 45,
+    "county": "Kisii"
+  },
+  {
+    "code": 46,
+    "county": "Nyamira"
+  },
+  {
+    "code": 47,
+    "county": "Nairobi"
+  }
+]

@@ -35,6 +35,57 @@ export class HomeComponent implements OnInit {
   coordinates: any;
   public SpecificData: any;
 
+  carouselOptions = {
+    margin: 25,
+    nav: true,
+    loop:true,
+    autoplay:true,
+    autoplayTimeout:3000,
+    autoplayHoverPause:true,
+    navText: ["<div class='nav-btn prev-slide'></div>", "<div class='nav-btn next-slide'></div>"],
+    responsiveClass: true,
+    responsive: {
+      0: {
+        items: 3,
+        nav: true
+      },
+      600: {
+        items: 3,
+        nav: true
+      },
+      1000: {
+        items: 4,
+        nav: true,
+      },
+      1500: {
+        items: 5,
+        nav: true,
+      }
+    }
+  }
+  images = [
+    {
+      text: "Hotels",
+      icon: "fas fa-hotel"
+    },
+    {
+      text: "Housing",
+      icon: "fas fa-home"
+    },
+    {
+      text: "Shoping",
+      icon: "fas fa-shopping-bag"
+    },
+    {
+      text: "Services",
+      icon: "fas fa-user-tie"
+     
+    },
+    {
+      text: "Food & Beverages",
+      icon: "fas fa-wine-bottle"
+    }
+  ]
 
   public getSpecific(id) {
     this.BusinessResults.forEach(element => {
@@ -64,7 +115,7 @@ export class HomeComponent implements OnInit {
           this.BusinessNear.push(element);
         }
       });
-      data[0].forEach(element => {
+      data[1].forEach(element => {
         this.lat2 = element.location.coordinates[0];
         this.lon2 = element.location.coordinates[1];
         this.distance(this.lat1, this.lon1, this.lat2, this.lon2);
@@ -73,7 +124,7 @@ export class HomeComponent implements OnInit {
           this.HousingNear.push(element);
         }
       });
-      data[1].forEach(element => {
+      data[2].forEach(element => {
         this.lat2 = element.location.coordinates[0];
         this.lon2 = element.location.coordinates[1];
         this.distance(this.lat1, this.lon1, this.lat2, this.lon2);
@@ -82,6 +133,16 @@ export class HomeComponent implements OnInit {
           this.ServicesNear.push(element);
         }
       });
+    });
+  }
+  loadDataFallback(){
+    return this._searchService.getAllSources().subscribe((data: {}) => {
+      this.BusinessResults = data[0];
+      this.HousingResults = data[0];
+      this.ServicesResults = data[0];
+
+      this.BusinessNear = this.BusinessResults;
+      this.HousingNear = this.HousingResults;
     });
   }
 
@@ -102,7 +163,7 @@ export class HomeComponent implements OnInit {
     const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
     const d = R * c;
     this.distanceAppart = d;
-    console.log('Distance => ' + d);
+    console.log('Distance Appart => ' + d);
     return d;
   }
   getLocation() {
@@ -112,7 +173,7 @@ export class HomeComponent implements OnInit {
           this.geolocationPosition = position,
             this.lat1 = position.coords.latitude,
             this.lon1 = position.coords.longitude,
-            console.log(this.lat1);
+            console.log('lat => ' + this.lat1);
           console.log(this.lon1);
           this.nearSearchField.setValue('Near You');
           this.loadData();
@@ -124,6 +185,7 @@ export class HomeComponent implements OnInit {
               console.log('Permission Denied');
               // tslint:disable-next-line: max-line-length
               alert('Please click the enable location icon on  your browser to allow location services for a better experience.\nYour location data will remain private');
+              // this.loadDataFallback();
               break;
             case 2:
               console.log('Position Unavailable');
@@ -138,11 +200,9 @@ export class HomeComponent implements OnInit {
   }
 
   searchResults() {
-
     this.homeSearchField.valueChanges
       .subscribe(result => {
         this.SearchArray = [];
-
         this.BusinessResults.forEach(element => {
           this.elName = element.category;
           this.lowerElName = this.elName.toLowerCase();
@@ -164,7 +224,6 @@ export class HomeComponent implements OnInit {
             console.log(this.lowerElName);
           }
           console.log(this.lowerElName);
-          // console.log(this.elName);
           console.log(result);
         });
 
@@ -180,8 +239,6 @@ export class HomeComponent implements OnInit {
           // console.log(this.elName);
           console.log('Housing res =>' + this.lowerElName);
         });
-
-
         console.log('Service =>' + this.ServicesResults);
         console.log('Housing =>' + this.HousingResults);
 
@@ -199,6 +256,7 @@ export class HomeComponent implements OnInit {
     } else {
       console.log(this.BusinessResults);
     }
+
     this.homeSearchField.valueChanges
       .subscribe(result => {
         // this.SearchArray = [];

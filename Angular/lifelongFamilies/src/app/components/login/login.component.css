@@ -8,6 +8,10 @@
   left: 0px;
   background: red;
 } */
+
+.signup-form{
+   min-height: 80vh;
+}
 @media only screen and (min-width: 700px){
   .container{
     width : 600px;

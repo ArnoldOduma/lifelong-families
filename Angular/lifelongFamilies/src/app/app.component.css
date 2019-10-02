@@ -1,67 +1,85 @@
+@import url('https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css');
 
-header{
+.router-outlet {
+  min-height: 70vh;
+}
+
+
+header {
   transition: none;
   z-index: 1000;
   position: relative;
+  background: linear-gradient(to left, rgba(30, 87, 153, 1) 0%, rgb(66, 166, 243) 50%);
 }
-header>div{
-  padding: 10px;
-}
-header .logo{
-  position: absolute;
-  top: 0px;
-  padding: 10px;
-  width: 120px;
-}
-.log-sign-btn{
-  color: #F7941D;
-  font-weight: 700;
-}
-.log-sign-btn a{
-  margin: 5px 0;
-  display: block;
-  text-align: left;
-  padding-right: 20px;
-}
-.log-sign-btn span{
-  display: none;
-}
-.log-sign-btn a:first-child{
+
+header .logo-cont {
   position: relative;
-  background: #F7941D;
+  z-index: 2000;
+  width: 100px;
   padding: 10px;
-  color: white;
-  border-radius: 5px;
-  /* width: 180px; */
-  max-width: 100%;
-  /* text-align: center; */
 }
-.nav{
+
+header .logo {
+  width: 100px;
+}
+
+.log-sign-btn {
+  color: #f0f0f0;
+  background: rgb(0, 0, 0);
+  text-align: left;
+  position: relative;
+  height: 1.3em;
+}
+
+.log-sign-btn div {
+  display: inline-block;
+  position: absolute;
+  font-size: 0.9em;
+  right: 10px;
+}
+
+.log-sign-btn a:nth-child(1) {
+  margin: 0 10px;
+}
+
+.nav {
   text-align: center;
   color: white;
   display: inline-block;
-  position: relative;
+  position: absolute;
+  width: 100%;
+  top: 20px;
   left: 50%;
   transform: translate(-50%);
 }
 
-.nav button{
+.nav button {
   display: inline;
-}
-.nav>h3{
-  color: white; 
 }
 
 .dropBtn {
-  /* background: rgba(0, 60, 255, 0.541); */
-  color: white;
+  color: black;
+  /* background: white; */
   cursor: pointer;
   padding: 5px 10px;
   font-size: 16px;
   border: none;
   display: inline-block;
 }
-.dropBtn i{
+
+.dropdown:last-child {
+  float: right;
+}
+
+.active {
+  display: inline-block;
+  font-weight: 400;
+  box-shadow: 0 0 7px #000;
+  background: #f7951de0;
+  color: black;
+}
+
+.dropBtn i {
   padding: 0 5px;
 }
 
@@ -74,58 +92,81 @@ header .logo{
   display: none;
   position: relative;
   background-color: #d3d3d3;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  min-width: 50px;
+  width: 100%;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1000;
 }
 
 .dropContent a {
   color: black;
-  padding: 12px 16px;
+  /* padding: 12px 16px; */
   text-decoration: none;
   display: block;
 }
 
-.dropContent a:hover {background-color: #ddd;}
+.dropContent a:hover {
+  background-color: #ddd;
+}
 
-.dropdown:hover .dropContent {display: block;position:relative;}
+.dropdown:hover .dropContent {
+  display: block;
+  position: relative;
+}
 
-.dropdown:hover .dropBtn {
-  /* background-color:#F7941D; */
-  color: #F7941D;
+.dropdown:hover {
+  background-color: #f7951de0;
+  /* color: #F7941D; */
+  box-shadow: 0 0 5px rgb(56, 56, 56);
+  /* position: relative; */
+  z-index: 200;
 }
 
 
-.header-scroll{
+.header-scroll {
   position: fixed;
   top: 0px;
   width: 100%;
   transition: all 2s ease;
   animation: appear 0.8s linear 1;
 }
-.header-scroll .logo{
+
+.header-scroll .logo {
   width: 100px;
   z-index: 2000;
 }
-.header-scroll .log-sign-btn{
-  background: linear-gradient(to left, rgba(30,87,153,1) 0%,rgb(66, 166, 243) 50%);
+
+.header-scroll .log-sign-btn {
+  background: linear-gradient(to left, rgba(30, 87, 153, 1) 0%, rgb(66, 166, 243) 50%);
   position: absolute;
   top: 0px;
   right: 0px;
   width: 100%;
+  height: 70px;
+  text-align: right;
   margin-top: 0px;
   transition: all 2s ease;
   animation: appear 0.9s linear 1;
 }
-@keyframes appear{
-  0%{opacity: 0;top: -100px;}
-  50%{opacity:0;top: 10px;box-shadow: 10px 10px 10px #000}
-}
-.header-scroll .nav{
-  display: none;
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+    top: -100px;
+  }
+
+  50% {
+    opacity: 0;
+    top: 10px;
+    box-shadow: 10px 10px 10px #000
+  }
 }
 
-footer{
+.header-scroll .nav {
+  top: 10px;
+}
+
+footer {
   width: 100%;
   background: rgb(0, 0, 0);
   color: #888888;
@@ -134,11 +175,13 @@ footer{
   position: relative;
   z-index: 20;
 }
-footer>ul{
+
+footer>ul {
   padding: 0 20px;
   margin-top: 20px;
 }
-footer>a{
+
+footer>a {
   padding: 20px;
   text-align: center;
   margin-top: 50px;
@@ -146,105 +189,154 @@ footer>a{
   width: 100%;
   background: rgb(22, 22, 22);
 }
-@media screen and (max-width:500px){
-  .small{
-    /* position: fixed; */
+
+@media screen and (max-width:700px) {
+  .small {
     top: 0px;
     display: block;
     width: 100%;
-    background: linear-gradient(to right, rgba(30,87,153,1) 0%,rgb(66, 166, 243) 100%);
+    background: linear-gradient(to right, rgba(30, 87, 153, 1) 0%, rgb(66, 166, 243) 100%);
     /* background: rgb(45, 129, 255); */
     padding: 15px 10px;
     color: white;
     z-index: 200;
+    transition: all 2s ease;
   }
-  .small-fixed{
+
+  .small-fixed {
     position: fixed;
+    top: 0px;
   }
-  .small h3{
+
+  .small h3 {
     /* margin-left: 30px; */
   }
-  .small h3 i{
+
+  .small h3 i {
     padding-right: 10px;
   }
-  header{
+
+  header {
     display: none;
     position: fixed;
     width: 80%;
+    max-width: 250px;
     height: 100vh;
+    overflow: auto;
     box-shadow: 0 5px 10px #000;
-    background: linear-gradient(to right, rgba(30,87,153,1) 0%,rgb(72, 170, 245) 50%);  
+    /* background: linear-gradient(to right, rgba(30, 87, 153, 1) 0%, rgb(72, 170, 245) 50%); */
   }
-  header .logo-cont{
-    position: relative;
-    min-height: 200px;
-    background-image: linear-gradient(to right,#ffffff,#a9daf7 60%,#008cff);
-    box-shadow: 3px 0 10px rgb(36, 36, 36);
-    margin: 10px;
-    border-radius: 5px;
-    clip-path: polygon(
-    0 0,
-    100% 0,
-    100% calc(100% - 20vw),
-    0 100%
-    );
-  }
-  header .logo{
-    position: relative;
-    width: 40%;
-    margin: 0 auto;
-    padding-top: 30px;
-    display: block;
 
+  .logo-cont {
+    display: none;
   }
-  .log-sign-btn{
+  .user-dp{
+    width: 100%;
+    padding: 0px;
+    text-align: center;
+  }
+  .user-dp div {
+    position: relative;
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    background-image: linear-gradient(to right, #ffffff, #a9daf7 60%, #008cff);
+    box-shadow: 3px 0 10px #1d1d1d;
+    border-radius: 50%;
+    margin: 5px 0; 
+    overflow: hidden;
+  }
+
+  .log-sign-btn {
     float: left;
   }
-  header .nav{
+
+  header .nav {
     text-align: left;
+    width: 100%;
+    position: relative;
+    padding: 0 10%;
   }
-  .header-hide{
+  .dropdown{
+    margin-top: 5px;
+    width: 100%;
+    transition: all 0.2s ease;
+    border-bottom: 1px solid #fdaa45;
+  }
+  .dropdown a{
+    width: 100%;
+  }
+  .dropdown:nth-child(4){
+    width: 100%;
+    margin-top: 20px;
+    transition: all 0.2s ease;
+    background-image: linear-gradient(to left, #ffffff, #ffad48 50%, #f7951d);
+    border-bottom: none;
+    border-radius: 50px;
+  }
+  .dropdown:hover {
+    border-radius: 50px;
+    overflow: hidden;
+
+  }
+  .dropdown:last-child:hover{
+    border-radius: 0;
+  }
+  .header-hide {
     left: -100%;
   }
 
 
 }
-@media screen and (min-width:500px){
-  .log-sign-btn span{
-    display: inline-block;
-  }
-  .nav h3{
+
+@media screen and (min-width:700px) {
+  .nav h3 {
     display: none;
   }
-  .log-sign-btn a{
+
+  .log-sign-btn a {
     display: inline-block;
   }
-  .log-sign-btn{
+
+  .log-sign-btn {
     text-align: right;
-    height: 70px;
+    /* height: 70px; */
   }
-  .log-sign-btn>div{
-    float: right;
+
+  .user-dp{
+    display: none;
   }
-  header>div:nth-child(2){
+
+
+  header>div:nth-child(2) {
     text-align: center;
   }
-  .dropdown{display: inline-block;}
-  .dropdown:hover .dropContent {position:absolute;}
-  footer{
+
+  .dropdown {
+    display: inline-block;
+  }
+
+  .dropdown:hover .dropContent {
+    position: absolute;
+  }
+
+  footer {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
   }
-  footer>ul{
+
+  footer>ul {
     width: 30%;
   }
-  footer>ul>li{
+
+  footer>ul>li {
     margin: 10px 0 0 0;
   }
 }
-@media screen and (min-width:900px){
-  header .logo{
-    width: 180px;
+
+@media screen and (min-width:900px) {
+  header .logo {
+    width: 90px;
   }
 }

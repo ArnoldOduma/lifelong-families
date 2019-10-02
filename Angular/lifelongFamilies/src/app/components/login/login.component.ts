@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
-import {FirebaseService} from '../../services/firebase.service';
+import { FirebaseService } from '../../services/firebase.service';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +13,12 @@ export class LoginComponent implements OnInit {
   error = false;
   errorMessage = '';
 
-  constructor(private fb: FormBuilder, private userauthService: FirebaseService, private router: Router) { }
+  constructor(
+    private fb: FormBuilder,
+    // private userauthService: FirebaseService,
+    private router: Router
+  ) { }
+
   ngOnInit() {
     this.myForm = this.fb.group({
       email: ['', Validators.compose([

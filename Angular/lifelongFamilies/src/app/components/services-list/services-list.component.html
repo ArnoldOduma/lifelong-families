@@ -1,0 +1,73 @@
+<div>
+    <h3>Browse Services</h3>
+  
+    <section class="search">
+      <form action="" method="get" [formGroup]="searchForm ">
+        <div>
+          <input type="text" formControlName="name" placeholder="Search for businesses / services " (submit)="search()">
+          <select formControlName="county" (change)="changeCounty($event)">
+            <option value="">Location</option>
+            <option *ngFor="let item of countiesArray" [ngValue]="item">{{item}}</option>
+          </select>
+        </div>
+        <div>
+          <input type="submit" value="Search" />
+        </div>
+  
+      </form>
+  
+    </section>
+  
+    <div class="near-you">
+      <section class="filters">
+        <h3 class="filter-toggle" (click)="filtersToggle()">Filters <i class="fas fa-angle-down"></i></h3>
+  
+          <form [@changeDivSize]=currentState  [formGroup]="searchForm " class="filtersToggle">
+            <div >
+              <Label>Price range</Label>
+              <div>
+                <label for="">From</label>
+                <input type="number" placeholder="e.g 10" formControlName="minPrice">
+              </div>
+              <div>
+                <label for="">To</label>
+                <input type="number" name="" id="" placeholder="e.g 10000" formControlName="maxPrice">
+              </div>
+            </div>
+            <div>
+              <label for="">Category</label>
+              <select formControlName="category">
+                <option value="" disabled>Choose a category</option>
+                <option value="1">Food</option>
+                <option value="2">Housing</option>
+              </select>
+            </div>
+          </form>
+  
+      </section>
+      <section class="content">
+        <div class="result-stats">
+          <p class="formattedMessage">{{formattedMessage}}</p>
+          <p class="resin">{{listedServices.length}} results ({{searchTime/1000 | number:'1.1-3'}}s)</p>
+        </div>
+        <div *ngFor="let service of listedServices">
+          <i class="fas fa-check-circle verify"></i>
+          <img src="{{service.image1}}" alt="img">
+          <div class="detail">
+            <h4>{{service.name}}</h4>
+            <p>
+              <i class="fas fa-map-marker-alt"></i> {{service.city}} city<br>
+              <i class="fas fa-info"></i>
+              {{service.description | slice:0:30}}...<br>
+              <i class="fas fa-layer-group"></i>
+              {{service.category}}
+            </p>
+            <p class="view" routerLink="/view/{{(service.id*23)/100}}"> VIEW </p>
+          </div>
+        </div>
+      </section>
+  
+    </div>
+    <!-- <button type="button" name="button" class="btn">See more</button>-->
+  </div>
+  

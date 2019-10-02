@@ -1,0 +1,68 @@
+<style media="screen">
+  html,
+  body,
+  iframe {
+    margin: 0;
+    padding: 0;
+  }
+
+  html,
+  body {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+</style>
+<section class="view-individual-listing" *ngIf="business != '' ">
+  <div class="view-title">
+    <h3>{{business.name}}</h3>
+  </div>
+  <section class="view-all-sec">
+    <div class="view-desc-sec">
+      <ul>
+        <li>Views {{business.views}}</li>
+        <li>{{business.date_posted | date:'medium' |slice:0:12 }}</li>
+        <li>Rating {{business.rating}}</li>
+      </ul>
+      <div>
+        <div class="view-img" style="">
+          <img src="{{business.image1}}" alt="" srcset="" width="100%">
+        </div>
+
+        <p>Price: 2000</p>
+      </div>
+      <div>
+        <h4>Description</h4>
+        <p>A good business in tech</p>
+      </div>
+      <div>
+        <h4>Location Description</h4>
+        <p>Located on kimathi street</p>
+      </div>
+    </div>
+    <div class="view-contact-sec">
+      <div>
+        <h4>Seller Contact</h4>
+        <p>Name</p>
+
+        <h5>Contact</h5>
+        <p>Website</p>
+
+      </div>
+      <div>
+        <agm-map [latitude]="latitude" [longitude]="longitude" style="height: 300px" [zoom]="zoom">
+          <agm-marker [latitude]="latitude" [longitude]="longitude" ></agm-marker>
+        </agm-map>
+        <p>Latitude: {{latitude}} <br>
+          Longitude: {{longitude}}</p>
+      </div>
+    </div>
+  </section>
+
+</section>

@@ -24,16 +24,20 @@
               "src/assets/images/electrician.jpg",
               "src/assets/images/electrician.png",
               "src/assets/images/LIFELONGLOGO.png",
-              "src/manifest.json"
+              "src/manifest.json",
+              "src/styles.css"
             ],
             "styles": [
               "src/styles.css",
-              "src/assets/css/flickity.css"
+              "./node_modules/owl.carousel/dist/assets/owl.carousel.css",
+              "./node_modules/owl.carousel/dist/assets/owl.theme.default.css"
             ],
             "scripts": [
               "src/assets/js/script.js",
-              "src/assets/js/slider.js",
-              "src/assets/js/jquery-3.4.1.js"
+              "src/assets/js/jquery-3.4.1.js",
+              "src/assets/counties.json",
+              "./node_modules/jquery/dist/jquery.js", ``
+              "./node_modules/owl.carousel/dist/owl.carousel.js"
             ],
             "es5BrowserSupport": true
           },
@@ -91,12 +95,19 @@
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "styles": [
+              "src/styles.css",
+              "./node_modules/owl.carousel/dist/assets/owl.carousel.css",
+              "./node_modules/owl.carousel/dist/assets/owl.theme.default.css",
               "src/styles.css"
             ],
-            "scripts": [],
+            "scripts": [
+              "./node_modules/jquery/dist/jquery.js",
+              "./node_modules/owl.carousel/dist/owl.carousel.js"
+            ],
             "assets": [
               "src/favicon.ico",
               "src/assets",
+              "src/assets/counties.json",
               "src/manifest.json"
             ]
           }

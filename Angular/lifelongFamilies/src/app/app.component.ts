@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SwUpdate } from '@angular/service-worker';
+import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +15,17 @@ export class AppComponent implements OnInit {
     state: false
   };
 
+  updates: boolean = false;
+
+  constructor(
+    updates: SwUpdate,
+    private router: Router) {
+    updates.available.subscribe(event => {
+      this.updates = true;
+      updates.activateUpdate().then(() => document.location.reload());
+    });
+  }
+
   downloadPwa() {
     let deferredPrompt;
 
@@ -26,12 +39,18 @@ export class AppComponent implements OnInit {
 
     }
   }
-  hideNav(state: boolean){
+  hideNav(state: boolean) {
     this.showNav = state;
   }
 
   ngOnInit() {
     console.log(this.showNav);
     // this.hideNav(false);
+    this.router.events.subscribe((evt) => {
+      if (!(evt instanceof NavigationEnd)) {
+        return;
+      }
+      window.scrollTo(0, 0)
+    });
   }
 }
