@@ -17,7 +17,7 @@ django-multiupload==0.5.2
 django-registration==3.0.1
 django-star-ratings==0.8.0
 django-tinymce==2.8.0
-djangorestframework==3.10.2
+djangorestframework==3.11.2
 djangorestframework-gis==0.14
 djangorestframework-jwt==1.11.0
 gunicorn==19.9.0
